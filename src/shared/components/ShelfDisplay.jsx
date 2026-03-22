@@ -82,6 +82,7 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
                   product={product}
                   isSelected={isSelected}
                   onClick={() => handleProductClick(product)}
+                  onZoom={mode !== 'browse' ? (p) => setModalProduct(p) : undefined}
                   size="md"
                 />
               )
@@ -90,10 +91,8 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
         )}
       </div>
 
-      {/* Modal */}
-      {mode === 'browse' && (
-        <ProductModal product={modalProduct} onClose={() => setModalProduct(null)} />
-      )}
+      {/* Modal — available in all modes */}
+      <ProductModal product={modalProduct} onClose={() => setModalProduct(null)} />
     </div>
   )
 }

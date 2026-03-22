@@ -1,12 +1,15 @@
 import React from 'react'
 import { Trash2 } from 'lucide-react'
 import { getProductsByShelf } from '../../../data/products.js'
+import { ImageWithFallback } from '../../../shared/utils/imageUtils.jsx'
+import { ProductModal } from '../../../shared/components/ProductModal.jsx'
 
 const AVATAR_OPTIONS = ['👨', '👩', '👴', '👵', '👦', '👧', '🧑', '👨‍⚕️', '👩‍⚕️']
 
 export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
   const shelfProducts = getProductsByShelf(scenario.shelfId)
   const [expanded, setExpanded] = React.useState(true)
+  const [modalProduct, setModalProduct] = React.useState(null)
   const showFollowUp = !!scenario.followUpQuestion
 
   function updatePatient(field, value) {
@@ -14,9 +17,8 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
   }
 
   function toggleProductTier(productId, tier) {
-    // tier: 'best' | 'acceptable' | 'none'
     if (tier === 'best') {
-      onUpdate({ bestChoiceProductId: productId })
+      onUpdate({ bestChoiceProductId: productId === scenario.bestChoiceProductId ? null : productId })
     } else if (tier === 'acceptable') {
       const current = scenario.acceptableProductIds || []
       const isAlready = current.includes(productId)
@@ -114,38 +116,87 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
           {/* Product selection + tier */}
           <div style={{ marginBottom: 16 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', margin: '0 0 8px' }}>
-              Product Tiers
+              Product Tiers — click image to zoom
             </p>
             {shelfProducts.map((product) => {
               const isBest = scenario.bestChoiceProductId === product.id
               const isAcceptable = scenario.acceptableProductIds?.includes(product.id)
               return (
-                <div key={product.id} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'center' }}>
-                  <span style={{ fontSize: 12, color: '#140F50', flex: 1 }}>{product.name}</span>
+                <div
+                  key={product.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    marginBottom: 5,
+                    padding: '5px 6px',
+                    borderRadius: 8,
+                    background: isBest
+                      ? 'rgba(39,174,96,0.06)'
+                      : isAcceptable
+                      ? 'rgba(230,126,34,0.06)'
+                      : 'rgba(20,15,80,0.02)',
+                    border: `1px solid ${isBest ? 'rgba(39,174,96,0.2)' : isAcceptable ? 'rgba(230,126,34,0.2)' : 'transparent'}`,
+                  }}
+                >
+                  {/* Thumbnail — click to zoom */}
                   <button
-                    onClick={() => toggleProductTier(product.id, 'best')}
+                    onClick={() => setModalProduct(product)}
+                    title={`View ${product.name}`}
+                    aria-label={`View ${product.name}`}
                     style={{
-                      fontSize: 10, padding: '2px 8px', borderRadius: 10,
-                      border: `1.5px solid ${isBest ? '#27AE60' : 'rgba(20,15,80,0.15)'}`,
-                      background: isBest ? 'rgba(39,174,96,0.12)' : '#FFFFFF',
-                      color: isBest ? '#27AE60' : 'rgba(20,15,80,0.5)',
-                      cursor: 'pointer', fontWeight: isBest ? 700 : 400,
+                      flexShrink: 0,
+                      width: 40,
+                      height: 40,
+                      border: 'none',
+                      borderRadius: 7,
+                      padding: 3,
+                      background: product.bgColor || '#1448FF',
+                      cursor: 'zoom-in',
+                      overflow: 'hidden',
                     }}
                   >
-                    Best
+                    <ImageWithFallback
+                      productId={product.id}
+                      side="front"
+                      alt={product.name}
+                      bgColor={product.bgColor}
+                      style={{ width: '100%', height: '100%' }}
+                    />
                   </button>
-                  <button
-                    onClick={() => toggleProductTier(product.id, 'acceptable')}
-                    style={{
-                      fontSize: 10, padding: '2px 8px', borderRadius: 10,
-                      border: `1.5px solid ${isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.15)'}`,
-                      background: isAcceptable ? 'rgba(230,126,34,0.12)' : '#FFFFFF',
-                      color: isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.5)',
-                      cursor: 'pointer', fontWeight: isAcceptable ? 700 : 400,
-                    }}
-                  >
-                    Acceptable
-                  </button>
+
+                  {/* Name + tier buttons grouped so buttons stay close to the name */}
+                  <div style={{ flex: 1, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 5, minWidth: 0 }}>
+                    <span style={{ fontSize: 12, color: '#140F50', wordBreak: 'break-word' }}>
+                      {product.name}
+                    </span>
+                    <button
+                      onClick={() => toggleProductTier(product.id, 'best')}
+                      style={{
+                        fontSize: 10, padding: '2px 8px', borderRadius: 10,
+                        border: `1.5px solid ${isBest ? '#27AE60' : 'rgba(20,15,80,0.15)'}`,
+                        background: isBest ? 'rgba(39,174,96,0.12)' : '#FFFFFF',
+                        color: isBest ? '#27AE60' : 'rgba(20,15,80,0.5)',
+                        cursor: 'pointer', fontWeight: isBest ? 700 : 400,
+                        whiteSpace: 'nowrap', flexShrink: 0,
+                      }}
+                    >
+                      ★ Best
+                    </button>
+                    <button
+                      onClick={() => toggleProductTier(product.id, 'acceptable')}
+                      style={{
+                        fontSize: 10, padding: '2px 8px', borderRadius: 10,
+                        border: `1.5px solid ${isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.15)'}`,
+                        background: isAcceptable ? 'rgba(230,126,34,0.12)' : '#FFFFFF',
+                        color: isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.5)',
+                        cursor: 'pointer', fontWeight: isAcceptable ? 700 : 400,
+                        whiteSpace: 'nowrap', flexShrink: 0,
+                      }}
+                    >
+                      ✓ OK
+                    </button>
+                  </div>
                 </div>
               )
             })}
@@ -213,6 +264,9 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
           </div>
         </div>
       )}
+
+      {/* Product zoom modal */}
+      <ProductModal product={modalProduct} onClose={() => setModalProduct(null)} />
     </div>
   )
 }

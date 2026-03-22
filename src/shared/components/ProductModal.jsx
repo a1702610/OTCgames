@@ -15,6 +15,19 @@ export function ProductModal({ product, onClose }) {
     setZoomed(false)
   }, [product?.id])
 
+  // Close on Escape key
+  React.useEffect(() => {
+    if (!product) return
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        if (zoomed) setZoomed(false)
+        else onClose()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [product, zoomed, onClose])
+
   const side = SIDES[sideIndex]
 
   return (
@@ -53,12 +66,12 @@ export function ProductModal({ product, onClose }) {
               position: 'relative',
             }}
           >
-            {/* Close button */}
+            {/* Close button — zIndex ensures it sits above the image div */}
             <button
               onClick={onClose}
               aria-label="Close"
               style={{
-                position: 'absolute', top: 12, right: 12,
+                position: 'absolute', top: 12, right: 12, zIndex: 2,
                 background: 'rgba(20,15,80,0.08)', border: 'none',
                 borderRadius: 20, width: 32, height: 32,
                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -69,7 +82,7 @@ export function ProductModal({ product, onClose }) {
 
             {/* Image */}
             <div
-              style={{ position: 'relative', cursor: 'zoom-in' }}
+              style={{ position: 'relative', cursor: 'zoom-in', zIndex: 1 }}
               onClick={() => setZoomed(!zoomed)}
             >
               <ImageWithFallback

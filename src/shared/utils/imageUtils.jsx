@@ -10,6 +10,11 @@ export function ImageWithFallback({ productId, side = 'front', alt, bgColor = '#
   const [failed, setFailed] = React.useState(false)
   const src = getImageUrl(productId, side)
 
+  // Reset failed state when src changes so navigating back to a real image works
+  React.useEffect(() => {
+    setFailed(false)
+  }, [src])
+
   if (failed) {
     return (
       <div

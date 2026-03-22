@@ -234,7 +234,7 @@ export function Scenarios() {
                   cursor: 'pointer',
                 }}
               >
-                {currentIndex + 1 >= scenarios.length ? 'Finish' : 'Next →'}
+                {currentIndex + 1 >= scenarios.length && !(phase === 'feedback' && scenario.followUpQuestion) ? 'Finish' : 'Next →'}
               </button>
             </div>
           )}
