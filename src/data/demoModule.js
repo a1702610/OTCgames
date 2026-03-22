@@ -1,96 +1,78 @@
 // OTC Games — Demo Module
-// A pre-built training module covering Cold & Flu and Pain Management shelves.
+// A pre-built training module covering Cold & Flu and Hayfever shelves.
 // This file exports a content.json-shaped object for use as the default demo module.
 
 export const demoModule = {
   version: '1.0',
   exportedAt: '2026-03-22T00:00:00.000Z',
   module: {
-    name: 'Cold & Flu and Pain Management',
+    name: 'Cold & Flu and Hayfever',
     description:
-      'An introductory module covering common cold & flu preparations and OTC pain management products. ' +
+      'An introductory module covering common cold & flu preparations and OTC hayfever products. ' +
       'Practice selecting the right product for the patient, and test your knowledge of active ingredients and counselling points.',
-    selectedShelfIds: ['cold-flu-1', 'pain-1'],
+    selectedShelfIds: ['cold-flu-1', 'hayfever'],
   },
   shelves: [
-    { id: 'cold-flu-1', label: 'Cold & Flu',     shelfNumber: 1, emoji: '🤧', color: '#4A90D9' },
-    { id: 'pain-1',     label: 'Pain Management', shelfNumber: 1, emoji: '💊', color: '#E74C3C' },
+    { id: 'cold-flu-1', label: 'Cold & Flu', shelfNumber: 1, emoji: '🤧', color: '#4A90D9' },
+    { id: 'hayfever',   label: 'Hayfever',   shelfNumber: 1, emoji: '🌿', color: '#27AE60' },
   ],
   products: [
     // Cold & Flu Shelf 1 — selected subset
     {
-      id: 'codral-original',
-      name: 'Codral Original Day & Night',
-      brand: 'Codral',
+      id: 'strepsils-regular',
+      name: 'Strepsils regular',
+      brand: 'Strepsils',
       category: 'cold-flu-1',
-      activeIngredient: 'Paracetamol 500mg, Pseudoephedrine HCl 30mg, Dextromethorphan HBr 15mg',
+      activeIngredient: '',
       color: '#FFFFFF',
-      bgColor: '#C0392B',
+      bgColor: '#4A90D9',
     },
     {
-      id: 'codral-pe-free',
-      name: 'Codral PE Free Cold & Flu',
-      brand: 'Codral',
+      id: 'otrivin-adult',
+      name: 'Otrivin adult',
+      brand: 'Otrivin',
       category: 'cold-flu-1',
-      activeIngredient: 'Paracetamol 500mg, Dextromethorphan HBr 15mg, Chlorpheniramine 2mg',
+      activeIngredient: '',
       color: '#FFFFFF',
-      bgColor: '#E74C3C',
+      bgColor: '#4A90D9',
     },
     {
-      id: 'lemsip-max',
-      name: 'Lemsip Max All-in-One',
-      brand: 'Lemsip',
+      id: 'demazin',
+      name: 'Demazin',
+      brand: 'Demazin',
       category: 'cold-flu-1',
-      activeIngredient: 'Paracetamol 1000mg, Phenylephrine HCl 12.2mg, Caffeine 25mg',
+      activeIngredient: '',
       color: '#FFFFFF',
-      bgColor: '#2980B9',
-    },
-    {
-      id: 'dimetapp-cold',
-      name: 'Dimetapp Cold & Allergy Elixir',
-      brand: 'Dimetapp',
-      category: 'cold-flu-1',
-      activeIngredient: 'Brompheniramine Maleate 1mg/5mL, Phenylephrine HCl 2.5mg/5mL',
-      color: '#FFFFFF',
-      bgColor: '#9B59B6',
-    },
-    {
-      id: 'robitussin-cf',
-      name: 'Robitussin Chesty Cough & Nasal Congestion',
-      brand: 'Robitussin',
-      category: 'cold-flu-1',
-      activeIngredient: 'Guaifenesin 100mg/5mL, Phenylephrine HCl 5mg/5mL',
-      color: '#FFFFFF',
-      bgColor: '#16A085',
+      bgColor: '#4A90D9',
     },
 
-    // Pain Management Shelf 1 — selected subset
+    // Hayfever Shelf 1 — selected subset
     {
-      id: 'panadol-original',
-      name: 'Panadol Original',
-      brand: 'Panadol',
-      category: 'pain-1',
-      activeIngredient: 'Paracetamol 500mg',
+      id: 'claratyne-tablets',
+      name: 'Claratyne tablets',
+      brand: 'Claratyne',
+      category: 'hayfever',
+      activeIngredient: '',
       color: '#FFFFFF',
-      bgColor: '#E74C3C',
+      bgColor: '#27AE60',
     },
     {
-      id: 'nurofen-original',
-      name: 'Nurofen Original',
-      brand: 'Nurofen',
-      category: 'pain-1',
-      activeIngredient: 'Ibuprofen 200mg',
+      id: 'rhinocort',
+      name: 'Rhinocort',
+      brand: 'Rhinocort',
+      category: 'hayfever',
+      activeIngredient: '',
       color: '#FFFFFF',
-      bgColor: '#E67E22',
+      bgColor: '#27AE60',
     },
     {
-      id: 'aspirin-tablets',
-      name: 'Aspirin 300mg Tablets',
-      brand: 'Generic',
-      category: 'pain-1',
-      activeIngredient: 'Aspirin 300mg',
-      color: '#140F50',
-      bgColor: '#BDC3C7',
+      id: 'nasonex',
+      name: 'Nasonex',
+      brand: 'Nasonex',
+      category: 'hayfever',
+      activeIngredient: '',
+      color: '#FFFFFF',
+      bgColor: '#27AE60',
     },
   ],
 
@@ -99,40 +81,46 @@ export const demoModule = {
       id: 'demo-scenario-001',
       shelfId: 'cold-flu-1',
       patient: {
-        name: 'Mrs Chen',
+        name: 'Mrs Patel',
         avatarEmoji: '👩',
         description:
-          'Mrs Chen, 34 years old, presents with a runny nose, sneezing and mild nasal congestion for the past two days. ' +
-          'She mentions she has high blood pressure and is taking ramipril 5mg daily. She asks for something to help her feel better.',
+          'Mrs Patel, 28 years old, presents with a sore throat that started yesterday. She describes it as raw and scratchy, ' +
+          'with some mild difficulty swallowing. She has no fever, no nasal congestion, and is otherwise well. ' +
+          'She has no significant medical history and takes no regular medications.',
       },
-      bestChoiceProductId: 'codral-pe-free',
+      bestChoiceProductId: 'strepsils-regular',
       acceptableProductIds: [],
       explanation:
-        'Mrs Chen has hypertension, which is a contraindication to pseudoephedrine (Codral Original) and ALL phenylephrine-containing products ' +
-        '(Lemsip Max, Robitussin CF, Dimetapp Cold). Codral PE Free is the ONLY safe choice: it contains paracetamol for symptomatic relief, ' +
-        'dextromethorphan for cough suppression, and chlorpheniramine for runny nose and sneezing, with no sympathomimetic decongestant. ' +
-        'All other products on this shelf contain either pseudoephedrine or phenylephrine and should be avoided for this patient. ' +
-        'Robitussin CF contains phenylephrine and must be avoided — do not offer it as an alternative, regardless of dose.',
+        'Strepsils Regular contains two antibacterials (2,4-dichlorobenzyl alcohol and amylmetacresol) that provide local antiseptic action in the throat, ' +
+        'making it the most targeted choice for a mild sore throat with no systemic features. ' +
+        'Otrivin Adult is a nasal decongestant (xylometazoline) and has no role in treating sore throat. ' +
+        'Demazin contains a sympathomimetic decongestant and antihistamine — appropriate for nasal congestion and runny nose, not isolated sore throat. ' +
+        'Counsel Mrs Patel to allow the lozenge to dissolve slowly in the mouth every 2–3 hours as needed (max 12 per day), ' +
+        'and to return if symptoms worsen, persist beyond 5 days, or are accompanied by high fever.',
       followUpQuestion: null,
     },
     {
       id: 'demo-scenario-002',
-      shelfId: 'pain-1',
+      shelfId: 'hayfever',
       patient: {
-        name: 'Mr Nguyen',
+        name: 'Mr Barker',
         avatarEmoji: '👨',
         description:
-          'Mr Nguyen, 52 years old, is asking for something for his knee pain. He has a history of a peptic ulcer diagnosed three years ago, ' +
-          'which is now healed. He takes a low-dose aspirin 100mg daily for cardiovascular protection. He rates his pain as 4/10.',
+          'Mr Barker, 41 years old, is a seasonal hayfever sufferer. He works as a bus driver and his hayfever symptoms — ' +
+          'persistent sneezing, runny nose and itchy eyes — are significantly worse this spring. ' +
+          'He has tried an oral antihistamine from the supermarket but it makes him drowsy on the job. ' +
+          'He asks if there is something more effective that will not affect his driving.',
       },
-      bestChoiceProductId: 'panadol-original',
-      acceptableProductIds: [],
+      bestChoiceProductId: 'rhinocort',
+      acceptableProductIds: ['nasonex'],
       explanation:
-        'Paracetamol (Panadol Original) is the safest first-line analgesic for Mr Nguyen. ' +
-        'NSAIDs such as ibuprofen (Nurofen Original) should be avoided due to his history of peptic ulcer disease and concurrent low-dose aspirin use, ' +
-        'which significantly increases the risk of GI bleeding. Additional aspirin (Aspirin 300mg) would be inappropriate as he is already on aspirin ' +
-        'therapy and the combination increases bleeding risk without additional analgesic benefit for musculoskeletal pain. ' +
-        'Counsel him to take paracetamol 500–1000mg every 4–6 hours as needed (max 4g/day), and to apply a cold or warm pack to the knee.',
+        'Mr Barker needs a non-sedating option that effectively controls persistent nasal symptoms. ' +
+        'Rhinocort (budesonide nasal spray) and Nasonex (mometasone nasal spray) are both intranasal corticosteroids — the most effective OTC class for ' +
+        'persistent allergic rhinitis — and have negligible systemic absorption, making them safe for drivers. ' +
+        'Claratyne Tablets (loratadine 10mg) is a non-sedating oral antihistamine that would be a reasonable choice for mild intermittent symptoms, ' +
+        'but for persistent moderate-to-severe nasal symptoms an intranasal corticosteroid is preferred. ' +
+        'The supermarket product Mr Barker tried was likely a first-generation (sedating) antihistamine such as promethazine or chlorpheniramine — advise him to avoid those while driving. ' +
+        'Counsel Mr Barker that intranasal steroids take 1–2 weeks for full effect and should be used regularly throughout the season.',
       followUpQuestion: null,
     },
   ],
@@ -143,53 +131,51 @@ export const demoModule = {
       type: 'mcq',
       shelfId: 'cold-flu-1',
       question:
-        'A customer with uncontrolled hypertension asks for an OTC cold & flu product. Which of the following active ingredients is CONTRAINDICATED in this patient?',
+        'A patient with hypertension asks for an OTC product to relieve nasal congestion. Which product from the Cold & Flu shelf is MOST appropriate?',
       options: [
-        'Paracetamol 500mg',
-        'Pseudoephedrine HCl 30mg',
-        'Dextromethorphan HBr 15mg',
-        'Chlorpheniramine 2mg',
+        'Otrivin Adult (xylometazoline nasal spray)',
+        'Demazin (pseudoephedrine + chlorpheniramine)',
+        'Strepsils Regular (antiseptic lozenges)',
+        'None of the above — refer to the pharmacist',
       ],
-      correctIndex: 1,
+      correctIndex: 2,
       explanation:
-        'Pseudoephedrine is a sympathomimetic decongestant that stimulates alpha-adrenergic receptors, causing vasoconstriction and raising blood pressure. ' +
-        'It is contraindicated in patients with hypertension, ischaemic heart disease, and those taking MAOIs. ' +
-        'Paracetamol, dextromethorphan and chlorpheniramine do not have significant cardiovascular effects and are generally safe to use in hypertensive patients.',
+        'Otrivin Adult (xylometazoline) and Demazin (pseudoephedrine) are both sympathomimetic decongestants that can raise blood pressure and are contraindicated in hypertension. ' +
+        'Strepsils Regular has no decongestant or cardiovascular effect and is safe to recommend, but it targets sore throat — not nasal congestion. ' +
+        'In practice the best answer is to refer to the pharmacist, who can discuss saline nasal rinses or a steroid nasal spray as safer alternatives for this patient. ' +
+        'The key learning point is that pseudoephedrine and xylometazoline are both contraindicated in uncontrolled hypertension.',
     },
     {
       id: 'demo-quiz-002',
       type: 'truefalse',
-      shelfId: 'pain-1',
+      shelfId: 'hayfever',
       statement:
-        'Ibuprofen (Nurofen) is a safer choice than paracetamol (Panadol) for a patient who regularly drinks alcohol.',
-      correctAnswer: false,
+        'Intranasal corticosteroids such as Rhinocort and Nasonex are more effective than oral antihistamines for persistent allergic rhinitis.',
+      correctAnswer: true,
       explanation:
-        'False. Paracetamol is generally the preferred analgesic in patients who consume alcohol, provided they stay within the recommended dose (max 4g/day for healthy adults, lower for heavy drinkers). ' +
-        'Ibuprofen and other NSAIDs increase the risk of gastric ulceration and GI bleeding, which is potentiated by alcohol. ' +
-        'However, patients who consume more than 3 standard drinks per day should be referred to their GP, as high alcohol intake also increases the risk of paracetamol hepatotoxicity.',
+        'True. Clinical guidelines (ARIA 2020 and Australian Asthma Handbook) recommend intranasal corticosteroids as first-line therapy for persistent or moderate-to-severe allergic rhinitis. ' +
+        'They reduce nasal inflammation at the source, controlling all four cardinal symptoms: sneezing, itching, rhinorrhoea and congestion. ' +
+        'Oral antihistamines (including non-sedating agents like loratadine/Claratyne) are effective for sneezing and itch but are less effective for congestion. ' +
+        'For patients with combined nasal and eye symptoms, an oral antihistamine may be added to an intranasal steroid.',
     },
     {
       id: 'demo-quiz-003',
-      type: 'dragdrop',
-      shelfId: 'cold-flu-1',
-      instruction:
-        'Drag each product into the correct category based on its primary mechanism of action. Products that do not fit either category should be left unassigned.',
-      categories: [
-        { id: 'cat-decongestant',   label: 'Sympathomimetic Decongestant', color: '#E74C3C' },
-        { id: 'cat-antihistamine',  label: 'Sedating Antihistamine',       color: '#9B59B6' },
+      type: 'mcq',
+      shelfId: 'hayfever',
+      question:
+        'A mother asks for something to stop her 6-year-old\'s hayfever symptoms during school. Which product is most appropriate?',
+      options: [
+        'Rhinocort (budesonide nasal spray) — approved from age 6',
+        'Nasonex (mometasone nasal spray) — approved from age 3',
+        'Claratyne Tablets (loratadine 10mg) — approved from age 12; use Claratyne Childrens syrup for under 12',
+        'Demazin (pseudoephedrine) — safe in children over 6',
       ],
-      productAssignments: [
-        { productId: 'codral-original', categoryId: 'cat-decongestant' },
-        { productId: 'dimetapp-cold',   categoryId: 'cat-antihistamine' },
-        { productId: 'codral-pe-free',  categoryId: 'cat-antihistamine' },
-        { productId: 'lemsip-max',      categoryId: 'cat-decongestant' },
-        { productId: 'robitussin-cf',   categoryId: null },
-      ],
+      correctIndex: 1,
       explanation:
-        'Codral Original contains pseudoephedrine and Lemsip Max contains phenylephrine — both are sympathomimetic decongestants that work by stimulating alpha-adrenergic receptors to reduce nasal mucosal swelling. ' +
-        'Dimetapp Cold contains brompheniramine and Codral PE Free contains chlorpheniramine — both are first-generation (sedating) antihistamines that relieve runny nose and sneezing by blocking H1 receptors. ' +
-        'Robitussin CF contains guaifenesin (an expectorant) as its primary ingredient, which does not fit either decongestant or antihistamine categories — its primary action is to loosen mucus. ' +
-        'Note: Robitussin CF also contains Phenylephrine, a sympathomimetic decongestant. However, because its primary mechanism is expectorant action via guaifenesin, it was categorised separately here. In practice, its phenylephrine content should be considered when counselling patients with cardiovascular concerns.',
+        'Nasonex (mometasone) is approved for children from 3 years of age for seasonal and perennial allergic rhinitis and is an excellent first-line choice for school-aged children. ' +
+        'Rhinocort (budesonide OTC formulation) is approved from age 6 and would also be acceptable. ' +
+        'Claratyne Tablets 10mg are approved for adults and children 12 years and over — for a 6-year-old, Claratyne Childrens Syrup (5mg/5mL) or Childrens Tablets (5mg) should be used. ' +
+        'Demazin contains pseudoephedrine, which is contraindicated in children under 12 years per current ACCC/TGA labelling restrictions.',
     },
   ],
 }
