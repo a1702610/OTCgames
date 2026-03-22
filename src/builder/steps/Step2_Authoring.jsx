@@ -65,7 +65,7 @@ export function Step2_Authoring() {
         {/* Shelf + product sidebar */}
         <div
           style={{
-            width: 220,
+            width: 240,
             background: '#FFFFFF',
             borderRight: '1.5px solid rgba(20,15,80,0.1)',
             overflowY: 'auto',
@@ -76,6 +76,9 @@ export function Step2_Authoring() {
         >
           {/* Shelf list */}
           <div>
+            <p style={{ fontSize: 10, fontWeight: 700, color: 'rgba(20,15,80,0.4)', textTransform: 'uppercase', letterSpacing: '0.06em', margin: 0, padding: '10px 14px 6px' }}>
+              Choose a Shelf
+            </p>
             {activeShelvesData.map((shelf) => {
               const scCount = scenarios.filter((s) => s.shelfId === shelf.id).length
               const qCount = quizQuestions.filter((q) => q.shelfId === shelf.id).length
@@ -106,36 +109,27 @@ export function Step2_Authoring() {
 
           {/* Product image browser for the active shelf */}
           {activeShelfProducts.length > 0 && (
-            <div style={{ borderTop: '1.5px solid rgba(20,15,80,0.08)', paddingTop: 8 }}>
+            <div style={{ borderTop: '1.5px solid rgba(20,15,80,0.08)', paddingTop: 4, flex: 1, overflowY: 'auto' }}>
               <p style={{
-                fontSize: 10,
-                fontWeight: 700,
-                color: 'rgba(20,15,80,0.4)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                margin: '0 0 6px',
-                padding: '0 12px',
+                fontSize: 10, fontWeight: 700, color: 'rgba(20,15,80,0.4)',
+                textTransform: 'uppercase', letterSpacing: '0.06em',
+                margin: 0, padding: '8px 14px 6px',
               }}>
                 Products ({activeShelfProducts.length})
               </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, padding: '0 8px 12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2, padding: '0 6px 12px' }}>
                 {activeShelfProducts.map((product) => (
                   <button
                     key={product.id}
                     onClick={() => setSidebarModalProduct(product)}
-                    title={product.name}
+                    title={`View ${product.name}`}
                     aria-label={`View ${product.name}`}
                     style={{
-                      width: 58,
-                      height: 58,
-                      border: 'none',
-                      borderRadius: 8,
-                      padding: 4,
-                      background: product.bgColor || '#1448FF',
-                      cursor: 'pointer',
-                      overflow: 'hidden',
-                      flexShrink: 0,
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                      width: '100%', border: 'none', borderRadius: 10,
+                      padding: 0, background: product.bgColor || '#1448FF',
+                      cursor: 'pointer', overflow: 'hidden',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+                      display: 'flex', flexDirection: 'column', alignItems: 'center',
                     }}
                   >
                     <ImageWithFallback
@@ -143,8 +137,14 @@ export function Step2_Authoring() {
                       side="front"
                       alt={product.name}
                       bgColor={product.bgColor}
-                      style={{ width: '100%', height: '100%' }}
+                      style={{ width: '100%', height: 150 }}
                     />
+                    <span style={{
+                      fontSize: 11, fontWeight: 700, color: product.color || '#FFFFFF',
+                      padding: '4px 8px 6px', textAlign: 'center', lineHeight: 1.3,
+                    }}>
+                      {product.name}
+                    </span>
                   </button>
                 ))}
               </div>

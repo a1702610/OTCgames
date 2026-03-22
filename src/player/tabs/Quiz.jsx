@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { usePlayer } from '../PlayerContext.jsx'
 import { QuizEngine } from '../../shared/components/QuizEngine.jsx'
 import { DragDropQuestion } from '../../shared/components/DragDropQuestion.jsx'
+import { FillInBlanksPlayer } from '../../shared/components/FillInBlanksPlayer.jsx'
+import { ShelfDisplay } from '../../shared/components/ShelfDisplay.jsx'
 import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
 import { shuffle } from '../../shared/utils/shuffleUtils.js'
@@ -44,8 +46,9 @@ export function Quiz() {
   const question = questions[currentIndex]
   const answered = answers[question.id]
 
-  // Find shelf chip
+  // Find shelf data
   const shelf = moduleData.shelves.find((s) => s.id === question.shelfId)
+  const shelfProducts = moduleData.products.filter((p) => p.category === question.shelfId)
 
   function handleAnswer(result) {
     if (result.delta > 0) addScore(result.delta)
@@ -113,6 +116,12 @@ export function Quiz() {
                 onSubmit={answered ? undefined : handleAnswer}
                 submitted={answered}
               />
+            ) : question.type === 'fillinblanks' ? (
+              <FillInBlanksPlayer
+                question={question}
+                onAnswer={answered ? undefined : handleAnswer}
+                answered={answered}
+              />
             ) : (
               <QuizEngine
                 question={question}
@@ -121,6 +130,16 @@ export function Quiz() {
               />
             )}
           </div>
+
+          {/* Shelf reference */}
+          {shelf && shelfProducts.length > 0 && (
+            <div style={{ marginTop: 16 }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(20,15,80,0.5)', margin: '0 0 8px' }}>
+                Shelf reference — click any product to zoom
+              </p>
+              <ShelfDisplay shelf={shelf} products={shelfProducts} mode="browse" />
+            </div>
+          )}
 
           {/* Next button */}
           {answered && (

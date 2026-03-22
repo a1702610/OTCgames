@@ -6,14 +6,15 @@ import { QuizEngine } from '../../shared/components/QuizEngine.jsx'
 import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
 
-export function Scenarios() {
+export function Scenarios({ onNavigateToQuiz }) {
   const { moduleData, addScore } = usePlayer()
   const scenarios = moduleData?.scenarios || []
 
   const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [phase, setPhase] = React.useState('presenting') // presenting | awaiting-selection | feedback | followup | done
-  const [selectedProductId, setSelectedProductId] = React.useState(null)
-  const [selectionResult, setSelectionResult] = React.useState(null) // { tier: 'best'|'acceptable'|'incorrect', delta }
+  const [phase, setPhase] = React.useState('presenting') // presenting | awaiting-selection | confirming | feedback | followup | done
+  const [pendingProductId, setPendingProductId] = React.useState(null)   // selected but not yet confirmed
+  const [selectedProductId, setSelectedProductId] = React.useState(null) // confirmed selection
+  const [selectionResult, setSelectionResult] = React.useState(null)
   const [followupAnswered, setFollowupAnswered] = React.useState(null)
   const [completed, setCompleted] = React.useState(false)
   const [scenarioScore, setScenarioScore] = React.useState(0)
@@ -35,9 +36,11 @@ export function Scenarios() {
           setPhase('presenting')
           setSelectionResult(null)
           setSelectedProductId(null)
+          setPendingProductId(null)
           setFollowupAnswered(null)
           setScenarioScore(0)
         }}
+        onNavigateToQuiz={onNavigateToQuiz}
       />
     )
   }
@@ -46,9 +49,17 @@ export function Scenarios() {
   const shelfData = moduleData.shelves.find((s) => s.id === scenario.shelfId)
   const shelfProducts = moduleData.products.filter((p) => p.category === scenario.shelfId)
 
-  function handleProductSelect(productId) {
+  function handleProductPending(productId) {
     if (phase !== 'awaiting-selection') return
+    // Toggle off if same product tapped again
+    setPendingProductId((prev) => (prev === productId ? null : productId))
+  }
+
+  function handleConfirm() {
+    if (!pendingProductId) return
+    const productId = pendingProductId
     setSelectedProductId(productId)
+    setPendingProductId(null)
 
     let tier, delta
     if (productId === scenario.bestChoiceProductId) {
@@ -71,7 +82,6 @@ export function Scenarios() {
       setPhase('followup')
       return
     }
-    // Move to next scenario or complete
     const nextIndex = currentIndex + 1
     if (nextIndex >= scenarios.length) {
       setCompleted(true)
@@ -79,6 +89,7 @@ export function Scenarios() {
       setCurrentIndex(nextIndex)
       setPhase('presenting')
       setSelectedProductId(null)
+      setPendingProductId(null)
       setSelectionResult(null)
       setFollowupAnswered(null)
     }
@@ -94,6 +105,9 @@ export function Scenarios() {
 
   const tierColors = { best: '#27AE60', acceptable: '#E67E22', incorrect: '#E74C3C' }
   const tierLabels = { best: 'Best Choice (+1)', acceptable: 'Acceptable (+0.5)', incorrect: 'Incorrect (0)' }
+
+  // In awaiting-selection mode, pass pendingProductId as the "selected" highlight
+  const displaySelectedId = phase === 'awaiting-selection' ? pendingProductId : selectedProductId
 
   return (
     <div>
@@ -131,20 +145,15 @@ export function Scenarios() {
             </div>
           </div>
 
-          {/* Instruction */}
+          {/* "Select a product" prompt */}
           {phase === 'presenting' && (
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
               <button
                 onClick={() => setPhase('awaiting-selection')}
                 style={{
-                  background: '#1448FF',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: 10,
-                  padding: '12px 28px',
-                  fontWeight: 700,
-                  fontSize: 15,
-                  cursor: 'pointer',
+                  background: '#1448FF', color: '#FFFFFF', border: 'none',
+                  borderRadius: 10, padding: '12px 28px',
+                  fontWeight: 700, fontSize: 15, cursor: 'pointer',
                 }}
               >
                 Select a product →
@@ -162,9 +171,44 @@ export function Scenarios() {
                 shelf={shelfData}
                 products={shelfProducts}
                 mode="select"
-                selectedProductId={selectedProductId}
-                onSelect={phase === 'awaiting-selection' ? handleProductSelect : undefined}
+                selectedProductId={displaySelectedId}
+                onSelect={phase === 'awaiting-selection' ? handleProductPending : undefined}
               />
+
+              {/* Confirm button — shown after a product is tapped */}
+              {phase === 'awaiting-selection' && pendingProductId && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ marginTop: 14, textAlign: 'center' }}
+                >
+                  <p style={{ fontSize: 13, color: 'rgba(20,15,80,0.6)', marginBottom: 8 }}>
+                    {shelfProducts.find(p => p.id === pendingProductId)?.name} — confirm your choice?
+                  </p>
+                  <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+                    <button
+                      onClick={() => setPendingProductId(null)}
+                      style={{
+                        background: 'rgba(20,15,80,0.06)', color: '#140F50',
+                        border: '1.5px solid rgba(20,15,80,0.15)', borderRadius: 10,
+                        padding: '10px 22px', fontWeight: 600, fontSize: 14, cursor: 'pointer',
+                      }}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleConfirm}
+                      style={{
+                        background: '#1448FF', color: '#FFFFFF', border: 'none',
+                        borderRadius: 10, padding: '10px 28px',
+                        fontWeight: 700, fontSize: 14, cursor: 'pointer',
+                      }}
+                    >
+                      Confirm →
+                    </button>
+                  </div>
+                </motion.div>
+              )}
             </div>
           )}
 
@@ -174,10 +218,7 @@ export function Scenarios() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               style={{
-                background: '#FFFFFF',
-                borderRadius: 12,
-                padding: 16,
-                marginBottom: 16,
+                background: '#FFFFFF', borderRadius: 12, padding: 16, marginBottom: 16,
                 borderLeft: `5px solid ${tierColors[selectionResult.tier]}`,
                 boxShadow: '0 2px 8px rgba(20,15,80,0.08)',
               }}
@@ -198,18 +239,8 @@ export function Scenarios() {
 
           {/* Follow-up MCQ */}
           {phase === 'followup' && scenario.followUpQuestion && (
-            <div
-              style={{
-                background: '#FFFFFF',
-                borderRadius: 12,
-                padding: 16,
-                marginBottom: 16,
-                boxShadow: '0 2px 8px rgba(20,15,80,0.08)',
-              }}
-            >
-              <p style={{ fontSize: 12, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>
-                Follow-up question:
-              </p>
+            <div style={{ background: '#FFFFFF', borderRadius: 12, padding: 16, marginBottom: 16, boxShadow: '0 2px 8px rgba(20,15,80,0.08)' }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>Follow-up question:</p>
               <QuizEngine
                 question={{ ...scenario.followUpQuestion, type: 'mcq' }}
                 onAnswer={followupAnswered ? undefined : handleFollowupAnswer}
@@ -224,14 +255,8 @@ export function Scenarios() {
               <button
                 onClick={handleNext}
                 style={{
-                  background: '#1448FF',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: 10,
-                  padding: '10px 24px',
-                  fontWeight: 700,
-                  fontSize: 14,
-                  cursor: 'pointer',
+                  background: '#1448FF', color: '#FFFFFF', border: 'none',
+                  borderRadius: 10, padding: '10px 24px', fontWeight: 700, fontSize: 14, cursor: 'pointer',
                 }}
               >
                 {currentIndex + 1 >= scenarios.length && !(phase === 'feedback' && scenario.followUpQuestion) ? 'Finish' : 'Next →'}
@@ -244,52 +269,52 @@ export function Scenarios() {
   )
 }
 
-function CompletionScreen({ result, onRestart }) {
+function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       style={{
-        textAlign: 'center',
-        padding: 32,
-        background: '#FFFFFF',
-        borderRadius: 20,
-        boxShadow: '0 4px 24px rgba(20,15,80,0.12)',
+        textAlign: 'center', padding: 32, background: '#FFFFFF',
+        borderRadius: 20, boxShadow: '0 4px 24px rgba(20,15,80,0.12)',
       }}
     >
       <div style={{ fontSize: 48, marginBottom: 12 }}>🎉</div>
       <h2 style={{ color: '#140F50', margin: '0 0 8px' }}>Scenarios Complete!</h2>
       <div
         style={{
-          display: 'inline-block',
-          background: result.grade.color,
-          color: '#FFFFFF',
-          borderRadius: 12,
-          padding: '6px 20px',
-          fontWeight: 700,
-          fontSize: 18,
-          marginBottom: 12,
+          display: 'inline-block', background: result.grade.color, color: '#FFFFFF',
+          borderRadius: 12, padding: '6px 20px', fontWeight: 700, fontSize: 18, marginBottom: 12,
         }}
       >
         {result.grade.label} ({result.grade.code})
       </div>
-      <p style={{ color: '#555', fontSize: 15, margin: '0 0 20px' }}>
+      <p style={{ color: '#555', fontSize: 15, margin: '0 0 24px' }}>
         {result.score} / {result.maxScore} points ({result.percentage}%)
       </p>
-      <button
-        onClick={onRestart}
-        style={{
-          background: '#140F50',
-          color: '#FFFFFF',
-          border: 'none',
-          borderRadius: 10,
-          padding: '10px 24px',
-          fontWeight: 700,
-          cursor: 'pointer',
-        }}
-      >
-        Try Again
-      </button>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <button
+          onClick={onRestart}
+          style={{
+            background: 'rgba(20,15,80,0.08)', color: '#140F50',
+            border: '1.5px solid rgba(20,15,80,0.15)', borderRadius: 10,
+            padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+          }}
+        >
+          Try Again
+        </button>
+        {onNavigateToQuiz && (
+          <button
+            onClick={onNavigateToQuiz}
+            style={{
+              background: '#1448FF', color: '#FFFFFF', border: 'none',
+              borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+            }}
+          >
+            Move to Quiz →
+          </button>
+        )}
+      </div>
     </motion.div>
   )
 }

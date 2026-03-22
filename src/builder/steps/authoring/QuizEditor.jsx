@@ -4,6 +4,7 @@ import { useBuilder } from '../../BuilderContext.jsx'
 import { MCQEditor } from './MCQEditor.jsx'
 import { TrueFalseEditor } from './TrueFalseEditor.jsx'
 import { DragDropEditor } from './DragDropEditor.jsx'
+import { FillInBlanksEditor } from './FillInBlanksEditor.jsx'
 
 export function QuizEditor({ shelfId }) {
   const { state, dispatch, generateId } = useBuilder()
@@ -19,6 +20,8 @@ export function QuizEditor({ shelfId }) {
       question = { ...base, question: '', options: ['', '', '', ''], correctIndex: 0, explanation: '' }
     } else if (type === 'truefalse') {
       question = { ...base, statement: '', correctAnswer: true, explanation: '' }
+    } else if (type === 'fillinblanks') {
+      question = { ...base, sentence: '', blanks: [], explanation: '' }
     } else {
       question = { ...base, instruction: '', categories: [], productAssignments: [], explanation: '' }
     }
@@ -48,6 +51,7 @@ export function QuizEditor({ shelfId }) {
           if (q.type === 'mcq') return <MCQEditor {...props} />
           if (q.type === 'truefalse') return <TrueFalseEditor {...props} />
           if (q.type === 'dragdrop') return <DragDropEditor {...props} />
+          if (q.type === 'fillinblanks') return <FillInBlanksEditor {...props} />
           return null
         })}
       </div>
@@ -81,6 +85,7 @@ export function QuizEditor({ shelfId }) {
               { type: 'mcq', label: 'Multiple Choice', color: '#1448FF' },
               { type: 'truefalse', label: 'True / False', color: '#836BFF' },
               { type: 'dragdrop', label: 'Drag & Drop', color: '#E67E22' },
+              { type: 'fillinblanks', label: 'Fill in the Blanks', color: '#27AE60' },
             ].map((opt) => (
               <button
                 key={opt.type}

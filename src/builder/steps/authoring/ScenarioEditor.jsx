@@ -68,17 +68,17 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
       {expanded && (
         <div style={{ padding: 16 }}>
           {/* Avatar picker */}
-          <div style={{ marginBottom: 12 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', margin: '0 0 6px' }}>Patient Avatar</p>
-            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          <div style={{ marginBottom: 16 }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', margin: '0 0 8px' }}>Patient Avatar</p>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {AVATAR_OPTIONS.map((emoji) => (
                 <button
                   key={emoji}
                   onClick={() => updatePatient('avatarEmoji', emoji)}
                   style={{
-                    width: 36, height: 36, fontSize: 20,
+                    width: 48, height: 48, fontSize: 26,
                     border: `2px solid ${scenario.patient?.avatarEmoji === emoji ? '#1448FF' : 'transparent'}`,
-                    borderRadius: 8, background: scenario.patient?.avatarEmoji === emoji ? 'rgba(20,72,255,0.08)' : 'rgba(20,15,80,0.04)',
+                    borderRadius: 10, background: scenario.patient?.avatarEmoji === emoji ? 'rgba(20,72,255,0.08)' : 'rgba(20,15,80,0.04)',
                     cursor: 'pointer',
                   }}
                   aria-label={emoji}
@@ -90,32 +90,32 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
           </div>
 
           {/* Patient name */}
-          <div style={{ marginBottom: 10 }}>
-            <label style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 4 }}>Patient Name</label>
+          <div style={{ marginBottom: 14 }}>
+            <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 6 }}>Patient Name</label>
             <input
               type="text"
               value={scenario.patient?.name || ''}
               onChange={(e) => updatePatient('name', e.target.value)}
               placeholder="e.g. Mrs Chen"
-              style={{ width: '100%', padding: '7px 10px', borderRadius: 7, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 13, boxSizing: 'border-box' }}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 15, boxSizing: 'border-box' }}
             />
           </div>
 
           {/* Patient description */}
-          <div style={{ marginBottom: 16 }}>
-            <label style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 4 }}>Presenting Complaint</label>
+          <div style={{ marginBottom: 20 }}>
+            <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 6 }}>Presenting Complaint</label>
             <textarea
               value={scenario.patient?.description || ''}
               onChange={(e) => updatePatient('description', e.target.value)}
               placeholder="Describe the patient's symptoms and relevant history…"
-              rows={3}
-              style={{ width: '100%', padding: '7px 10px', borderRadius: 7, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 13, resize: 'vertical', boxSizing: 'border-box' }}
+              rows={4}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 15, resize: 'vertical', boxSizing: 'border-box' }}
             />
           </div>
 
           {/* Product selection + tier */}
-          <div style={{ marginBottom: 16 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', margin: '0 0 8px' }}>
+          <div style={{ marginBottom: 20 }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', margin: '0 0 10px' }}>
               Product Tiers — click image to zoom
             </p>
             {shelfProducts.map((product) => {
@@ -127,16 +127,16 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 8,
-                    marginBottom: 5,
-                    padding: '5px 6px',
-                    borderRadius: 8,
+                    gap: 12,
+                    marginBottom: 8,
+                    padding: '8px 10px',
+                    borderRadius: 10,
                     background: isBest
                       ? 'rgba(39,174,96,0.06)'
                       : isAcceptable
                       ? 'rgba(230,126,34,0.06)'
                       : 'rgba(20,15,80,0.02)',
-                    border: `1px solid ${isBest ? 'rgba(39,174,96,0.2)' : isAcceptable ? 'rgba(230,126,34,0.2)' : 'transparent'}`,
+                    border: `1.5px solid ${isBest ? 'rgba(39,174,96,0.25)' : isAcceptable ? 'rgba(230,126,34,0.25)' : 'rgba(20,15,80,0.06)'}`,
                   }}
                 >
                   {/* Thumbnail — click to zoom */}
@@ -145,15 +145,10 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
                     title={`View ${product.name}`}
                     aria-label={`View ${product.name}`}
                     style={{
-                      flexShrink: 0,
-                      width: 40,
-                      height: 40,
-                      border: 'none',
-                      borderRadius: 7,
-                      padding: 3,
+                      flexShrink: 0, width: 64, height: 64,
+                      border: 'none', borderRadius: 9, padding: 4,
                       background: product.bgColor || '#1448FF',
-                      cursor: 'zoom-in',
-                      overflow: 'hidden',
+                      cursor: 'zoom-in', overflow: 'hidden',
                     }}
                   >
                     <ImageWithFallback
@@ -165,37 +160,39 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
                     />
                   </button>
 
-                  {/* Name + tier buttons grouped so buttons stay close to the name */}
-                  <div style={{ flex: 1, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 5, minWidth: 0 }}>
-                    <span style={{ fontSize: 12, color: '#140F50', wordBreak: 'break-word' }}>
+                  {/* Name + tier buttons */}
+                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
+                    <span style={{ fontSize: 14, fontWeight: 600, color: '#140F50', wordBreak: 'break-word' }}>
                       {product.name}
                     </span>
-                    <button
-                      onClick={() => toggleProductTier(product.id, 'best')}
-                      style={{
-                        fontSize: 10, padding: '2px 8px', borderRadius: 10,
-                        border: `1.5px solid ${isBest ? '#27AE60' : 'rgba(20,15,80,0.15)'}`,
-                        background: isBest ? 'rgba(39,174,96,0.12)' : '#FFFFFF',
-                        color: isBest ? '#27AE60' : 'rgba(20,15,80,0.5)',
-                        cursor: 'pointer', fontWeight: isBest ? 700 : 400,
-                        whiteSpace: 'nowrap', flexShrink: 0,
-                      }}
-                    >
-                      ★ Best
-                    </button>
-                    <button
-                      onClick={() => toggleProductTier(product.id, 'acceptable')}
-                      style={{
-                        fontSize: 10, padding: '2px 8px', borderRadius: 10,
-                        border: `1.5px solid ${isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.15)'}`,
-                        background: isAcceptable ? 'rgba(230,126,34,0.12)' : '#FFFFFF',
-                        color: isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.5)',
-                        cursor: 'pointer', fontWeight: isAcceptable ? 700 : 400,
-                        whiteSpace: 'nowrap', flexShrink: 0,
-                      }}
-                    >
-                      ✓ OK
-                    </button>
+                    <div style={{ display: 'flex', gap: 6 }}>
+                      <button
+                        onClick={() => toggleProductTier(product.id, 'best')}
+                        style={{
+                          fontSize: 12, padding: '4px 12px', borderRadius: 10,
+                          border: `1.5px solid ${isBest ? '#27AE60' : 'rgba(20,15,80,0.15)'}`,
+                          background: isBest ? 'rgba(39,174,96,0.12)' : '#FFFFFF',
+                          color: isBest ? '#27AE60' : 'rgba(20,15,80,0.5)',
+                          cursor: 'pointer', fontWeight: isBest ? 700 : 400,
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        ★ Best
+                      </button>
+                      <button
+                        onClick={() => toggleProductTier(product.id, 'acceptable')}
+                        style={{
+                          fontSize: 12, padding: '4px 12px', borderRadius: 10,
+                          border: `1.5px solid ${isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.15)'}`,
+                          background: isAcceptable ? 'rgba(230,126,34,0.12)' : '#FFFFFF',
+                          color: isAcceptable ? '#E67E22' : 'rgba(20,15,80,0.5)',
+                          cursor: 'pointer', fontWeight: isAcceptable ? 700 : 400,
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        ✓ OK
+                      </button>
+                    </div>
                   </div>
                 </div>
               )
@@ -203,14 +200,14 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
           </div>
 
           {/* Explanation */}
-          <div style={{ marginBottom: 16 }}>
-            <label style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 4 }}>Explanation</label>
+          <div style={{ marginBottom: 20 }}>
+            <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 6 }}>Explanation</label>
             <textarea
               value={scenario.explanation || ''}
               onChange={(e) => onUpdate({ explanation: e.target.value })}
               placeholder="Explain the correct product choice and reasoning…"
-              rows={3}
-              style={{ width: '100%', padding: '7px 10px', borderRadius: 7, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 13, resize: 'vertical', boxSizing: 'border-box' }}
+              rows={4}
+              style={{ width: '100%', padding: '10px 14px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 15, resize: 'vertical', boxSizing: 'border-box' }}
             />
           </div>
 

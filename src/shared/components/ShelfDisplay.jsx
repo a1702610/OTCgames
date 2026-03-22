@@ -3,6 +3,14 @@ import { motion } from 'framer-motion'
 import { ProductCard } from './ProductCard.jsx'
 import { ProductModal } from './ProductModal.jsx'
 
+const PRODUCTS_PER_ROW = 4
+
+function chunk(arr, size) {
+  const result = []
+  for (let i = 0; i < arr.length; i += size) result.push(arr.slice(i, i + size))
+  return result
+}
+
 export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProductId, onSelect, dragState, onDragStart, onDragEnd }) {
   // mode: 'browse' | 'select' | 'dragdrop'
   const [modalProduct, setModalProduct] = React.useState(null)
@@ -15,21 +23,23 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
     }
   }
 
+  const rows = chunk(products, PRODUCTS_PER_ROW)
+
   return (
     <div>
       {/* Shelf header */}
       <div
         style={{
           background: `linear-gradient(135deg, ${shelf.color}dd 0%, ${shelf.color}99 100%)`,
-          borderRadius: '12px 12px 0 0',
-          padding: '10px 16px',
+          borderRadius: '14px 14px 0 0',
+          padding: '10px 18px',
           display: 'flex',
           alignItems: 'center',
           gap: 8,
         }}
       >
-        <span style={{ fontSize: 20 }}>{shelf.emoji}</span>
-        <span style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 15 }}>
+        <span style={{ fontSize: 22 }}>{shelf.emoji}</span>
+        <span style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 16 }}>
           {shelf.label}
           {shelf.shelfNumber > 1 && ` (${shelf.shelfNumber})`}
         </span>
@@ -38,56 +48,80 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
         </span>
       </div>
 
-      {/* Shelf surface */}
+      {/* Shelf unit — dark pharmacy look */}
       <div
         style={{
-          background: 'rgba(20,72,255,0.06)',
-          border: `2px solid ${shelf.color}33`,
-          borderTop: 'none',
-          borderRadius: '0 0 12px 12px',
-          padding: 16,
+          background: 'linear-gradient(180deg, #1a1560 0%, #0e0b3d 100%)',
+          borderRadius: '0 0 14px 14px',
+          padding: '12px 12px 4px',
           minHeight: 80,
+          border: `2px solid ${shelf.color}44`,
+          borderTop: 'none',
         }}
       >
         {products.length === 0 ? (
-          <p style={{ color: 'rgba(20,15,80,0.4)', fontSize: 13, margin: 0 }}>No products on this shelf.</p>
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '8px 0', textAlign: 'center' }}>
+            No products on this shelf.
+          </p>
         ) : (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            {products.map((product) => {
-              const isDragging = dragState?.draggingId === product.id
-              const isSelected = mode === 'select' && selectedProductId === product.id
+          rows.map((rowProducts, rowIndex) => (
+            <div key={rowIndex}>
+              {/* Product row */}
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 10,
+                  padding: '10px 8px 0',
+                  flexWrap: 'nowrap',
+                  overflowX: 'auto',
+                }}
+              >
+                {rowProducts.map((product) => {
+                  const isDragging = dragState?.draggingId === product.id
+                  const isSelected = mode === 'select' && selectedProductId === product.id
 
-              if (mode === 'dragdrop') {
-                return (
-                  <motion.div
-                    key={product.id}
-                    draggable
-                    onDragStart={() => onDragStart?.(product.id)}
-                    onDragEnd={() => onDragEnd?.()}
-                    style={{
-                      opacity: isDragging ? 0.4 : 1,
-                      cursor: 'grab',
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <ProductCard product={product} size="sm" />
-                  </motion.div>
-                )
-              }
+                  if (mode === 'dragdrop') {
+                    return (
+                      <motion.div
+                        key={product.id}
+                        draggable
+                        onDragStart={() => onDragStart?.(product.id)}
+                        onDragEnd={() => onDragEnd?.()}
+                        style={{ opacity: isDragging ? 0.4 : 1, cursor: 'grab', flexShrink: 0 }}
+                        whileHover={{ scale: 1.05, y: -4 }}
+                        whileTap={{ scale: 0.97 }}
+                      >
+                        <ProductCard product={product} size="sm" />
+                      </motion.div>
+                    )
+                  }
 
-              return (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  isSelected={isSelected}
-                  onClick={() => handleProductClick(product)}
-                  onZoom={mode !== 'browse' ? (p) => setModalProduct(p) : undefined}
-                  size="md"
-                />
-              )
-            })}
-          </div>
+                  return (
+                    <div key={product.id} style={{ flexShrink: 0 }}>
+                      <ProductCard
+                        product={product}
+                        isSelected={isSelected}
+                        onClick={() => handleProductClick(product)}
+                        onZoom={mode !== 'browse' ? (p) => setModalProduct(p) : undefined}
+                        size="md"
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Shelf plank */}
+              <div
+                style={{
+                  height: 14,
+                  margin: '6px 0 2px',
+                  background: 'linear-gradient(180deg, #e8d8a8 0%, #c9ab5a 45%, #8b6914 100%)',
+                  borderRadius: 3,
+                  boxShadow: '0 4px 10px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.25)',
+                }}
+              />
+            </div>
+          ))
         )}
       </div>
 

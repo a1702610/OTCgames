@@ -71,9 +71,6 @@ export function Step0_Home() {
         <h1 style={{ margin: 0, color: '#140F50', fontSize: 28, fontWeight: 800 }}>
           OTC Module Builder
         </h1>
-        <p style={{ margin: '8px 0 0', color: 'rgba(20,15,80,0.6)', fontSize: 15 }}>
-          Create interactive pharmacy training modules
-        </p>
       </motion.div>
 
       {/* Cards */}

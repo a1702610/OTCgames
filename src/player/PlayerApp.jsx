@@ -94,7 +94,7 @@ function PlayerInner({ isPreviewMode }) {
             transition={{ duration: 0.2 }}
           >
             {activeTab === 'shelf' && <ShelfBrowse />}
-            {activeTab === 'scenarios' && <Scenarios />}
+            {activeTab === 'scenarios' && <Scenarios onNavigateToQuiz={() => setActiveTab('quiz')} />}
             {activeTab === 'quiz' && <Quiz />}
           </motion.div>
         </AnimatePresence>
