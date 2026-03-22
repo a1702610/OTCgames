@@ -1,9 +1,32 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import { PlayerApp } from './PlayerApp.jsx'
+import { demoModule } from '../data/demoModule.js'
 
-// Placeholder — will be replaced in Phase 4
-createRoot(document.getElementById('root')).render(
-  <div style={{ padding: 40, fontFamily: 'sans-serif' }}>
-    <h1>OTC Player — coming soon</h1>
-  </div>
-)
+async function startup() {
+  let moduleData = null
+  let isDemoMode = false
+
+  try {
+    const resp = await fetch('./content.json')
+    if (resp.ok) {
+      const json = await resp.json()
+      if (json.module && json.shelves && json.products) {
+        moduleData = json
+      }
+    }
+  } catch {
+    // No content.json — fall through to demo
+  }
+
+  if (!moduleData) {
+    moduleData = demoModule
+    isDemoMode = true
+  }
+
+  createRoot(document.getElementById('root')).render(
+    <PlayerApp moduleData={moduleData} isDemoMode={isDemoMode} />
+  )
+}
+
+startup()
