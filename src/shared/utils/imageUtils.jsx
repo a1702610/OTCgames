@@ -1,8 +1,16 @@
 import React from 'react'
+import { getProductById } from '../../data/products.js'
 
-// Resolves image URL for a product. Missing images are handled by ImageWithFallback's onError.
+// Resolves image URL for a product using the imageFolderPath stored in products.js.
+// Folder names with spaces/special chars are URL-encoded per segment.
 export function getImageUrl(productId, side = 'front') {
-  return `./images/${productId}_${side}.jpg`
+  const product = getProductById(productId)
+  if (!product?.imageFolderPath) return null
+  const encoded = product.imageFolderPath
+    .split('/')
+    .map(encodeURIComponent)
+    .join('/')
+  return `./${encoded}/${side}.jpg`
 }
 
 // Component that renders a product image with a styled fallback placeholder
@@ -15,7 +23,7 @@ export function ImageWithFallback({ productId, side = 'front', alt, bgColor = '#
     setFailed(false)
   }, [src])
 
-  if (failed) {
+  if (!src || failed) {
     return (
       <div
         style={{

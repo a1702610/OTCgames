@@ -1,0 +1,4 @@
+public/medications/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+public/medications/**/*.JPG filter=lfs diff=lfs merge=lfs -text
+public/medications/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+public/medications/**/*.png filter=lfs diff=lfs merge=lfs -text
