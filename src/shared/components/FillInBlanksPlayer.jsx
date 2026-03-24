@@ -2,9 +2,9 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ScoreFloat } from './ScoreFloat.jsx'
 
-// Split sentence on _____ markers
+// Split sentence on _ markers
 function parseSentence(sentence) {
-  return sentence.split('_____')
+  return sentence.split('_')
 }
 
 function checkAnswer(input, accepted) {

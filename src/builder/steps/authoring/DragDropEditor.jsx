@@ -1,11 +1,10 @@
 import React from 'react'
 import { Trash2, Plus } from 'lucide-react'
-import { getProductsByShelf } from '../../../data/products.js'
 
 const PRESET_COLORS = ['#E74C3C', '#9B59B6', '#2980B9', '#27AE60', '#E67E22', '#1ABC9C']
 
-export function DragDropEditor({ question, onUpdate, onDelete }) {
-  const shelfProducts = getProductsByShelf(question.shelfId)
+export function DragDropEditor({ question, onUpdate, onDelete, allProducts = [] }) {
+  const shelfProducts = allProducts
 
   function addCategory() {
     const newCat = {

@@ -61,8 +61,9 @@ export function Scenarios({ onNavigateToQuiz }) {
     setSelectedProductId(productId)
     setPendingProductId(null)
 
+    const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
     let tier, delta
-    if (productId === scenario.bestChoiceProductId) {
+    if (bestIds.includes(productId)) {
       tier = 'best'; delta = 1
     } else if (scenario.acceptableProductIds?.includes(productId)) {
       tier = 'acceptable'; delta = 0.5
@@ -167,13 +168,15 @@ export function Scenarios({ onNavigateToQuiz }) {
               <p style={{ fontSize: 13, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>
                 {phase === 'awaiting-selection' ? 'Choose the most appropriate product:' : 'Your selection:'}
               </p>
-              <ShelfDisplay
-                shelf={shelfData}
-                products={shelfProducts}
-                mode="select"
-                selectedProductId={displaySelectedId}
-                onSelect={phase === 'awaiting-selection' ? handleProductPending : undefined}
-              />
+              <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 8, alignItems: 'flex-start' }}>
+                <ShelfDisplay
+                  shelf={shelfData}
+                  products={shelfProducts}
+                  mode="select"
+                  selectedProductId={displaySelectedId}
+                  onSelect={phase === 'awaiting-selection' ? handleProductPending : undefined}
+                />
+              </div>
 
               {/* Confirm button — shown after a product is tapped */}
               {phase === 'awaiting-selection' && pendingProductId && (
@@ -226,11 +229,15 @@ export function Scenarios({ onNavigateToQuiz }) {
               <p style={{ margin: 0, fontWeight: 700, color: tierColors[selectionResult.tier], fontSize: 14 }}>
                 {tierLabels[selectionResult.tier]}
               </p>
-              {selectionResult.tier === 'incorrect' && (
-                <p style={{ margin: '4px 0 0', fontSize: 12, color: '#555' }}>
-                  Best choice: <strong>{moduleData.products.find(p => p.id === scenario.bestChoiceProductId)?.name || scenario.bestChoiceProductId}</strong>
-                </p>
-              )}
+              {selectionResult.tier === 'incorrect' && (() => {
+                const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
+                const bestNames = bestIds.map(id => moduleData.products.find(p => p.id === id)?.name || id).join(', ')
+                return (
+                  <p style={{ margin: '4px 0 0', fontSize: 12, color: '#555' }}>
+                    Best choice{bestIds.length > 1 ? 's' : ''}: <strong>{bestNames}</strong>
+                  </p>
+                )
+              })()}
               <p style={{ margin: '8px 0 0', fontSize: 13, color: '#555', lineHeight: 1.6 }}>
                 {scenario.explanation}
               </p>

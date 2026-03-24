@@ -1,8 +1,9 @@
 import React from 'react'
 import { useBuilder } from '../BuilderContext.jsx'
-import { shelves as allShelves, getProductsByShelf } from '../../data/products.js'
+import { shelves as allShelves, getProductsByShelf, products as allProducts } from '../../data/products.js'
 import { ScenarioEditor } from './authoring/ScenarioEditor.jsx'
 import { QuizEditor } from './authoring/QuizEditor.jsx'
+import { DragDropEditor } from './authoring/DragDropEditor.jsx'
 import { ProductModal } from '../../shared/components/ProductModal.jsx'
 import { ImageWithFallback } from '../../shared/utils/imageUtils.jsx'
 
@@ -12,12 +13,14 @@ export function Step2_Authoring() {
 
   const activeShelvesData = allShelves.filter((s) => selectedShelfIds.includes(s.id))
   const [activeShelfId, setActiveShelfId] = React.useState(activeShelvesData[0]?.id || null)
-  const [activePanel, setActivePanel] = React.useState('scenarios') // 'scenarios' | 'quiz'
+  const [activePanel, setActivePanel] = React.useState('scenarios') // 'scenarios' | 'quiz' | 'dragdrop'
   const [sidebarModalProduct, setSidebarModalProduct] = React.useState(null)
 
   const hasOrphans = orphanedProductIds.size > 0
 
   const activeShelfProducts = activeShelfId ? getProductsByShelf(activeShelfId) : []
+  const allSelectedProducts = allProducts.filter((p) => selectedShelfIds.includes(p.category))
+  const dragDropQuestions = state.quizQuestions.filter((q) => q.type === 'dragdrop')
 
   function addScenario() {
     const scenario = {
@@ -33,10 +36,10 @@ export function Step2_Authoring() {
   }
 
   const shelfScenarios = scenarios.filter((s) => s.shelfId === activeShelfId)
-  const shelfQuizCount = quizQuestions.filter((q) => q.shelfId === activeShelfId).length
+  const shelfQuizCount = quizQuestions.filter((q) => q.shelfId === activeShelfId && q.type !== 'dragdrop').length
 
   return (
-    <div style={{ minHeight: '100vh', background: '#F8EFE0', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ height: '100vh', overflow: 'hidden', background: '#F8EFE0', display: 'flex', flexDirection: 'column' }}>
       {/* Header */}
       <div style={{ background: '#140F50', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
         <button
@@ -76,7 +79,7 @@ export function Step2_Authoring() {
         >
           {/* Shelf list */}
           <div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: 'rgba(20,15,80,0.4)', textTransform: 'uppercase', letterSpacing: '0.06em', margin: 0, padding: '10px 14px 6px' }}>
+            <p style={{ fontSize: 12, fontWeight: 800, color: 'rgba(20,15,80,0.55)', textTransform: 'uppercase', letterSpacing: '0.08em', margin: 0, padding: '12px 14px 6px' }}>
               Choose a Shelf
             </p>
             {activeShelvesData.map((shelf) => {
@@ -111,9 +114,9 @@ export function Step2_Authoring() {
           {activeShelfProducts.length > 0 && (
             <div style={{ borderTop: '1.5px solid rgba(20,15,80,0.08)', paddingTop: 4, flex: 1, overflowY: 'auto' }}>
               <p style={{
-                fontSize: 10, fontWeight: 700, color: 'rgba(20,15,80,0.4)',
-                textTransform: 'uppercase', letterSpacing: '0.06em',
-                margin: 0, padding: '8px 14px 6px',
+                fontSize: 12, fontWeight: 800, color: 'rgba(20,15,80,0.55)',
+                textTransform: 'uppercase', letterSpacing: '0.08em',
+                margin: 0, padding: '10px 14px 6px',
               }}>
                 Products ({activeShelfProducts.length})
               </p>
@@ -160,23 +163,22 @@ export function Step2_Authoring() {
             <>
               {/* Panel switcher */}
               <div style={{ display: 'flex', gap: 0, marginBottom: 20, background: '#FFFFFF', borderRadius: 10, padding: 4, width: 'fit-content', border: '1.5px solid rgba(20,15,80,0.1)' }}>
-                {['scenarios', 'quiz'].map((panel) => (
+                {[
+                  { id: 'scenarios', label: `🧑‍⚕️ Scenarios (${shelfScenarios.length})` },
+                  { id: 'quiz', label: `📝 Quiz (${shelfQuizCount})` },
+                  { id: 'dragdrop', label: `🎯 Drag & Drop (${dragDropQuestions.length})` },
+                ].map(({ id, label }) => (
                   <button
-                    key={panel}
-                    onClick={() => setActivePanel(panel)}
+                    key={id}
+                    onClick={() => setActivePanel(id)}
                     style={{
-                      padding: '7px 18px',
-                      borderRadius: 7,
-                      border: 'none',
-                      background: activePanel === panel ? '#1448FF' : 'transparent',
-                      color: activePanel === panel ? '#FFFFFF' : 'rgba(20,15,80,0.6)',
-                      fontWeight: 600,
-                      fontSize: 13,
-                      cursor: 'pointer',
-                      textTransform: 'capitalize',
+                      padding: '7px 18px', borderRadius: 7, border: 'none',
+                      background: activePanel === id ? '#1448FF' : 'transparent',
+                      color: activePanel === id ? '#FFFFFF' : 'rgba(20,15,80,0.6)',
+                      fontWeight: 600, fontSize: 13, cursor: 'pointer',
                     }}
                   >
-                    {panel === 'scenarios' ? `🧑‍⚕️ Scenarios (${shelfScenarios.length})` : `📝 Quiz (${shelfQuizCount})`}
+                    {label}
                   </button>
                 ))}
               </div>
@@ -217,6 +219,49 @@ export function Step2_Authoring() {
               {/* Quiz panel */}
               {activePanel === 'quiz' && (
                 <QuizEditor shelfId={activeShelfId} />
+              )}
+
+              {/* Drag & Drop panel — global, not per-shelf */}
+              {activePanel === 'dragdrop' && (
+                <div>
+                  <p style={{ fontSize: 13, color: 'rgba(20,15,80,0.5)', margin: '0 0 12px' }}>
+                    Drag & Drop questions use products from <strong>all selected shelves</strong>.
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 12 }}>
+                    {dragDropQuestions.map((q) => (
+                      <DragDropEditor
+                        key={q.id}
+                        question={q}
+                        allProducts={allSelectedProducts}
+                        onUpdate={(updates) => dispatch({ type: 'UPDATE_QUIZ_QUESTION', id: q.id, updates })}
+                        onDelete={() => {
+                          if (window.confirm('Delete this Drag & Drop question?')) {
+                            dispatch({ type: 'DELETE_QUIZ_QUESTION', id: q.id })
+                          }
+                        }}
+                      />
+                    ))}
+                  </div>
+                  {dragDropQuestions.length === 0 && (
+                    <p style={{ color: 'rgba(20,15,80,0.4)', fontSize: 13, margin: '0 0 12px' }}>No Drag & Drop questions yet.</p>
+                  )}
+                  <button
+                    onClick={() => {
+                      const id = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+                      dispatch({
+                        type: 'ADD_QUIZ_QUESTION',
+                        question: { id, type: 'dragdrop', shelfId: null, instruction: '', categories: [], productAssignments: [], explanation: '' },
+                      })
+                    }}
+                    style={{
+                      padding: '8px 18px', borderRadius: 8,
+                      background: 'rgba(230,126,34,0.08)', border: '1.5px dashed rgba(230,126,34,0.4)',
+                      color: '#E67E22', fontWeight: 600, fontSize: 13, cursor: 'pointer',
+                    }}
+                  >
+                    + Add Drag & Drop Question
+                  </button>
+                </div>
               )}
             </>
           )}

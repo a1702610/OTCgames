@@ -18,7 +18,9 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
 
   function toggleProductTier(productId, tier) {
     if (tier === 'best') {
-      onUpdate({ bestChoiceProductId: productId === scenario.bestChoiceProductId ? null : productId })
+      const current = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
+      const isAlready = current.includes(productId)
+      onUpdate({ bestChoiceProductIds: isAlready ? current.filter((id) => id !== productId) : [...current, productId], bestChoiceProductId: null })
     } else if (tier === 'acceptable') {
       const current = scenario.acceptableProductIds || []
       const isAlready = current.includes(productId)
@@ -119,7 +121,8 @@ export function ScenarioEditor({ scenario, onUpdate, onDelete }) {
               Product Tiers — click image to zoom
             </p>
             {shelfProducts.map((product) => {
-              const isBest = scenario.bestChoiceProductId === product.id
+              const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
+              const isBest = bestIds.includes(product.id)
               const isAcceptable = scenario.acceptableProductIds?.includes(product.id)
               return (
                 <div

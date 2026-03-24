@@ -71,17 +71,20 @@ function listImages(p) {
 /** Decide which file maps to front/back/side */
 function classifyImages(imageFiles) {
   const map = {}
+  let plain = null
   for (const f of imageFiles) {
     const upper = f.toUpperCase()
     if (upper.includes(' FRONT')) { map.front = f; continue }
     if (upper.includes(' BACK'))  { map.back  = f; continue }
     if (upper.includes(' SIDE'))  { map.side  = f; continue }
-    // Plain file (no keyword) — treat as side if not already claimed
-    if (!map.side && !map._plain) map._plain = f
+    // Plain file (no keyword) — save for fallback
+    if (!plain) plain = f
   }
-  // Use plain as side fallback
-  if (!map.side && map._plain) map.side = map._plain
-  delete map._plain
+  // Use plain as front fallback first, then side fallback
+  if (plain) {
+    if (!map.front) map.front = plain
+    else if (!map.side) map.side = plain
+  }
   return map // { front?, back?, side? }
 }
 
@@ -191,6 +194,7 @@ function run() {
             brand:           '',
             category:        shelfId,
             imageFolderPath: relFolder,
+            sides:           Object.keys(classified),
             bgColor:         meta.color,
             color:           '#FFFFFF',
           })
@@ -237,6 +241,7 @@ function run() {
           brand:           '',
           category:        catId,
           imageFolderPath: relFolder,
+          sides:           Object.keys(classified),
           bgColor:         meta.color,
           color:           '#FFFFFF',
         })

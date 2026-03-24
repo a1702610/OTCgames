@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { ImageWithFallback } from '../utils/imageUtils.jsx'
 
-const SIDES = ['front', 'back', 'side']
+const SIDES_ALL = ['front', 'back', 'side']
 
 export function ProductModal({ product, onClose }) {
   const [sideIndex, setSideIndex] = React.useState(0)
@@ -12,6 +12,8 @@ export function ProductModal({ product, onClose }) {
   React.useEffect(() => {
     setSideIndex(0)
   }, [product?.id])
+
+  const availableSides = product?.sides?.length > 0 ? product.sides : SIDES_ALL
 
   // Close on Escape key
   React.useEffect(() => {
@@ -23,7 +25,7 @@ export function ProductModal({ product, onClose }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [product, onClose])
 
-  const side = SIDES[sideIndex]
+  const side = availableSides[sideIndex]
 
   return (
     <AnimatePresence>
@@ -92,14 +94,16 @@ export function ProductModal({ product, onClose }) {
 
             {/* Side navigation */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginTop: 16 }}>
-              <button
-                onClick={() => setSideIndex((i) => (i - 1 + 3) % 3)}
-                aria-label="Previous image"
-                style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                <ChevronLeft size={22} />
-              </button>
-              {SIDES.map((s, i) => (
+              {availableSides.length > 1 && (
+                <button
+                  onClick={() => setSideIndex((i) => (i - 1 + availableSides.length) % availableSides.length)}
+                  aria-label="Previous image"
+                  style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <ChevronLeft size={22} />
+                </button>
+              )}
+              {availableSides.map((s, i) => (
                 <button
                   key={s}
                   onClick={() => setSideIndex(i)}
@@ -107,18 +111,20 @@ export function ProductModal({ product, onClose }) {
                   style={{
                     width: 10, height: 10, borderRadius: 5,
                     background: i === sideIndex ? '#1448FF' : '#BDC3C7',
-                    border: 'none', cursor: 'pointer', padding: 0,
+                    border: 'none', cursor: availableSides.length > 1 ? 'pointer' : 'default', padding: 0,
                     transition: 'background 0.2s',
                   }}
                 />
               ))}
-              <button
-                onClick={() => setSideIndex((i) => (i + 1) % 3)}
-                aria-label="Next image"
-                style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                <ChevronRight size={22} />
-              </button>
+              {availableSides.length > 1 && (
+                <button
+                  onClick={() => setSideIndex((i) => (i + 1) % availableSides.length)}
+                  aria-label="Next image"
+                  style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <ChevronRight size={22} />
+                </button>
+              )}
             </div>
 
             {/* Product info */}

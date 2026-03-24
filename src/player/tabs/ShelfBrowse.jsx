@@ -10,7 +10,7 @@ export function ShelfBrowse() {
   const { shelves, products } = moduleData
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 16, alignItems: 'flex-start' }}>
       {shelves.map((shelf) => {
         const shelfProducts = products.filter((p) => p.category === shelf.id)
         return (

@@ -173,6 +173,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Betadine",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -182,6 +187,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Demazin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -191,6 +201,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Difflam antiinflammatory",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -200,6 +215,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Difflam-C",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -209,6 +229,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss chesty",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -218,6 +243,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss chesty DS",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -227,6 +257,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss chesty and nasal decon",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -236,6 +271,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss dry and nasal decon",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -245,6 +285,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss dry forte",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -254,6 +299,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Duro-tuss dry regular",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -263,6 +313,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/FESS children",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -272,6 +327,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/FESS little noses",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -281,6 +341,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/FESS original",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -290,6 +355,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/FESS sinu-cleanse hypertonic",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -299,6 +369,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Nurofen",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -308,6 +383,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Otrivin adult",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -317,6 +397,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Otrivin junior",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -326,6 +411,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Otrivin plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -335,6 +425,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepfen intensive",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -344,6 +439,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepfen spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -353,6 +453,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepsils PLUS",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -362,6 +467,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepsils children",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -371,6 +481,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepsils dual action",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -380,6 +495,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepsils regular",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -389,6 +509,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Strepsils spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -398,6 +523,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Sudafed PE",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -407,6 +537,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Sudafed sinus and anti-inflammatory",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -416,6 +551,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/Vapodrops",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -425,6 +565,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Benadryl chesty and nasal",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -434,6 +579,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Benadryl chesty forte",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -443,6 +593,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Benadryl childrens",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -452,6 +607,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Benadryl dry and nasal",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -461,6 +621,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Bisolvon chesty forte liquid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -470,6 +635,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Bisolvon chesty forte tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -479,6 +649,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Bisolvon chesty kids",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -488,6 +663,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Bisolvon dry",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -497,6 +677,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Codral cold flu cough day night",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -506,6 +691,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Codral cold flu day night",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -515,6 +705,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Codral cold flu night",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -524,6 +719,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Demazin 6 - adult",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -533,6 +733,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Demazin kids cold flu",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -542,6 +747,11 @@ export const products = [
     "brand": "",
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Demazin kids cough relief",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#4A90D9",
     "color": "#FFFFFF"
   },
@@ -551,6 +761,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Aqua Ear",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -560,6 +775,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Auralgan",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -569,6 +789,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Cerumol",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -578,6 +803,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Difflam",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -587,6 +817,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Nasalate",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -596,6 +831,11 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/SM33",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -605,6 +845,9 @@ export const products = [
     "brand": "",
     "category": "ent",
     "imageFolderPath": "medications/ENT/Waxsol",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#9B59B6",
     "color": "#FFFFFF"
   },
@@ -614,6 +857,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Albalon",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -623,6 +871,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Albalon-A",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -632,6 +885,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Cellufresh",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -641,6 +899,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Cromo-fresh",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -650,6 +913,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Hylo-Forte",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -659,6 +927,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Hylo-Fresh",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -668,6 +941,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Livostin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -677,6 +955,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Murine",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -686,6 +969,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Naphcon-A",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -695,6 +983,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Optive",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -704,6 +997,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Poly Gel",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -713,6 +1011,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Poly Visc",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -722,6 +1025,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Poly-Tears",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -731,6 +1039,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Refresh Tears Plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -740,6 +1053,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Systane",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -749,6 +1067,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Visine advanced",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -758,6 +1081,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Visine allergy",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -767,6 +1095,10 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Visine clear",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -776,6 +1108,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Zaditen",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -785,6 +1122,11 @@ export const products = [
     "brand": "",
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Zyrtec",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#1ABC9C",
     "color": "#FFFFFF"
   },
@@ -794,6 +1136,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Gaviscon Dual action liquid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -803,6 +1150,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Gaviscon Infant",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -812,6 +1164,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Gaviscon dual action tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -821,6 +1178,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Gaviscon liquid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -830,6 +1192,10 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Mylanta2go",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -839,6 +1205,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Mylanta2go DS",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -848,6 +1219,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Nexium",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -857,6 +1233,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Somac",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -866,6 +1247,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Actilax",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -875,6 +1261,9 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Agarol",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -884,6 +1273,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Benefiber",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -893,6 +1287,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Coloxyl 120",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -902,6 +1301,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Coloxyl 50",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -911,6 +1315,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Coloxyl Senna",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -920,6 +1329,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Coloxyl infant",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -929,6 +1343,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Glycerol supp adults",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -938,6 +1357,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Glycerol supp children",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -947,6 +1371,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Little parachoc",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -956,6 +1385,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Metamucil",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -965,6 +1399,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Microlax",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -974,6 +1413,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Movicol",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -983,6 +1427,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Movicol infant",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -992,6 +1441,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Nulax",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1001,6 +1455,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Anusol ointment",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1010,6 +1469,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Anusol supp",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1019,6 +1483,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Buscopan",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1028,6 +1497,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Buscopan Forte",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1037,6 +1511,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Charcotabs",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1046,6 +1525,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Combantrin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1055,6 +1539,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Combantrin 1",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1064,6 +1553,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Combantrin 1 tab",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1073,6 +1567,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/De-gas",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1082,6 +1581,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Gastro-stop",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1091,6 +1595,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Gastro-stop plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1100,6 +1609,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Hydralyte eff",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1109,6 +1623,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Hydralyte ice",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1118,6 +1637,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Hydralyte oral solution",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1127,6 +1651,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Hydralyte powder",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1136,6 +1665,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Kwells",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1145,6 +1679,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Kwells kids",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1154,6 +1693,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Proctosedyl",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1163,6 +1707,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Rectinol",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1172,6 +1721,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Soov",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1181,6 +1735,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Travacalm Natural",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1190,6 +1749,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Travacalm original",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1199,6 +1763,11 @@ export const products = [
     "brand": "",
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Vermox",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E67E22",
     "color": "#FFFFFF"
   },
@@ -1208,6 +1777,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Aerius",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1217,6 +1791,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Albalon",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1226,6 +1805,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Albalon-A",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1235,6 +1819,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Azep",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1244,6 +1833,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Beconase",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1253,6 +1847,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Claratyne childrens syrup",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1262,6 +1861,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Claratyne childrens tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1271,6 +1875,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Claratyne tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1280,6 +1889,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Cromo-fresh",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1289,6 +1903,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Flixonase",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1298,6 +1917,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Livostin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1307,6 +1931,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Nasonex",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1316,6 +1945,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Rhinocort",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1325,6 +1959,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Telfast 120mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1334,6 +1973,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Telfast 180mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1343,6 +1987,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Telfast 60mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1352,6 +2001,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Visine allergy",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1361,6 +2015,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Zaditen",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1370,6 +2029,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Zyrtec eye drops",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1379,6 +2043,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Zyrtec nasal spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1388,6 +2057,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Zyrtec syrup",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1397,6 +2071,11 @@ export const products = [
     "brand": "",
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Zyrtec tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#27AE60",
     "color": "#FFFFFF"
   },
@@ -1406,6 +2085,10 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Aspro clear 16",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1415,6 +2098,10 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Aspro clear 60",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1424,6 +2111,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Aspro clear extra stregnth",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1433,6 +2123,11 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Aspro tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1442,6 +2137,11 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Astrix",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1451,6 +2151,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Deep Heat",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1460,6 +2163,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Dencorub ES",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1469,6 +2175,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Dencorub RS",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1478,6 +2187,10 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Naprogesic",
+    "sides": [
+      "front",
+      "side"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1487,6 +2200,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Voltaren",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1496,6 +2212,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Voltaren emulgel",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1505,6 +2224,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Voltaren osteogel",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1514,6 +2236,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Advil children",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1523,6 +2248,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Advil infant",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1532,6 +2260,10 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Advil liquid capsules",
+    "sides": [
+      "front",
+      "side"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1541,6 +2273,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Advil rapid release",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1550,6 +2285,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Dymadon",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1559,6 +2297,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Nurofen",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1568,6 +2309,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Nurofen Baby",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1577,6 +2321,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Nurofen children 1 - 5",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1586,6 +2333,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Nurofen children 5 - 12",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1595,6 +2345,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol 5 - 12",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1604,6 +2357,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol chewable",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1613,6 +2369,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol childrens 1 - 5",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1622,6 +2381,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol childrens 1 month - 1 yr",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1631,6 +2393,10 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol rapid",
+    "sides": [
+      "front",
+      "side"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1640,6 +2406,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panadol supp",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1649,6 +2418,9 @@ export const products = [
     "brand": "",
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Panamax",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#E74C3C",
     "color": "#FFFFFF"
   },
@@ -1658,6 +2430,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Anagraine",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1667,6 +2444,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Bricanyl",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1676,6 +2458,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Epipen",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1685,6 +2472,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Epipen Jnr",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1694,6 +2486,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/GTN spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1703,6 +2500,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Glycoprep",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1712,6 +2514,9 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Imigran",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1721,6 +2526,9 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Imigran FDT",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1730,6 +2538,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Lomotil",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1739,6 +2552,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Nyxoid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1748,6 +2566,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Picoprep",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1757,6 +2580,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Rectogesic",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1766,6 +2594,10 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Ventolin",
+    "sides": [
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1775,6 +2607,11 @@ export const products = [
     "brand": "",
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Xenical",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1784,6 +2621,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Advil 600mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1793,6 +2635,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Allerelief",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1802,6 +2649,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Benadryl",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1811,6 +2663,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Children's Paedamin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1820,6 +2677,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Codral Cold Flu Cough",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1829,6 +2691,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Demazin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1838,6 +2705,10 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Diclofenac 25",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1847,6 +2718,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Maxigesic",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1856,6 +2732,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Nuromol",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1865,6 +2746,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Panadol osteo",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1874,6 +2760,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Phenergan",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1883,6 +2774,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Polaramine syrup",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1892,6 +2788,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Polaramine tablets",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1901,6 +2802,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Restavit",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1910,6 +2816,11 @@ export const products = [
     "brand": "",
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Voltarin rapid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1919,6 +2830,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan 1 day cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1928,6 +2844,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan 1 day pessary",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1937,6 +2858,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan 3 day cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1946,6 +2872,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan 6 day cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1955,6 +2886,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan 6 day pessary",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1964,6 +2900,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Canestan Duo",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1973,6 +2914,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Diflucan ONE",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1982,6 +2928,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/EllaOne",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -1991,6 +2942,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Fluerstat",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2000,6 +2956,11 @@ export const products = [
     "brand": "",
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Postrelle",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2009,6 +2970,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Canestan Plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2018,6 +2984,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Chlorsig oint",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2027,6 +2998,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Cortic DS cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2036,6 +3012,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Cortic DS oint",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2045,6 +3026,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Daktarin oral gel",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2054,6 +3040,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Dermaid spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2063,6 +3054,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Famvir",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2072,6 +3068,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Hydrozole",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2081,6 +3082,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Kenalog",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2090,6 +3096,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Kloxema",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2099,6 +3110,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Nilstat",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2108,6 +3124,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Nilstat vag",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2117,6 +3138,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Resolve plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2126,6 +3152,11 @@ export const products = [
     "brand": "",
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Zatamil",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2135,6 +3166,9 @@ export const products = [
     "brand": "",
     "category": "s3-e",
     "imageFolderPath": "medications/S3 shelves/S3 - e/Chlorsig drops",
+    "sides": [
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2144,6 +3178,10 @@ export const products = [
     "brand": "",
     "category": "s3-e",
     "imageFolderPath": "medications/S3 shelves/S3 - e/Eletriptan",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2153,6 +3191,10 @@ export const products = [
     "brand": "",
     "category": "s3-e",
     "imageFolderPath": "medications/S3 shelves/S3 - e/Pantoprazole",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2162,6 +3204,10 @@ export const products = [
     "brand": "",
     "category": "s3-e",
     "imageFolderPath": "medications/S3 shelves/S3 - e/Rabeprazole",
+    "sides": [
+      "back",
+      "front"
+    ],
     "bgColor": "#2C3E50",
     "color": "#FFFFFF"
   },
@@ -2171,6 +3217,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Canesten cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2180,6 +3231,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Canesten fungal nail treatment set",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2189,6 +3245,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Canesten once daily body cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2198,6 +3259,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Canesten once daily foot cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2207,6 +3273,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Canesten topical solution",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2216,6 +3287,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Daktarin cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2225,6 +3301,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Daktarin powder",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2234,6 +3315,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Daktarin spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2243,6 +3329,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Daktarin tincture nail",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2252,6 +3343,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Daktozin",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2261,6 +3357,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Dermaid",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2270,6 +3371,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Lamisil cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2279,6 +3385,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Lamisil spray",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2288,6 +3399,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Loceryl",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2297,6 +3413,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Nizoral 1% anti-dandruff",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2306,6 +3427,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Nizoral 2% anti-dandruff",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2315,6 +3441,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Nizoral cream",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2324,6 +3455,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Rejuvenail",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2333,6 +3469,11 @@ export const products = [
     "brand": "",
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Resolve Plus",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2342,6 +3483,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Banlice",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2351,6 +3497,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Benzac AC wash",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2360,6 +3511,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Benzac Kit",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2369,6 +3525,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Benzac high-strength gel",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2378,6 +3539,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Duofilm",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2387,6 +3553,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Emla",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2396,6 +3567,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/KP24",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2405,6 +3581,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Lyclear",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2414,6 +3595,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Soov",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2423,6 +3609,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Wart-off freeze",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2432,6 +3623,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Wart-off paint",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2441,6 +3637,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Wart-off stick",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2450,6 +3651,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Wartie",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2459,6 +3665,11 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Zovirax",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2468,6 +3679,10 @@ export const products = [
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/pHisohex",
+    "sides": [
+      "front",
+      "side"
+    ],
     "bgColor": "#F39C12",
     "color": "#FFFFFF"
   },
@@ -2477,6 +3692,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette 2mg Gum",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2486,6 +3706,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette 2mg Lozenge",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2495,6 +3720,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette 4mg Gum",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2504,6 +3734,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette Invisipatch 10mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2513,6 +3748,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette Invisipatch 15mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2522,6 +3762,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette Invisipatch 25mg",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2531,6 +3776,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette Quickmist",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2540,6 +3790,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicorette inhalator",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2549,6 +3804,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicotinell 2mg Lozenges",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2558,6 +3818,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicotinell step 1 patch",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2567,6 +3832,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicotinell step 2 patch",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   },
@@ -2576,6 +3846,11 @@ export const products = [
     "brand": "",
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Nicotinell step 3 patch",
+    "sides": [
+      "back",
+      "front",
+      "side"
+    ],
     "bgColor": "#8E44AD",
     "color": "#FFFFFF"
   }

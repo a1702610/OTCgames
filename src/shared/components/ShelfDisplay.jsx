@@ -26,56 +26,47 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
   const rows = chunk(products, PRODUCTS_PER_ROW)
 
   return (
-    <div>
+    <div style={{ width: 520, flexShrink: 0 }}>
       {/* Shelf header */}
       <div
         style={{
           background: `linear-gradient(135deg, ${shelf.color}dd 0%, ${shelf.color}99 100%)`,
           borderRadius: '14px 14px 0 0',
-          padding: '10px 18px',
+          padding: '10px 16px',
           display: 'flex',
           alignItems: 'center',
           gap: 8,
         }}
       >
         <span style={{ fontSize: 22 }}>{shelf.emoji}</span>
-        <span style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 16 }}>
-          {shelf.label}
-          {shelf.shelfNumber > 1 && ` (${shelf.shelfNumber})`}
-        </span>
-        <span style={{ marginLeft: 'auto', fontSize: 12, color: 'rgba(255,255,255,0.8)' }}>
-          {products.length} products
-        </span>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {shelf.label}{shelf.shelfNumber > 1 && ` (${shelf.shelfNumber})`}
+          </div>
+          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.75)' }}>{products.length} products</div>
+        </div>
       </div>
 
       {/* Shelf unit — dark pharmacy look */}
       <div
         style={{
           background: 'linear-gradient(180deg, #1a1560 0%, #0e0b3d 100%)',
-          borderRadius: '0 0 14px 14px',
-          padding: '12px 12px 4px',
+          borderRadius: '0 0 12px 12px',
+          padding: '10px 8px 4px',
           minHeight: 80,
           border: `2px solid ${shelf.color}44`,
           borderTop: 'none',
         }}
       >
         {products.length === 0 ? (
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, margin: '8px 0', textAlign: 'center' }}>
-            No products on this shelf.
+          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, margin: '8px 0', textAlign: 'center' }}>
+            Empty shelf.
           </p>
         ) : (
           rows.map((rowProducts, rowIndex) => (
             <div key={rowIndex}>
               {/* Product row */}
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 10,
-                  padding: '10px 8px 0',
-                  flexWrap: 'nowrap',
-                  overflowX: 'auto',
-                }}
-              >
+              <div style={{ display: 'flex', gap: 6, padding: '6px 4px 0', justifyContent: 'flex-start' }}>
                 {rowProducts.map((product) => {
                   const isDragging = dragState?.draggingId === product.id
                   const isSelected = mode === 'select' && selectedProductId === product.id
@@ -91,7 +82,7 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
                         whileHover={{ scale: 1.05, y: -4 }}
                         whileTap={{ scale: 0.97 }}
                       >
-                        <ProductCard product={product} size="sm" />
+                        <ProductCard product={product} size="md" />
                       </motion.div>
                     )
                   }
@@ -113,8 +104,8 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
               {/* Shelf plank */}
               <div
                 style={{
-                  height: 14,
-                  margin: '6px 0 2px',
+                  height: 12,
+                  margin: '5px 0 2px',
                   background: 'linear-gradient(180deg, #e8d8a8 0%, #c9ab5a 45%, #8b6914 100%)',
                   borderRadius: 3,
                   boxShadow: '0 4px 10px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.25)',

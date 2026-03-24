@@ -17,7 +17,7 @@ export function Quiz() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const questions = React.useMemo(() => shuffle(allQuestions), [restartKey])
   const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [answers, setAnswers] = React.useState({}) // { [questionId]: answeredState }
+  const [answers, setAnswers] = React.useState({})
   const [completed, setCompleted] = React.useState(false)
 
   if (allQuestions.length === 0) {
@@ -46,9 +46,9 @@ export function Quiz() {
   const question = questions[currentIndex]
   const answered = answers[question.id]
 
-  // Find shelf data
-  const shelf = moduleData.shelves.find((s) => s.id === question.shelfId)
-  const shelfProducts = moduleData.products.filter((p) => p.category === question.shelfId)
+  // Find shelf data (dragdrop may have no shelfId)
+  const shelf = question.shelfId ? moduleData.shelves.find((s) => s.id === question.shelfId) : null
+  const shelfProducts = question.shelfId ? moduleData.products.filter((p) => p.category === question.shelfId) : []
 
   function handleAnswer(result) {
     if (result.delta > 0) addScore(result.delta)
@@ -63,6 +63,8 @@ export function Quiz() {
       setCurrentIndex(next)
     }
   }
+
+  const isDragDrop = question.type === 'dragdrop'
 
   return (
     <div>
@@ -79,40 +81,35 @@ export function Quiz() {
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.25 }}
         >
-          {/* Question card */}
+          {/* Question card — full-bleed for drag-drop */}
           <div
             style={{
               background: '#FFFFFF',
               borderRadius: 16,
-              padding: 20,
+              padding: isDragDrop ? 0 : 20,
               boxShadow: '0 2px 12px rgba(20,15,80,0.1)',
               marginBottom: 12,
+              overflow: isDragDrop ? 'hidden' : undefined,
             }}
           >
-            {/* Shelf chip */}
-            {shelf && (
+            {/* Shelf chip (non-dragdrop only) */}
+            {!isDragDrop && shelf && (
               <span
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 4,
-                  background: `${shelf.color}22`,
-                  color: shelf.color,
-                  borderRadius: 20,
-                  padding: '2px 10px',
-                  fontSize: 11,
-                  fontWeight: 600,
-                  marginBottom: 12,
+                  display: 'inline-flex', alignItems: 'center', gap: 4,
+                  background: `${shelf.color}22`, color: shelf.color,
+                  borderRadius: 20, padding: '2px 10px',
+                  fontSize: 11, fontWeight: 600, marginBottom: 12,
                 }}
               >
                 {shelf.emoji} {shelf.label}
               </span>
             )}
 
-            {question.type === 'dragdrop' ? (
+            {isDragDrop ? (
               <DragDropQuestion
                 question={question}
-                products={moduleData.products.filter((p) => p.category === question.shelfId)}
+                products={moduleData.products}
                 onSubmit={answered ? undefined : handleAnswer}
                 submitted={answered}
               />
@@ -131,34 +128,31 @@ export function Quiz() {
             )}
           </div>
 
-          {/* Shelf reference */}
-          {shelf && shelfProducts.length > 0 && (
-            <div style={{ marginTop: 16 }}>
-              <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(20,15,80,0.5)', margin: '0 0 8px' }}>
-                Shelf reference — click any product to zoom
-              </p>
-              <ShelfDisplay shelf={shelf} products={shelfProducts} mode="browse" />
-            </div>
-          )}
-
-          {/* Next button */}
+          {/* Next button — right after question, before shelf reference */}
           {answered && (
-            <div style={{ textAlign: 'right' }}>
+            <div style={{ textAlign: 'right', marginBottom: 16 }}>
               <button
                 onClick={handleNext}
                 style={{
-                  background: '#836BFF',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: 10,
-                  padding: '10px 24px',
-                  fontWeight: 700,
-                  fontSize: 14,
-                  cursor: 'pointer',
+                  background: '#836BFF', color: '#FFFFFF', border: 'none',
+                  borderRadius: 10, padding: '10px 24px',
+                  fontWeight: 700, fontSize: 14, cursor: 'pointer',
                 }}
               >
                 {currentIndex + 1 >= questions.length ? 'Finish' : 'Next →'}
               </button>
+            </div>
+          )}
+
+          {/* Shelf reference — only for non-dragdrop questions */}
+          {!isDragDrop && shelf && shelfProducts.length > 0 && (
+            <div style={{ marginTop: 4 }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(20,15,80,0.5)', margin: '0 0 8px' }}>
+                Shelf reference — click any product to zoom
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 8, alignItems: 'flex-start' }}>
+                <ShelfDisplay shelf={shelf} products={shelfProducts} mode="browse" />
+              </div>
             </div>
           )}
         </motion.div>
@@ -173,25 +167,16 @@ function QuizCompletionScreen({ result, onRestart }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       style={{
-        textAlign: 'center',
-        padding: 32,
-        background: '#FFFFFF',
-        borderRadius: 20,
-        boxShadow: '0 4px 24px rgba(20,15,80,0.12)',
+        textAlign: 'center', padding: 32, background: '#FFFFFF',
+        borderRadius: 20, boxShadow: '0 4px 24px rgba(20,15,80,0.12)',
       }}
     >
       <div style={{ fontSize: 48, marginBottom: 12 }}>📝</div>
       <h2 style={{ color: '#140F50', margin: '0 0 8px' }}>Quiz Complete!</h2>
       <div
         style={{
-          display: 'inline-block',
-          background: result.grade.color,
-          color: '#FFFFFF',
-          borderRadius: 12,
-          padding: '6px 20px',
-          fontWeight: 700,
-          fontSize: 18,
-          marginBottom: 12,
+          display: 'inline-block', background: result.grade.color, color: '#FFFFFF',
+          borderRadius: 12, padding: '6px 20px', fontWeight: 700, fontSize: 18, marginBottom: 12,
         }}
       >
         {result.grade.label} ({result.grade.code})
@@ -202,13 +187,8 @@ function QuizCompletionScreen({ result, onRestart }) {
       <button
         onClick={onRestart}
         style={{
-          background: '#140F50',
-          color: '#FFFFFF',
-          border: 'none',
-          borderRadius: 10,
-          padding: '10px 24px',
-          fontWeight: 700,
-          cursor: 'pointer',
+          background: '#140F50', color: '#FFFFFF', border: 'none',
+          borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
         }}
       >
         Try Again

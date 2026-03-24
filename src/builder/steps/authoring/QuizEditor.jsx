@@ -3,14 +3,14 @@ import { Plus, ChevronDown } from 'lucide-react'
 import { useBuilder } from '../../BuilderContext.jsx'
 import { MCQEditor } from './MCQEditor.jsx'
 import { TrueFalseEditor } from './TrueFalseEditor.jsx'
-import { DragDropEditor } from './DragDropEditor.jsx'
 import { FillInBlanksEditor } from './FillInBlanksEditor.jsx'
 
 export function QuizEditor({ shelfId }) {
   const { state, dispatch, generateId } = useBuilder()
   const [addMenuOpen, setAddMenuOpen] = React.useState(false)
 
-  const shelfQuestions = state.quizQuestions.filter((q) => q.shelfId === shelfId)
+  // Only non-dragdrop questions for this shelf
+  const shelfQuestions = state.quizQuestions.filter((q) => q.shelfId === shelfId && q.type !== 'dragdrop')
 
   function addQuestion(type) {
     setAddMenuOpen(false)
@@ -50,7 +50,6 @@ export function QuizEditor({ shelfId }) {
           }
           if (q.type === 'mcq') return <MCQEditor {...props} />
           if (q.type === 'truefalse') return <TrueFalseEditor {...props} />
-          if (q.type === 'dragdrop') return <DragDropEditor {...props} />
           if (q.type === 'fillinblanks') return <FillInBlanksEditor {...props} />
           return null
         })}
@@ -84,7 +83,6 @@ export function QuizEditor({ shelfId }) {
             {[
               { type: 'mcq', label: 'Multiple Choice', color: '#1448FF' },
               { type: 'truefalse', label: 'True / False', color: '#836BFF' },
-              { type: 'dragdrop', label: 'Drag & Drop', color: '#E67E22' },
               { type: 'fillinblanks', label: 'Fill in the Blanks', color: '#27AE60' },
             ].map((opt) => (
               <button

@@ -1,24 +1,48 @@
 import React from 'react'
 import { Trash2 } from 'lucide-react'
 
-// Counts how many _____ markers are in a sentence
+// Counts how many _ markers are in a sentence
 function countBlanks(sentence) {
-  return (sentence.match(/_____/g) || []).length
+  return (sentence.match(/(?<![_])_(?![_])/g) || []).length || (sentence.match(/_/g) || []).length - ((sentence.match(/__/g) || []).length * 2)
+}
+
+// Simpler approach: split on single _ only
+function countBlankMarkers(sentence) {
+  return (sentence.split('_').length - 1)
+}
+
+// Local-state input to avoid comma-separator cursor issues
+function BlankAnswerInput({ initialAnswers, onCommit, label }) {
+  const [text, setText] = React.useState(() => (initialAnswers || []).join(', '))
+  return (
+    <div style={{ marginBottom: 12 }}>
+      <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 5 }}>
+        {label} <span style={{ fontWeight: 400, color: 'rgba(20,15,80,0.4)' }}>(comma-separated, case-insensitive)</span>
+      </label>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onBlur={() => onCommit(text.split(',').map((a) => a.trim()).filter(Boolean))}
+        placeholder="e.g. NSAID, non-steroidal anti-inflammatory"
+        style={{ width: '100%', padding: '8px 12px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 14, boxSizing: 'border-box' }}
+      />
+    </div>
+  )
 }
 
 export function FillInBlanksEditor({ question, onUpdate, onDelete }) {
-  const blankCount = countBlanks(question.sentence || '')
+  const blankCount = (question.sentence || '').split('_').length - 1
   const blanks = question.blanks || []
 
   // Keep blanks array in sync with marker count
   function handleSentenceChange(sentence) {
-    const newCount = countBlanks(sentence)
+    const newCount = sentence.split('_').length - 1
     const newBlanks = Array.from({ length: newCount }, (_, i) => blanks[i] || { answers: [] })
     onUpdate({ sentence, blanks: newBlanks })
   }
 
-  function updateBlankAnswers(blankIndex, rawValue) {
-    const answers = rawValue.split(',').map((a) => a.trim()).filter(Boolean)
+  function updateBlankAnswers(blankIndex, answers) {
     const newBlanks = blanks.map((b, i) => (i === blankIndex ? { answers } : b))
     onUpdate({ blanks: newBlanks })
   }
@@ -34,33 +58,27 @@ export function FillInBlanksEditor({ question, onUpdate, onDelete }) {
 
       {/* Sentence */}
       <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 6 }}>
-        Sentence <span style={{ fontWeight: 400, color: 'rgba(20,15,80,0.4)' }}>(use _____ for each blank)</span>
+        Sentence <span style={{ fontWeight: 400, color: 'rgba(20,15,80,0.4)' }}>(use _ for each blank)</span>
       </label>
       <textarea
         value={question.sentence || ''}
         onChange={(e) => handleSentenceChange(e.target.value)}
-        placeholder="e.g. Aspirin belongs to the _____ drug class and is used for _____."
+        placeholder="e.g. Aspirin belongs to the _ drug class and is used for _."
         rows={3}
         style={{ width: '100%', padding: '10px 14px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.15)', fontSize: 15, resize: 'vertical', boxSizing: 'border-box', marginBottom: 4 }}
       />
       <p style={{ margin: '0 0 16px', fontSize: 12, color: 'rgba(20,15,80,0.4)' }}>
-        {blankCount === 0 ? 'No blanks detected — add _____ to create blanks.' : `${blankCount} blank${blankCount > 1 ? 's' : ''} detected`}
+        {blankCount === 0 ? 'No blanks detected — add _ to create blanks.' : `${blankCount} blank${blankCount > 1 ? 's' : ''} detected`}
       </p>
 
       {/* Accepted answers per blank */}
       {blanks.map((blank, i) => (
-        <div key={i} style={{ marginBottom: 12 }}>
-          <label style={{ fontSize: 13, fontWeight: 700, color: 'rgba(20,15,80,0.6)', display: 'block', marginBottom: 5 }}>
-            Blank {i + 1} — accepted answers <span style={{ fontWeight: 400, color: 'rgba(20,15,80,0.4)' }}>(comma-separated, case-insensitive)</span>
-          </label>
-          <input
-            type="text"
-            value={(blank.answers || []).join(', ')}
-            onChange={(e) => updateBlankAnswers(i, e.target.value)}
-            placeholder="e.g. NSAID, non-steroidal anti-inflammatory"
-            style={{ width: '100%', padding: '8px 12px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.12)', fontSize: 14, boxSizing: 'border-box' }}
-          />
-        </div>
+        <BlankAnswerInput
+          key={i}
+          initialAnswers={blank.answers}
+          label={`Blank ${i + 1} — accepted answers`}
+          onCommit={(answers) => updateBlankAnswers(i, answers)}
+        />
       ))}
 
       {/* Explanation */}
@@ -68,7 +86,7 @@ export function FillInBlanksEditor({ question, onUpdate, onDelete }) {
       <textarea
         value={question.explanation || ''}
         onChange={(e) => onUpdate({ explanation: e.target.value })}
-        placeholder="Explanation shown after answering…"
+        placeholder="Explanation shown after answering… (optional)"
         rows={3}
         style={{ width: '100%', padding: '10px 14px', borderRadius: 8, border: '1.5px solid rgba(20,15,80,0.15)', fontSize: 15, resize: 'vertical', boxSizing: 'border-box' }}
       />

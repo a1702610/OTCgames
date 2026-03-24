@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle, XCircle, Download, AlertTriangle } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { useBuilder } from '../BuilderContext.jsx'
 import { shelves as allShelves, products as allProducts } from '../../data/products.js'
 
@@ -29,11 +29,12 @@ function validateModule(state) {
 
   scenarios.forEach((s, i) => {
     const label = `Scenario ${i + 1}${s.patient?.name ? ` (${s.patient.name})` : ''}`
-    if (!s.bestChoiceProductId) errors.push(`${label}: no best choice product selected`)
+    const hasBest = s.bestChoiceProductIds?.length > 0 || !!s.bestChoiceProductId
+    if (!hasBest) errors.push(`${label}: no best choice product selected`)
     if (!s.patient?.description?.trim()) errors.push(`${label}: patient description is empty`)
-    if (!s.explanation?.trim()) errors.push(`${label}: explanation is empty`)
     if (s.followUpQuestion) {
-      if (s.followUpQuestion.options?.some((o) => !o.trim())) errors.push(`${label}: follow-up MCQ has empty options`)
+      const filledOpts = s.followUpQuestion.options?.filter((o) => o.trim()) || []
+      if (filledOpts.length < 2) errors.push(`${label}: follow-up MCQ needs at least 2 options`)
     }
   })
 
@@ -41,7 +42,8 @@ function validateModule(state) {
     const label = `Quiz question ${i + 1} (${q.type})`
     if (q.type === 'mcq') {
       if (!q.question?.trim()) errors.push(`${label}: question text empty`)
-      if (q.options?.some((o) => !o.trim())) errors.push(`${label}: has empty options`)
+      const filledOpts = q.options?.filter((o) => o.trim()) || []
+      if (filledOpts.length < 2) errors.push(`${label}: needs at least 2 filled options`)
     } else if (q.type === 'truefalse') {
       if (!q.statement?.trim()) errors.push(`${label}: statement is empty`)
     } else if (q.type === 'dragdrop') {
@@ -49,44 +51,64 @@ function validateModule(state) {
       const nonDistractors = q.productAssignments?.filter((a) => a.categoryId !== null) || []
       if (nonDistractors.length === 0) errors.push(`${label}: no products assigned to categories`)
     }
-    if (!q.explanation?.trim()) errors.push(`${label}: explanation is empty`)
   })
 
   return errors
 }
 
+const EXPORT_STEPS = [
+  { id: 'build',    label: 'Building app…'         },
+  { id: 'bundle',   label: 'Bundling module…'       },
+  { id: 'images',   label: 'Packaging images…'      },
+  { id: 'download', label: 'Preparing download…'    },
+]
+
 export function Step4_Export() {
   const { state, dispatch } = useBuilder()
-  const [exporting, setExporting] = React.useState(false)
-  const [success, setSuccess] = React.useState(null) // { imagesIncluded, imagesNotFound }
+  const [exportStep, setExportStep] = React.useState(null) // null | step id
+  const [success, setSuccess] = React.useState(null)
   const [exportError, setExportError] = React.useState(null)
 
   const isFileProtocol = window.location.protocol === 'file:'
   const validationErrors = validateModule(state)
   const canExport = validationErrors.length === 0 && !isFileProtocol
+  const isExporting = exportStep !== null
 
   async function handleExport() {
-    if (!canExport) return
-    setExporting(true)
+    if (!canExport || isExporting) return
     setExportError(null)
+
     try {
       const JSZip = (await import('jszip')).default
       const zip = new JSZip()
 
-      // 1. Add content.json
+      // Step 1 — Build (only needed in dev mode; in preview mode dist/ already exists)
+      setExportStep('build')
+      if (import.meta.env.DEV) {
+        const buildResp = await fetch('/api/build', { method: 'POST' })
+        if (!buildResp.ok) {
+          const data = await buildResp.json().catch(() => ({}))
+          throw new Error(`Build failed: ${data.error || buildResp.status}`)
+        }
+      }
+
+      // Step 2 — Bundle content + JS/CSS assets
+      setExportStep('bundle')
       const contentJson = buildContentJson(state)
       zip.file('content.json', JSON.stringify(contentJson, null, 2))
 
-      // 2. Fetch Player assets via Vite manifest
-      const manifestResp = await fetch('/.vite/manifest.json')
-      if (!manifestResp.ok) throw new Error('Could not load Vite manifest — run npm run build first, then npm run preview')
-      const manifest = await manifestResp.json()
+      let manifest
+      try {
+        const manifestResp = await fetch('/.vite/manifest.json')
+        if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
+        manifest = await manifestResp.json()
+      } catch {
+        throw new Error('Could not load Vite manifest after build — please try again.')
+      }
 
-      // Find the player entry (index.html) in the manifest
       const playerEntry = manifest['index.html']
       if (!playerEntry) throw new Error('Player entry not found in manifest')
 
-      // Recursively collect all JS/CSS assets from the manifest entry graph
       function collectAssets(manifest, key, visited = new Set()) {
         if (visited.has(key)) return []
         visited.add(key)
@@ -100,38 +122,36 @@ export function Step4_Export() {
       }
       const assetPaths = collectAssets(manifest, 'index.html')
 
-      // 3. Fetch index.html
-      const indexResp = await fetch('/index.html')
-      if (!indexResp.ok) throw new Error('Could not fetch index.html')
+      // In dev mode, /index.html returns the dev version — use /dist-index.html instead
+      const indexUrl = import.meta.env.DEV ? '/dist-index.html' : '/index.html'
+      const indexResp = await fetch(indexUrl)
+      if (!indexResp.ok) throw new Error('Could not fetch built index.html')
       zip.file('index.html', await indexResp.text())
 
-      // 4. Fetch each asset
       const assetsFolder = zip.folder('assets')
       await Promise.all(
         assetPaths.map(async (assetPath) => {
           const resp = await fetch(`/${assetPath}`)
           if (!resp.ok) return
-          const blob = await resp.blob()
-          assetsFolder.file(assetPath.replace('assets/', ''), blob)
+          assetsFolder.file(assetPath.replace('assets/', ''), await resp.blob())
         })
       )
 
-      // 5. Fetch product images
-      const allProductIds = contentJson.products.map((p) => p.id)
-      const sides = ['front', 'back', 'side']
-      const imagesFolder = zip.folder('images')
+      // Step 3 — Package images
+      setExportStep('images')
       let imagesIncluded = 0
       let imagesNotFound = 0
 
       await Promise.all(
-        allProductIds.flatMap((productId) =>
-          sides.map(async (side) => {
-            const path = `./images/${productId}_${side}.jpg`
+        contentJson.products.flatMap((product) => {
+          if (!product.imageFolderPath) return []
+          const sidesToFetch = product.sides?.length > 0 ? product.sides : ['front', 'back', 'side']
+          return sidesToFetch.map(async (side) => {
+            const encoded = product.imageFolderPath.split('/').map(encodeURIComponent).join('/')
             try {
-              const resp = await fetch(path)
+              const resp = await fetch(`./${encoded}/${side}.jpg`)
               if (resp.ok) {
-                const blob = await resp.blob()
-                imagesFolder.file(`${productId}_${side}.jpg`, blob)
+                zip.file(`${product.imageFolderPath}/${side}.jpg`, await resp.blob())
                 imagesIncluded++
               } else {
                 imagesNotFound++
@@ -140,15 +160,16 @@ export function Step4_Export() {
               imagesNotFound++
             }
           })
-        )
+        })
       )
 
-      // 6. Generate and download
+      // Step 4 — Download
+      setExportStep('download')
       const blob = await zip.generateAsync({ type: 'blob' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = `${state.moduleName.replace(/[^a-z0-9]/gi, '_')}.OTCgame`
+      a.download = `${state.moduleName.replace(/[^a-z0-9]/gi, '_')}.zip`
       a.click()
       URL.revokeObjectURL(url)
 
@@ -156,7 +177,7 @@ export function Step4_Export() {
     } catch (err) {
       setExportError(err.message)
     } finally {
-      setExporting(false)
+      setExportStep(null)
     }
   }
 
@@ -176,8 +197,7 @@ export function Step4_Export() {
           <div style={{ background: '#F8EFE0', borderRadius: 12, padding: 20, marginBottom: 24 }}>
             <h3 style={{ margin: '0 0 12px', color: '#140F50', fontSize: 15 }}>Deployment Steps</h3>
             {[
-              'Rename the .OTCgame file to .zip',
-              'Unzip the file',
+              'Unzip the downloaded .zip file',
               'Drag the unzipped folder to Netlify (netlify.com/drop)',
               'Copy the Netlify URL',
               'Embed in Canvas LMS as an iframe using the URL',
@@ -210,7 +230,6 @@ export function Step4_Export() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#F8EFE0' }}>
-      {/* Header */}
       <div style={{ background: '#140F50', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
         <button
           onClick={() => dispatch({ type: 'SET_STEP', step: 3 })}
@@ -222,12 +241,11 @@ export function Step4_Export() {
       </div>
 
       <div style={{ maxWidth: 600, margin: '0 auto', padding: '32px 24px' }}>
-        {/* File protocol warning */}
         {isFileProtocol && (
           <div style={{ background: '#FADBD8', border: '1px solid #E74C3C', borderRadius: 12, padding: 16, marginBottom: 24 }}>
-            <p style={{ margin: 0, color: '#C0392B', fontWeight: 700, fontSize: 14 }}>⚠️ Cannot export from file:// protocol</p>
+            <p style={{ margin: 0, color: '#C0392B', fontWeight: 700, fontSize: 14 }}>⚠️ Cannot export from a file opened directly</p>
             <p style={{ margin: '6px 0 0', color: '#C0392B', fontSize: 13 }}>
-              Run <code>npm run build</code> then <code>npm run preview</code> and open the Builder at <code>http://localhost:4174</code>
+              Open the Builder via <code>start.bat</code> instead of opening the file directly.
             </p>
           </div>
         )}
@@ -245,36 +263,61 @@ export function Step4_Export() {
             </ul>
           )}
           {validationErrors.length === 0 && (
-            <p style={{ margin: 0, color: '#27AE60', fontSize: 13 }}>
-              All validation checks passed. Your module is ready to export.
-            </p>
+            <p style={{ margin: 0, color: '#27AE60', fontSize: 13 }}>All checks passed. Ready to export.</p>
           )}
         </div>
 
+        {/* Progress steps (shown while exporting) */}
+        {isExporting && (
+          <div style={{ background: '#FFFFFF', borderRadius: 14, padding: 20, marginBottom: 24 }}>
+            {EXPORT_STEPS.map((step, i) => {
+              const stepIds = EXPORT_STEPS.map((s) => s.id)
+              const currentIdx = stepIds.indexOf(exportStep)
+              const thisIdx = i
+              const done = thisIdx < currentIdx
+              const active = thisIdx === currentIdx
+              return (
+                <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: i < EXPORT_STEPS.length - 1 ? 12 : 0 }}>
+                  <div style={{
+                    width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
+                    background: done ? '#27AE60' : active ? '#1448FF' : 'rgba(20,15,80,0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 13, fontWeight: 700, color: done || active ? '#FFFFFF' : 'rgba(20,15,80,0.3)',
+                  }}>
+                    {done ? '✓' : i + 1}
+                  </div>
+                  <span style={{ fontSize: 14, color: active ? '#140F50' : done ? '#27AE60' : 'rgba(20,15,80,0.35)', fontWeight: active ? 700 : 400 }}>
+                    {step.label}
+                    {active && <span style={{ marginLeft: 8, display: 'inline-block', animation: 'pulse 1s infinite' }}>…</span>}
+                  </span>
+                </div>
+              )
+            })}
+            {exportStep === 'build' && (
+              <p style={{ margin: '14px 0 0', fontSize: 12, color: 'rgba(20,15,80,0.5)' }}>
+                First export takes ~15 seconds to build. Subsequent exports are faster.
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Export button */}
         <motion.button
-          whileHover={canExport && !exporting ? { scale: 1.02 } : {}}
-          whileTap={canExport && !exporting ? { scale: 0.98 } : {}}
+          whileHover={canExport && !isExporting ? { scale: 1.02 } : {}}
+          whileTap={canExport && !isExporting ? { scale: 0.98 } : {}}
           onClick={handleExport}
-          disabled={!canExport || exporting}
+          disabled={!canExport || isExporting}
           style={{
-            width: '100%',
-            padding: '16px',
-            background: canExport && !exporting ? '#1448FF' : 'rgba(20,15,80,0.15)',
-            color: canExport && !exporting ? '#FFFFFF' : 'rgba(20,15,80,0.4)',
-            border: 'none',
-            borderRadius: 12,
-            fontWeight: 700,
-            fontSize: 16,
-            cursor: canExport && !exporting ? 'pointer' : 'not-allowed',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 8,
+            width: '100%', padding: '16px',
+            background: canExport && !isExporting ? '#1448FF' : 'rgba(20,15,80,0.15)',
+            color: canExport && !isExporting ? '#FFFFFF' : 'rgba(20,15,80,0.4)',
+            border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 16,
+            cursor: canExport && !isExporting ? 'pointer' : 'not-allowed',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
           }}
         >
           <Download size={18} />
-          {exporting ? 'Building bundle…' : 'Export .OTCgame'}
+          {isExporting ? 'Exporting…' : 'Export .OTCgame'}
         </motion.button>
 
         {exportError && (
@@ -283,7 +326,7 @@ export function Step4_Export() {
             animate={{ opacity: 1 }}
             style={{ marginTop: 12, color: '#E74C3C', fontSize: 13, textAlign: 'center' }}
           >
-            {exportError}
+            ⚠️ {exportError}
           </motion.p>
         )}
       </div>
