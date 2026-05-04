@@ -3,6 +3,8 @@
 <img width="1694" height="1128" alt="image" src="https://github.com/user-attachments/assets/bd047e2b-1153-45b6-b102-7674dd7ef72c" />
 
 
+
+
 This guide will walk you through getting the app running on your computer for the first time.
 
 ---
