@@ -17,7 +17,6 @@ export function Step0_Home() {
     setError(null)
     try {
       await importFromFile(file)
-      // importFromFile dispatches LOAD_FROM_IMPORT which sets step=2
     } catch (err) {
       setError(`Import failed: ${err.message}`)
     } finally {
@@ -38,43 +37,53 @@ export function Step0_Home() {
   }
 
   const cardStyle = {
-    background: '#FFFFFF',
-    border: '2px solid rgba(20,15,80,0.12)',
+    background: 'rgba(255,255,255,0.045)',
+    border: '1px solid rgba(255,255,255,0.08)',
     borderRadius: 16,
     padding: 24,
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'flex-start',
     gap: 16,
-    transition: 'border-color 0.2s, box-shadow 0.2s',
+    transition: 'border-color 0.2s, background 0.2s',
+    backdropFilter: 'blur(20px)',
   }
 
   return (
     <div
       style={{
         minHeight: '100vh',
-        background: '#F8EFE0',
+        background: '#0c0a38',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 32,
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Background orbs */}
+      <div style={{ position: 'absolute', top: '10%', left: '15%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(131,107,255,0.18) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '15%', right: '10%', width: 350, height: 350, borderRadius: '50%', background: 'radial-gradient(circle, rgba(20,72,255,0.14) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        style={{ textAlign: 'center', marginBottom: 40 }}
+        style={{ textAlign: 'center', marginBottom: 40, position: 'relative' }}
       >
         <div style={{ fontSize: 48, marginBottom: 8 }}>🏗️</div>
-        <h1 style={{ margin: 0, color: '#140F50', fontSize: 28, fontWeight: 800 }}>
+        <h1 style={{ margin: 0, color: 'rgba(255,255,255,0.90)', fontSize: 28, fontWeight: 800 }}>
           OTC Module Builder
         </h1>
+        <p style={{ margin: '8px 0 0', color: 'rgba(255,255,255,0.45)', fontSize: 14 }}>
+          Create interactive pharmacy training modules
+        </p>
       </motion.div>
 
       {/* Cards */}
-      <div style={{ width: '100%', maxWidth: 480, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ width: '100%', maxWidth: 480, display: 'flex', flexDirection: 'column', gap: 12, position: 'relative' }}>
         {/* Resume Draft */}
         {draftExists && (
           <motion.div
@@ -87,15 +96,15 @@ export function Step0_Home() {
               tabIndex={0}
               onClick={handleResumeDraft}
               onKeyDown={(e) => e.key === 'Enter' && handleResumeDraft()}
-              style={{ ...cardStyle, borderColor: '#1448FF', background: 'rgba(20,72,255,0.04)' }}
+              style={{ ...cardStyle, borderColor: 'rgba(20,72,255,0.45)', background: 'rgba(20,72,255,0.08)' }}
             >
               <BookOpen size={28} color="#1448FF" style={{ flexShrink: 0 }} />
               <div>
-                <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
+                <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
                   Resume Draft
                 </p>
                 {moduleName && (
-                  <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.6)' }}>
+                  <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
                     {moduleName}
                   </p>
                 )}
@@ -126,11 +135,11 @@ export function Step0_Home() {
           >
             <Upload size={28} color="#836BFF" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
+              <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
                 {importing ? 'Importing…' : 'Import Existing Module'}
               </p>
-              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.6)' }}>
-                Open a .OTCgame file to continue editing
+              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
+                Open a .OTCgame or .zip file to continue editing
               </p>
             </div>
           </div>
@@ -151,10 +160,10 @@ export function Step0_Home() {
           >
             <Plus size={28} color="#27AE60" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
+              <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
                 Start New Module
               </p>
-              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.6)' }}>
+              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
                 {draftExists ? 'Clears current draft and starts fresh' : 'Build a new training module'}
               </p>
             </div>
@@ -166,7 +175,7 @@ export function Step0_Home() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          style={{ marginTop: 16, color: '#E74C3C', fontSize: 13, textAlign: 'center' }}
+          style={{ marginTop: 16, color: '#f87171', fontSize: 13, textAlign: 'center' }}
         >
           {error}
         </motion.p>

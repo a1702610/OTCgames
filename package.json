@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:builder": "vite --port 5174 --open /builder.html",
+    "dev:builder": "vite --port 5174",
     "build": "vite build",
     "preview": "vite preview",
     "preview:builder": "vite preview --port 4174 --open /builder.html",
@@ -13,11 +13,14 @@
     "sync-library:dry": "node scripts/sync-library.mjs --dry-run"
   },
   "dependencies": {
+    "@google/genai": "^1.48.0",
     "framer-motion": "^12.38.0",
     "jszip": "^3.10.1",
     "lucide-react": "^0.577.0",
+    "pdfjs-dist": "^5.6.205",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "reactflow": "^11.11.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

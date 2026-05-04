@@ -10,7 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       *, *::before, *::after { box-sizing: border-box; }
-      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #0c0a38; color: rgba(255,255,255,0.9); }
+      ::-webkit-scrollbar { width: 4px; height: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(131,107,255,0.25); border-radius: 99px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(131,107,255,0.45); }
+      input, textarea, select { font-family: inherit; }
+      input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+      input[type="text"], input[type="email"], textarea, select {
+        background: rgba(255,255,255,0.055);
+        border: 1.5px solid rgba(255,255,255,0.09);
+        color: rgba(255,255,255,0.90);
+        border-radius: 10px;
+      }
+      input[type="text"]:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: rgba(131,107,255,0.50);
+        box-shadow: 0 0 0 1px rgba(131,107,255,0.20);
+      }
     </style>
   </head>
   <body>

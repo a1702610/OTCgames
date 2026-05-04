@@ -8,14 +8,12 @@ const SIDES_ALL = ['front', 'back', 'side']
 export function ProductModal({ product, onClose }) {
   const [sideIndex, setSideIndex] = React.useState(0)
 
-  // Reset state when product changes
   React.useEffect(() => {
     setSideIndex(0)
   }, [product?.id])
 
   const availableSides = product?.sides?.length > 0 ? product.sides : SIDES_ALL
 
-  // Close on Escape key
   React.useEffect(() => {
     if (!product) return
     function onKey(e) {
@@ -38,12 +36,12 @@ export function ProductModal({ product, onClose }) {
           onClick={onClose}
           style={{
             position: 'fixed', inset: 0,
-            backgroundColor: 'rgba(10,8,40,0.92)',
+            backgroundColor: 'rgba(8,6,32,0.92)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 200,
-            backdropFilter: 'blur(8px)',
+            backdropFilter: 'blur(12px)',
             padding: 20,
           }}
           role="dialog"
@@ -56,7 +54,8 @@ export function ProductModal({ product, onClose }) {
             exit={{ scale: 0.92, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              backgroundColor: '#FFFFFF',
+              background: 'rgba(20,15,70,0.96)',
+              border: '1px solid rgba(131,107,255,0.25)',
               borderRadius: 24,
               padding: 28,
               maxWidth: 560,
@@ -65,6 +64,7 @@ export function ProductModal({ product, onClose }) {
               maxHeight: '92vh',
               display: 'flex',
               flexDirection: 'column',
+              backdropFilter: 'blur(20px)',
             }}
           >
             {/* Close button */}
@@ -73,9 +73,11 @@ export function ProductModal({ product, onClose }) {
               aria-label="Close"
               style={{
                 position: 'absolute', top: 14, right: 14, zIndex: 2,
-                background: 'rgba(20,15,80,0.08)', border: 'none',
+                background: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: 20, width: 36, height: 36,
                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'rgba(255,255,255,0.70)',
               }}
             >
               <X size={20} />
@@ -98,7 +100,7 @@ export function ProductModal({ product, onClose }) {
                 <button
                   onClick={() => setSideIndex((i) => (i - 1 + availableSides.length) % availableSides.length)}
                   aria-label="Previous image"
-                  style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.80)' }}
                 >
                   <ChevronLeft size={22} />
                 </button>
@@ -110,7 +112,7 @@ export function ProductModal({ product, onClose }) {
                   aria-label={s}
                   style={{
                     width: 10, height: 10, borderRadius: 5,
-                    background: i === sideIndex ? '#1448FF' : '#BDC3C7',
+                    background: i === sideIndex ? '#836BFF' : 'rgba(255,255,255,0.25)',
                     border: 'none', cursor: availableSides.length > 1 ? 'pointer' : 'default', padding: 0,
                     transition: 'background 0.2s',
                   }}
@@ -120,7 +122,7 @@ export function ProductModal({ product, onClose }) {
                 <button
                   onClick={() => setSideIndex((i) => (i + 1) % availableSides.length)}
                   aria-label="Next image"
-                  style={{ background: 'rgba(20,15,80,0.06)', border: 'none', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.80)' }}
                 >
                   <ChevronRight size={22} />
                 </button>
@@ -129,8 +131,8 @@ export function ProductModal({ product, onClose }) {
 
             {/* Product info */}
             <div style={{ marginTop: 14, textAlign: 'center' }}>
-              <h2 style={{ margin: 0, fontSize: 20, color: '#140F50', fontWeight: 700 }}>{product.name}</h2>
-              <p style={{ margin: '4px 0 0', fontSize: 14, color: '#836BFF', fontWeight: 600 }}>{product.brand}</p>
+              <h2 style={{ margin: 0, fontSize: 20, color: 'rgba(255,255,255,0.90)', fontWeight: 700 }}>{product.name}</h2>
+              <p style={{ margin: '4px 0 0', fontSize: 14, color: '#a89eff', fontWeight: 600 }}>{product.brand}</p>
             </div>
           </motion.div>
         </motion.div>

@@ -7,11 +7,13 @@ import { ScoreFloat } from '../shared/components/ScoreFloat.jsx'
 import { ShelfBrowse } from './tabs/ShelfBrowse.jsx'
 import { Scenarios } from './tabs/Scenarios.jsx'
 import { Quiz } from './tabs/Quiz.jsx'
+import { BranchingStory } from './tabs/BranchingStory.jsx'
 
 const TABS = [
   { id: 'shelf', label: '🏪 Shelf Browse' },
   { id: 'scenarios', label: '🧑‍⚕️ Scenarios' },
   { id: 'quiz', label: '📝 Quiz' },
+  { id: 'story', label: '🌿 Story' },
 ]
 
 function PlayerInner({ isPreviewMode }) {
@@ -19,7 +21,7 @@ function PlayerInner({ isPreviewMode }) {
   const [activeTab, setActiveTab] = React.useState('shelf')
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#F8EFE0' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#0c0a38' }}>
       {/* Header */}
       <div
         style={{
@@ -31,6 +33,7 @@ function PlayerInner({ isPreviewMode }) {
           position: 'sticky',
           top: 0,
           zIndex: 10,
+          borderBottom: '1px solid rgba(131,107,255,0.15)',
         }}
       >
         <div>
@@ -54,7 +57,8 @@ function PlayerInner({ isPreviewMode }) {
           <ScoreFloat delta={lastDelta} id={scoreFloatId} />
           <motion.div
             style={{
-              background: 'rgba(255,255,255,0.15)',
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.2)',
               borderRadius: 20,
               padding: '6px 14px',
               display: 'flex',
@@ -96,6 +100,7 @@ function PlayerInner({ isPreviewMode }) {
             {activeTab === 'shelf' && <ShelfBrowse />}
             {activeTab === 'scenarios' && <Scenarios onNavigateToQuiz={() => setActiveTab('quiz')} />}
             {activeTab === 'quiz' && <Quiz />}
+            {activeTab === 'story' && <BranchingStory />}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -103,10 +108,11 @@ function PlayerInner({ isPreviewMode }) {
       {/* Footer */}
       <div
         style={{
-          backgroundColor: '#140F50',
+          background: 'rgba(12,10,56,0.92)',
+          borderTop: '1px solid rgba(131,107,255,0.10)',
           padding: '10px 20px',
           textAlign: 'center',
-          color: 'rgba(255,255,255,0.5)',
+          color: 'rgba(255,255,255,0.35)',
           fontSize: 12,
         }}
       >

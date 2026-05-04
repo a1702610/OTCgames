@@ -5,7 +5,7 @@ import { useBuilder } from '../BuilderContext.jsx'
 import { shelves as allShelves, products as allProducts } from '../../data/products.js'
 
 function buildContentJson(state) {
-  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions } = state
+  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions, branchingScenarios } = state
   const selectedShelves = allShelves.filter((s) => selectedShelfIds.includes(s.id))
   const selectedProducts = allProducts.filter((p) => selectedShelfIds.includes(p.category))
   return {
@@ -16,6 +16,7 @@ function buildContentJson(state) {
     products: selectedProducts,
     scenarios,
     quizQuestions,
+    branchingScenarios: branchingScenarios || [],
   }
 }
 
@@ -65,7 +66,7 @@ const EXPORT_STEPS = [
 
 export function Step4_Export() {
   const { state, dispatch } = useBuilder()
-  const [exportStep, setExportStep] = React.useState(null) // null | step id
+  const [exportStep, setExportStep] = React.useState(null)
   const [success, setSuccess] = React.useState(null)
   const [exportError, setExportError] = React.useState(null)
 
@@ -82,7 +83,6 @@ export function Step4_Export() {
       const JSZip = (await import('jszip')).default
       const zip = new JSZip()
 
-      // Step 1 — Build (only needed in dev mode; in preview mode dist/ already exists)
       setExportStep('build')
       if (import.meta.env.DEV) {
         const buildResp = await fetch('/api/build', { method: 'POST' })
@@ -92,7 +92,6 @@ export function Step4_Export() {
         }
       }
 
-      // Step 2 — Bundle content + JS/CSS assets
       setExportStep('bundle')
       const contentJson = buildContentJson(state)
       zip.file('content.json', JSON.stringify(contentJson, null, 2))
@@ -122,7 +121,6 @@ export function Step4_Export() {
       }
       const assetPaths = collectAssets(manifest, 'index.html')
 
-      // In dev mode, /index.html returns the dev version — use /dist-index.html instead
       const indexUrl = import.meta.env.DEV ? '/dist-index.html' : '/index.html'
       const indexResp = await fetch(indexUrl)
       if (!indexResp.ok) throw new Error('Could not fetch built index.html')
@@ -137,7 +135,6 @@ export function Step4_Export() {
         })
       )
 
-      // Step 3 — Package images
       setExportStep('images')
       let imagesIncluded = 0
       let imagesNotFound = 0
@@ -163,7 +160,6 @@ export function Step4_Export() {
         })
       )
 
-      // Step 4 — Download
       setExportStep('download')
       const blob = await zip.generateAsync({ type: 'blob' })
       const url = URL.createObjectURL(blob)
@@ -183,19 +179,19 @@ export function Step4_Export() {
 
   if (success) {
     return (
-      <div style={{ minHeight: '100vh', background: '#F8EFE0', padding: 32 }}>
-        <div style={{ maxWidth: 600, margin: '0 auto', background: '#FFFFFF', borderRadius: 20, padding: 32 }}>
+      <div style={{ minHeight: '100vh', background: '#0c0a38', padding: 32 }}>
+        <div style={{ maxWidth: 600, margin: '0 auto', background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: 32, backdropFilter: 'blur(20px)' }}>
           <div style={{ textAlign: 'center', marginBottom: 24 }}>
             <div style={{ fontSize: 48 }}>✅</div>
-            <h2 style={{ color: '#140F50', margin: '8px 0' }}>Module Exported!</h2>
-            <p style={{ color: '#555', fontSize: 14 }}>
+            <h2 style={{ color: 'rgba(255,255,255,0.90)', margin: '8px 0' }}>Module Exported!</h2>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 14 }}>
               {success.imagesIncluded} product image{success.imagesIncluded !== 1 ? 's' : ''} included
               {success.imagesNotFound > 0 ? `, ${success.imagesNotFound} not found (will show placeholder)` : ''}
             </p>
           </div>
 
-          <div style={{ background: '#F8EFE0', borderRadius: 12, padding: 20, marginBottom: 24 }}>
-            <h3 style={{ margin: '0 0 12px', color: '#140F50', fontSize: 15 }}>Deployment Steps</h3>
+          <div style={{ background: 'rgba(255,255,255,0.032)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 20, marginBottom: 24 }}>
+            <h3 style={{ margin: '0 0 12px', color: 'rgba(255,255,255,0.80)', fontSize: 15 }}>Deployment Steps</h3>
             {[
               'Unzip the downloaded .zip file',
               'Drag the unzipped folder to Netlify (netlify.com/drop)',
@@ -204,7 +200,7 @@ export function Step4_Export() {
             ].map((step, i) => (
               <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 10, alignItems: 'flex-start' }}>
                 <span style={{ background: '#1448FF', color: '#FFFFFF', borderRadius: 12, width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, flexShrink: 0 }}>{i + 1}</span>
-                <span style={{ fontSize: 13, color: '#140F50', lineHeight: 1.5 }}>{step}</span>
+                <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.70)', lineHeight: 1.5 }}>{step}</span>
               </div>
             ))}
           </div>
@@ -212,13 +208,13 @@ export function Step4_Export() {
           <div style={{ display: 'flex', gap: 12 }}>
             <button
               onClick={() => setSuccess(null)}
-              style={{ flex: 1, padding: '10px', borderRadius: 10, border: '2px solid rgba(20,15,80,0.2)', background: 'transparent', color: '#140F50', fontWeight: 600, cursor: 'pointer' }}
+              style={{ flex: 1, padding: '10px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.80)', fontWeight: 600, cursor: 'pointer' }}
             >
               Export Again
             </button>
             <button
               onClick={() => dispatch({ type: 'SET_STEP', step: 2 })}
-              style={{ flex: 1, padding: '10px', borderRadius: 10, border: 'none', background: '#140F50', color: '#FFFFFF', fontWeight: 700, cursor: 'pointer' }}
+              style={{ flex: 1, padding: '10px', borderRadius: 10, border: 'none', background: '#1448FF', color: '#FFFFFF', fontWeight: 700, cursor: 'pointer' }}
             >
               ← Back to Authoring
             </button>
@@ -229,11 +225,16 @@ export function Step4_Export() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#F8EFE0' }}>
-      <div style={{ background: '#140F50', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
+    <div style={{ minHeight: '100vh', background: '#0c0a38' }}>
+      <div style={{
+        background: 'rgba(12,10,56,0.92)',
+        borderBottom: '1px solid rgba(131,107,255,0.15)',
+        padding: '14px 24px', display: 'flex', alignItems: 'center', gap: 16,
+        backdropFilter: 'blur(20px)',
+      }}>
         <button
           onClick={() => dispatch({ type: 'SET_STEP', step: 3 })}
-          style={{ background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: 8, padding: '6px 14px', color: '#FFFFFF', cursor: 'pointer', fontSize: 14 }}
+          style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '6px 14px', color: 'rgba(255,255,255,0.80)', cursor: 'pointer', fontSize: 14 }}
         >
           ← Preview
         </button>
@@ -242,34 +243,34 @@ export function Step4_Export() {
 
       <div style={{ maxWidth: 600, margin: '0 auto', padding: '32px 24px' }}>
         {isFileProtocol && (
-          <div style={{ background: '#FADBD8', border: '1px solid #E74C3C', borderRadius: 12, padding: 16, marginBottom: 24 }}>
-            <p style={{ margin: 0, color: '#C0392B', fontWeight: 700, fontSize: 14 }}>⚠️ Cannot export from a file opened directly</p>
-            <p style={{ margin: '6px 0 0', color: '#C0392B', fontSize: 13 }}>
-              Open the Builder via <code>start.bat</code> instead of opening the file directly.
+          <div style={{ background: 'rgba(231,76,60,0.12)', border: '1px solid rgba(231,76,60,0.30)', borderRadius: 12, padding: 16, marginBottom: 24 }}>
+            <p style={{ margin: 0, color: '#f87171', fontWeight: 700, fontSize: 14 }}>⚠️ Cannot export from a file opened directly</p>
+            <p style={{ margin: '6px 0 0', color: '#f87171', fontSize: 13 }}>
+              Open the Builder via <code style={{ background: 'rgba(255,255,255,0.08)', padding: '1px 5px', borderRadius: 4 }}>start.bat</code> instead of opening the file directly.
             </p>
           </div>
         )}
 
         {/* Validation checklist */}
-        <div style={{ background: '#FFFFFF', borderRadius: 14, padding: 20, marginBottom: 24 }}>
-          <h3 style={{ margin: '0 0 16px', color: '#140F50', fontSize: 16 }}>
+        <div style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20, marginBottom: 24, backdropFilter: 'blur(20px)' }}>
+          <h3 style={{ margin: '0 0 16px', color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
             {validationErrors.length === 0 ? '✅ Ready to Export' : `⚠️ ${validationErrors.length} issue${validationErrors.length > 1 ? 's' : ''} to fix`}
           </h3>
           {validationErrors.length > 0 && (
             <ul style={{ margin: 0, padding: '0 0 0 20px' }}>
               {validationErrors.map((err, i) => (
-                <li key={i} style={{ color: '#E74C3C', fontSize: 13, marginBottom: 6 }}>{err}</li>
+                <li key={i} style={{ color: '#f87171', fontSize: 13, marginBottom: 6 }}>{err}</li>
               ))}
             </ul>
           )}
           {validationErrors.length === 0 && (
-            <p style={{ margin: 0, color: '#27AE60', fontSize: 13 }}>All checks passed. Ready to export.</p>
+            <p style={{ margin: 0, color: '#5dda8a', fontSize: 13 }}>All checks passed. Ready to export.</p>
           )}
         </div>
 
-        {/* Progress steps (shown while exporting) */}
+        {/* Progress steps */}
         {isExporting && (
-          <div style={{ background: '#FFFFFF', borderRadius: 14, padding: 20, marginBottom: 24 }}>
+          <div style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: 20, marginBottom: 24, backdropFilter: 'blur(20px)' }}>
             {EXPORT_STEPS.map((step, i) => {
               const stepIds = EXPORT_STEPS.map((s) => s.id)
               const currentIdx = stepIds.indexOf(exportStep)
@@ -280,13 +281,14 @@ export function Step4_Export() {
                 <div key={step.id} style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: i < EXPORT_STEPS.length - 1 ? 12 : 0 }}>
                   <div style={{
                     width: 28, height: 28, borderRadius: '50%', flexShrink: 0,
-                    background: done ? '#27AE60' : active ? '#1448FF' : 'rgba(20,15,80,0.08)',
+                    background: done ? '#27AE60' : active ? '#1448FF' : 'rgba(255,255,255,0.07)',
+                    border: `1px solid ${done ? '#27AE60' : active ? '#1448FF' : 'rgba(255,255,255,0.10)'}`,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 13, fontWeight: 700, color: done || active ? '#FFFFFF' : 'rgba(20,15,80,0.3)',
+                    fontSize: 13, fontWeight: 700, color: done || active ? '#FFFFFF' : 'rgba(255,255,255,0.25)',
                   }}>
                     {done ? '✓' : i + 1}
                   </div>
-                  <span style={{ fontSize: 14, color: active ? '#140F50' : done ? '#27AE60' : 'rgba(20,15,80,0.35)', fontWeight: active ? 700 : 400 }}>
+                  <span style={{ fontSize: 14, color: active ? 'rgba(255,255,255,0.90)' : done ? '#5dda8a' : 'rgba(255,255,255,0.30)', fontWeight: active ? 700 : 400 }}>
                     {step.label}
                     {active && <span style={{ marginLeft: 8, display: 'inline-block', animation: 'pulse 1s infinite' }}>…</span>}
                   </span>
@@ -294,7 +296,7 @@ export function Step4_Export() {
               )
             })}
             {exportStep === 'build' && (
-              <p style={{ margin: '14px 0 0', fontSize: 12, color: 'rgba(20,15,80,0.5)' }}>
+              <p style={{ margin: '14px 0 0', fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
                 First export takes ~15 seconds to build. Subsequent exports are faster.
               </p>
             )}
@@ -309,8 +311,8 @@ export function Step4_Export() {
           disabled={!canExport || isExporting}
           style={{
             width: '100%', padding: '16px',
-            background: canExport && !isExporting ? '#1448FF' : 'rgba(20,15,80,0.15)',
-            color: canExport && !isExporting ? '#FFFFFF' : 'rgba(20,15,80,0.4)',
+            background: canExport && !isExporting ? '#1448FF' : 'rgba(20,72,255,0.20)',
+            color: canExport && !isExporting ? '#FFFFFF' : 'rgba(255,255,255,0.28)',
             border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 16,
             cursor: canExport && !isExporting ? 'pointer' : 'not-allowed',
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -324,7 +326,7 @@ export function Step4_Export() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            style={{ marginTop: 12, color: '#E74C3C', fontSize: 13, textAlign: 'center' }}
+            style={{ marginTop: 12, color: '#f87171', fontSize: 13, textAlign: 'center' }}
           >
             ⚠️ {exportError}
           </motion.p>

@@ -12,15 +12,15 @@ export function Scenarios({ onNavigateToQuiz }) {
 
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const [phase, setPhase] = React.useState('presenting') // presenting | awaiting-selection | confirming | feedback | followup | done
-  const [pendingProductId, setPendingProductId] = React.useState(null)   // selected but not yet confirmed
-  const [selectedProductId, setSelectedProductId] = React.useState(null) // confirmed selection
+  const [pendingProductId, setPendingProductId] = React.useState(null)
+  const [selectedProductId, setSelectedProductId] = React.useState(null)
   const [selectionResult, setSelectionResult] = React.useState(null)
   const [followupAnswered, setFollowupAnswered] = React.useState(null)
   const [completed, setCompleted] = React.useState(false)
   const [scenarioScore, setScenarioScore] = React.useState(0)
 
   if (scenarios.length === 0) {
-    return <p style={{ color: 'rgba(20,15,80,0.5)', fontSize: 14 }}>No patient scenarios in this module.</p>
+    return <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: 14 }}>No patient scenarios in this module.</p>
   }
 
   const scenarioMaxScore = scenarios.reduce((sum, s) => sum + 1 + (s.followUpQuestion ? 1 : 0), 0)
@@ -51,7 +51,6 @@ export function Scenarios({ onNavigateToQuiz }) {
 
   function handleProductPending(productId) {
     if (phase !== 'awaiting-selection') return
-    // Toggle off if same product tapped again
     setPendingProductId((prev) => (prev === productId ? null : productId))
   }
 
@@ -107,13 +106,12 @@ export function Scenarios({ onNavigateToQuiz }) {
   const tierColors = { best: '#27AE60', acceptable: '#E67E22', incorrect: '#E74C3C' }
   const tierLabels = { best: 'Best Choice (+1)', acceptable: 'Acceptable (+0.5)', incorrect: 'Incorrect (0)' }
 
-  // In awaiting-selection mode, pass pendingProductId as the "selected" highlight
   const displaySelectedId = phase === 'awaiting-selection' ? pendingProductId : selectedProductId
 
   return (
     <div>
       <ProgressBar current={currentIndex} total={scenarios.length} color="#1448FF" height={6} />
-      <p style={{ fontSize: 12, color: 'rgba(20,15,80,0.5)', margin: '6px 0 16px', textAlign: 'right' }}>
+      <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', margin: '6px 0 16px', textAlign: 'right' }}>
         Scenario {currentIndex + 1} of {scenarios.length}
       </p>
 
@@ -128,18 +126,19 @@ export function Scenarios({ onNavigateToQuiz }) {
           {/* Patient card */}
           <div
             style={{
-              background: '#FFFFFF',
+              background: 'rgba(255,255,255,0.045)',
+              border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: 16,
               padding: 20,
               marginBottom: 16,
-              boxShadow: '0 2px 12px rgba(20,15,80,0.1)',
+              backdropFilter: 'blur(20px)',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
               <span style={{ fontSize: 40 }}>{scenario.patient.avatarEmoji}</span>
               <div>
-                <h3 style={{ margin: 0, color: '#140F50', fontSize: 16 }}>{scenario.patient.name}</h3>
-                <p style={{ margin: '6px 0 0', fontSize: 14, color: '#555', lineHeight: 1.6 }}>
+                <h3 style={{ margin: 0, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>{scenario.patient.name}</h3>
+                <p style={{ margin: '6px 0 0', fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
                   {scenario.patient.description}
                 </p>
               </div>
@@ -165,7 +164,7 @@ export function Scenarios({ onNavigateToQuiz }) {
           {/* Shelf for selection */}
           {(phase === 'awaiting-selection' || phase === 'feedback' || phase === 'followup') && shelfData && (
             <div style={{ marginBottom: 16 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>
+              <p style={{ fontSize: 13, fontWeight: 600, color: '#a89eff', marginBottom: 8 }}>
                 {phase === 'awaiting-selection' ? 'Choose the most appropriate product:' : 'Your selection:'}
               </p>
               <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 8, alignItems: 'flex-start' }}>
@@ -178,22 +177,22 @@ export function Scenarios({ onNavigateToQuiz }) {
                 />
               </div>
 
-              {/* Confirm button — shown after a product is tapped */}
+              {/* Confirm button */}
               {phase === 'awaiting-selection' && pendingProductId && (
                 <motion.div
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   style={{ marginTop: 14, textAlign: 'center' }}
                 >
-                  <p style={{ fontSize: 13, color: 'rgba(20,15,80,0.6)', marginBottom: 8 }}>
+                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginBottom: 8 }}>
                     {shelfProducts.find(p => p.id === pendingProductId)?.name} — confirm your choice?
                   </p>
                   <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
                     <button
                       onClick={() => setPendingProductId(null)}
                       style={{
-                        background: 'rgba(20,15,80,0.06)', color: '#140F50',
-                        border: '1.5px solid rgba(20,15,80,0.15)', borderRadius: 10,
+                        background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.80)',
+                        border: '1px solid rgba(255,255,255,0.12)', borderRadius: 10,
                         padding: '10px 22px', fontWeight: 600, fontSize: 14, cursor: 'pointer',
                       }}
                     >
@@ -221,9 +220,11 @@ export function Scenarios({ onNavigateToQuiz }) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               style={{
-                background: '#FFFFFF', borderRadius: 12, padding: 16, marginBottom: 16,
+                background: 'rgba(255,255,255,0.045)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 12, padding: 16, marginBottom: 16,
                 borderLeft: `5px solid ${tierColors[selectionResult.tier]}`,
-                boxShadow: '0 2px 8px rgba(20,15,80,0.08)',
+                backdropFilter: 'blur(20px)',
               }}
             >
               <p style={{ margin: 0, fontWeight: 700, color: tierColors[selectionResult.tier], fontSize: 14 }}>
@@ -233,12 +234,12 @@ export function Scenarios({ onNavigateToQuiz }) {
                 const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
                 const bestNames = bestIds.map(id => moduleData.products.find(p => p.id === id)?.name || id).join(', ')
                 return (
-                  <p style={{ margin: '4px 0 0', fontSize: 12, color: '#555' }}>
-                    Best choice{bestIds.length > 1 ? 's' : ''}: <strong>{bestNames}</strong>
+                  <p style={{ margin: '4px 0 0', fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>
+                    Best choice{bestIds.length > 1 ? 's' : ''}: <strong style={{ color: 'rgba(255,255,255,0.80)' }}>{bestNames}</strong>
                   </p>
                 )
               })()}
-              <p style={{ margin: '8px 0 0', fontSize: 13, color: '#555', lineHeight: 1.6 }}>
+              <p style={{ margin: '8px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.70)', lineHeight: 1.6 }}>
                 {scenario.explanation}
               </p>
             </motion.div>
@@ -246,8 +247,8 @@ export function Scenarios({ onNavigateToQuiz }) {
 
           {/* Follow-up MCQ */}
           {phase === 'followup' && scenario.followUpQuestion && (
-            <div style={{ background: '#FFFFFF', borderRadius: 12, padding: 16, marginBottom: 16, boxShadow: '0 2px 8px rgba(20,15,80,0.08)' }}>
-              <p style={{ fontSize: 12, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>Follow-up question:</p>
+            <div style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: 16, marginBottom: 16, backdropFilter: 'blur(20px)' }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: '#a89eff', marginBottom: 8 }}>Follow-up question:</p>
               <QuizEngine
                 question={{ ...scenario.followUpQuestion, type: 'mcq' }}
                 onAnswer={followupAnswered ? undefined : handleFollowupAnswer}
@@ -282,12 +283,15 @@ function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       style={{
-        textAlign: 'center', padding: 32, background: '#FFFFFF',
-        borderRadius: 20, boxShadow: '0 4px 24px rgba(20,15,80,0.12)',
+        textAlign: 'center', padding: 32,
+        background: 'rgba(255,255,255,0.045)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        borderRadius: 20,
+        backdropFilter: 'blur(20px)',
       }}
     >
       <div style={{ fontSize: 48, marginBottom: 12 }}>🎉</div>
-      <h2 style={{ color: '#140F50', margin: '0 0 8px' }}>Scenarios Complete!</h2>
+      <h2 style={{ color: 'rgba(255,255,255,0.90)', margin: '0 0 8px' }}>Scenarios Complete!</h2>
       <div
         style={{
           display: 'inline-block', background: result.grade.color, color: '#FFFFFF',
@@ -296,15 +300,15 @@ function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
       >
         {result.grade.label} ({result.grade.code})
       </div>
-      <p style={{ color: '#555', fontSize: 15, margin: '0 0 24px' }}>
+      <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 15, margin: '0 0 24px' }}>
         {result.score} / {result.maxScore} points ({result.percentage}%)
       </p>
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
         <button
           onClick={onRestart}
           style={{
-            background: 'rgba(20,15,80,0.08)', color: '#140F50',
-            border: '1.5px solid rgba(20,15,80,0.15)', borderRadius: 10,
+            background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.80)',
+            border: '1px solid rgba(255,255,255,0.12)', borderRadius: 10,
             padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
           }}
         >

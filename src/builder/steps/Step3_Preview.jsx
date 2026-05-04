@@ -30,8 +30,10 @@ export function Step3_Preview() {
           position: 'sticky',
           top: 0,
           zIndex: 300,
-          background: '#F39C12',
-          color: '#7D6608',
+          background: 'rgba(131,107,255,0.18)',
+          borderBottom: '1px solid rgba(131,107,255,0.30)',
+          backdropFilter: 'blur(20px)',
+          color: '#c4b5fd',
           padding: '8px 20px',
           display: 'flex',
           alignItems: 'center',
@@ -44,13 +46,13 @@ export function Step3_Preview() {
         <div style={{ display: 'flex', gap: 10 }}>
           <button
             onClick={() => dispatch({ type: 'SET_STEP', step: 2 })}
-            style={{ background: 'rgba(0,0,0,0.12)', border: 'none', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: '#7D6608', fontSize: 13 }}
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: 'rgba(255,255,255,0.75)', fontSize: 13 }}
           >
             ← Back to Authoring
           </button>
           <button
             onClick={() => dispatch({ type: 'SET_STEP', step: 4 })}
-            style={{ background: '#7D6608', border: 'none', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: '#FFFFFF', fontSize: 13 }}
+            style={{ background: '#1448FF', border: 'none', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: '#FFFFFF', fontSize: 13 }}
           >
             Export →
           </button>

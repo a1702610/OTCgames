@@ -1,14 +1,14 @@
 import { motion, LayoutGroup } from 'framer-motion'
 
 export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
-  // tabs: [{ id, label }]
   return (
     <LayoutGroup>
       <div
         style={{
           display: 'flex',
           gap: 4,
-          backgroundColor: 'rgba(20,15,80,0.12)',
+          backgroundColor: 'rgba(255,255,255,0.07)',
+          border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 40,
           padding: 4,
           width: 'fit-content',
@@ -31,7 +31,7 @@ export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
               fontSize: 14,
               fontWeight: 600,
               background: 'transparent',
-              color: activeTab === tab.id ? '#140F50' : 'rgba(20,15,80,0.6)',
+              color: activeTab === tab.id ? '#a89eff' : 'rgba(255,255,255,0.42)',
               zIndex: 1,
               transition: 'color 0.2s',
               whiteSpace: 'nowrap',
@@ -43,10 +43,10 @@ export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'rgba(131,107,255,0.22)',
+                  border: '1px solid rgba(131,107,255,0.30)',
                   borderRadius: 36,
                   zIndex: -1,
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 35 }}
               />

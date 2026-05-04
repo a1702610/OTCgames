@@ -2,7 +2,6 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ScoreFloat } from './ScoreFloat.jsx'
 
-// Split sentence on _ markers
 function parseSentence(sentence) {
   return sentence.split('_')
 }
@@ -36,7 +35,7 @@ export function FillInBlanksPlayer({ question, onAnswer, answered }) {
       )}
 
       {/* Sentence with inline inputs */}
-      <div style={{ fontSize: 16, fontWeight: 500, color: '#140F50', lineHeight: 2.2, marginBottom: 20, flexWrap: 'wrap', display: 'flex', alignItems: 'center', gap: '0 4px' }}>
+      <div style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.90)', lineHeight: 2.2, marginBottom: 20, flexWrap: 'wrap', display: 'flex', alignItems: 'center', gap: '0 4px' }}>
         {segments.map((seg, i) => (
           <React.Fragment key={i}>
             <span>{seg}</span>
@@ -59,13 +58,13 @@ export function FillInBlanksPlayer({ question, onAnswer, answered }) {
                   borderRadius: 8,
                   border: answered
                     ? `2px solid ${answered.results?.[i] ? '#27AE60' : '#E74C3C'}`
-                    : '2px solid #836BFF',
+                    : '2px solid rgba(131,107,255,0.50)',
                   fontSize: 15,
                   fontWeight: 600,
-                  color: '#140F50',
+                  color: 'rgba(255,255,255,0.90)',
                   background: answered
-                    ? (answered.results?.[i] ? '#D5F5E3' : '#FADBD8')
-                    : '#F8EFE0',
+                    ? (answered.results?.[i] ? 'rgba(39,174,96,0.15)' : 'rgba(231,76,60,0.15)')
+                    : 'rgba(131,107,255,0.10)',
                   outline: 'none',
                   verticalAlign: 'middle',
                 }}
@@ -81,8 +80,8 @@ export function FillInBlanksPlayer({ question, onAnswer, answered }) {
           onClick={handleSubmit}
           disabled={inputs.some((v) => !v.trim())}
           style={{
-            background: inputs.some((v) => !v.trim()) ? 'rgba(20,15,80,0.15)' : '#836BFF',
-            color: '#FFFFFF',
+            background: inputs.some((v) => !v.trim()) ? 'rgba(255,255,255,0.10)' : '#836BFF',
+            color: inputs.some((v) => !v.trim()) ? 'rgba(255,255,255,0.35)' : '#FFFFFF',
             border: 'none',
             borderRadius: 10,
             padding: '10px 24px',
@@ -104,14 +103,17 @@ export function FillInBlanksPlayer({ question, onAnswer, answered }) {
             transition={{ duration: 0.3 }}
             style={{
               marginTop: 16, padding: '12px 16px',
-              backgroundColor: 'rgba(20,15,80,0.05)',
-              borderRadius: 10, fontSize: 13, color: '#140F50', lineHeight: 1.6,
+              backgroundColor: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 10, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6,
               borderLeft: `4px solid ${answered.isAllCorrect ? '#27AE60' : '#E74C3C'}`,
             }}
           >
-            <strong>{answered.isAllCorrect ? '✓ All correct!' : '✗ Not quite.'}</strong>
+            <strong style={{ color: answered.isAllCorrect ? '#5dda8a' : '#f87171' }}>
+              {answered.isAllCorrect ? '✓ All correct!' : '✗ Not quite.'}
+            </strong>
             {!answered.isAllCorrect && (
-              <div style={{ marginTop: 6, fontSize: 12, color: '#555' }}>
+              <div style={{ marginTop: 6, fontSize: 12, color: 'rgba(255,255,255,0.50)' }}>
                 {(question.blanks || []).map((blank, i) => (
                   <div key={i}>
                     Blank {i + 1}: accepted — {blank.answers.join(', ')}
