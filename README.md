@@ -1,5 +1,8 @@
 # OTC Training Game — Setup Guide
 
+<img width="1694" height="1128" alt="image" src="https://github.com/user-attachments/assets/bd047e2b-1153-45b6-b102-7674dd7ef72c" />
+
+
 This guide will walk you through getting the app running on your computer for the first time.
 
 ---
@@ -79,7 +82,7 @@ OTCgames\public\medications\
 
 These images are included in the repository, so they download automatically when you clone. You do not need to set anything up separately.
 
-The image library is managed by one person (the module coordinator). When new products are added or images are updated, they run a sync script on their machine and push the changes to GitHub. Everyone else just pulls to get the update (see below).
+The image library is managed by one person (Jimit). When new products are added or images are updated, they run a sync script on their machine and push the changes to GitHub. Everyone else just pulls to get the update (see below).
 
 ---
 
