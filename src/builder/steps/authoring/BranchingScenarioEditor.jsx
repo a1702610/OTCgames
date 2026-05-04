@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import ReactFlow, {
   Background,
   Controls,
@@ -38,8 +38,8 @@ function QuestionNode({ data, selected }) {
     <div
       onClick={data.onSelect}
       style={{
-        background: selected ? 'rgba(131,107,255,0.18)' : 'rgba(255,255,255,0.06)',
-        border: `2px solid ${selected ? '#836BFF' : 'rgba(255,255,255,0.15)'}`,
+        background: selected ? 'rgba(131,107,255,0.18)' : 'rgba(20,15,80,0.07)',
+        border: `2px solid ${selected ? '#836BFF' : 'rgba(20,15,80,0.18)'}`,
         borderRadius: 12, padding: '10px 14px',
         minWidth: 200, maxWidth: 240,
         cursor: 'pointer',
@@ -51,10 +51,10 @@ function QuestionNode({ data, selected }) {
       <div style={{ fontSize: 10, fontWeight: 700, color: '#836BFF', marginBottom: 4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
         Node {data.nodeId}
       </div>
-      <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', lineHeight: 1.5, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
-        {data.question || <span style={{ color: 'rgba(255,255,255,0.30)', fontStyle: 'italic' }}>No question yet</span>}
+      <div style={{ fontSize: 12, color: 'rgba(20,15,80,0.80)', lineHeight: 1.5, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
+        {data.question || <span style={{ color: 'rgba(20,15,80,0.28)', fontStyle: 'italic' }}>No question yet</span>}
       </div>
-      <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', marginTop: 6 }}>
+      <div style={{ fontSize: 10, color: 'rgba(20,15,80,0.35)', marginTop: 6 }}>
         {data.choiceCount} choice{data.choiceCount !== 1 ? 's' : ''}
       </div>
       <Handle type="source" position={Position.Bottom} style={{ background: '#836BFF' }} />
@@ -78,7 +78,7 @@ function EndNode({ data }) {
         {data.label}
       </div>
       {data.score > 0 && (
-        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>+{data.score} pts</div>
+        <div style={{ fontSize: 10, color: 'rgba(20,15,80,0.45)', marginTop: 2 }}>+{data.score} pts</div>
       )}
     </div>
   )
@@ -181,14 +181,14 @@ function buildReactFlowElements(scenario, selectedNodeId, onSelectNode) {
       const isEndEdge = choice.next_node < 0
       const endScreen = isEndEdge ? endScreens.find((e) => e.id === choice.next_node) : null
       const isSuccess = endScreen?.score > 0
-      const edgeColor = isEndEdge ? (isSuccess ? '#27AE60' : '#E74C3C') : 'rgba(255,255,255,0.30)'
+      const edgeColor = isEndEdge ? (isSuccess ? '#27AE60' : '#E74C3C') : 'rgba(20,15,80,0.28)'
 
       rfEdges.push({
         id: `edge_${node.id}_${ci}`,
         source: `node_${node.id}`,
         target: targetId,
         label: choice.text.length > 28 ? choice.text.slice(0, 25) + '…' : choice.text,
-        labelStyle: { fill: 'rgba(255,255,255,0.60)', fontSize: 10 },
+        labelStyle: { fill: 'rgba(20,15,80,0.60)', fontSize: 10 },
         labelBgStyle: { fill: 'rgba(12,10,56,0.85)', fillOpacity: 1 },
         markerEnd: { type: MarkerType.ArrowClosed, color: edgeColor },
         style: { stroke: edgeColor, strokeWidth: 1.5 },
@@ -243,25 +243,25 @@ function NodeSidebar({ scenario, selectedNodeId, onUpdateScenario, onClose }) {
 
   const inputStyle = {
     width: '100%', padding: '7px 10px', borderRadius: 7,
-    border: '1.5px solid rgba(255,255,255,0.09)', fontSize: 12,
-    background: 'rgba(255,255,255,0.055)', color: 'rgba(255,255,255,0.90)',
+    border: '1.5px solid rgba(255,255,255,0.12)', fontSize: 12,
+    background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.90)',
     boxSizing: 'border-box', resize: 'vertical',
   }
-  const labelStyle = { fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.45)', display: 'block', marginBottom: 4 }
+  const labelStyle = { fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.50)', display: 'block', marginBottom: 4 }
 
   return (
     <div style={{
       width: 300, flexShrink: 0,
-      background: 'rgba(12,10,56,0.92)', borderLeft: '1px solid rgba(255,255,255,0.08)',
+      background: 'rgba(20,15,80,0.96)', borderLeft: '1px solid rgba(255,255,255,0.08)',
       overflowY: 'auto', padding: 16,
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
         <span style={{ fontWeight: 700, fontSize: 13, color: '#836BFF' }}>Node {selectedNodeId}</span>
         <div style={{ display: 'flex', gap: 6 }}>
-          <button onClick={deleteNode} title="Delete node" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.30)' }}>
+          <button onClick={deleteNode} title="Delete node" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.40)' }}>
             <Trash2 size={14} />
           </button>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.30)' }}>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.40)' }}>
             <X size={16} />
           </button>
         </div>
@@ -288,7 +288,7 @@ function NodeSidebar({ scenario, selectedNodeId, onUpdateScenario, onClose }) {
               <span style={{ fontSize: 11, fontWeight: 700, color: '#836BFF' }}>
                 {String.fromCharCode(65 + ci)}
               </span>
-              <button onClick={() => removeChoice(ci)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.25)' }}>
+              <button onClick={() => removeChoice(ci)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.40)' }}>
                 <X size={12} />
               </button>
             </div>
@@ -309,7 +309,7 @@ function NodeSidebar({ scenario, selectedNodeId, onUpdateScenario, onClose }) {
                 const val = e.target.value
                 updateChoice(ci, { next_node: val === '' ? null : parseInt(val, 10) })
               }}
-              style={{ ...inputStyle, resize: undefined, marginBottom: 6, background: '#1a1560', cursor: 'pointer' }}
+              style={{ ...inputStyle, resize: undefined, marginBottom: 6, cursor: 'pointer' }}
             >
               <option value="">— select next —</option>
               {allNodeIds.filter((id) => id !== selectedNodeId).map((id) => (
@@ -392,29 +392,29 @@ function AIPanel({ onGenerated, onClose }) {
 
   const inputStyle = {
     width: '100%', padding: '8px 11px', borderRadius: 8,
-    border: '1.5px solid rgba(255,255,255,0.09)', fontSize: 12,
-    background: 'rgba(255,255,255,0.055)', color: 'rgba(255,255,255,0.90)',
+    border: '1.5px solid rgba(255,255,255,0.12)', fontSize: 12,
+    background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.90)',
     boxSizing: 'border-box',
   }
 
   return (
     <div style={{
       position: 'absolute', top: 12, right: 12, zIndex: 20,
-      background: 'rgba(12,10,56,0.96)', border: '1px solid rgba(131,107,255,0.30)',
+      background: 'rgba(20,15,80,0.96)', border: '1px solid rgba(131,107,255,0.30)',
       borderRadius: 16, padding: 20, width: 300,
       backdropFilter: 'blur(20px)',
       boxShadow: '0 8px 40px rgba(0,0,0,0.50)',
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-        <span style={{ fontWeight: 700, fontSize: 13, color: '#a89eff', display: 'flex', alignItems: 'center', gap: 6 }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: '#836BFF', display: 'flex', alignItems: 'center', gap: 6 }}>
           <Sparkles size={14} /> AI Generate
         </span>
-        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.35)' }}>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.40)' }}>
           <X size={16} />
         </button>
       </div>
 
-      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.45)', display: 'block', marginBottom: 4 }}>
+      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.50)', display: 'block', marginBottom: 4 }}>
         Gemini API Key
       </label>
       <input
@@ -425,19 +425,19 @@ function AIPanel({ onGenerated, onClose }) {
         style={{ ...inputStyle, marginBottom: 10 }}
       />
 
-      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.45)', display: 'block', marginBottom: 4 }}>
+      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.50)', display: 'block', marginBottom: 4 }}>
         Source document (PDF or .txt)
       </label>
       <div
         onClick={() => fileRef.current?.click()}
         style={{
-          border: '1.5px dashed rgba(255,255,255,0.15)', borderRadius: 8,
+          border: '1.5px dashed rgba(255,255,255,0.20)', borderRadius: 8,
           padding: '10px 12px', cursor: 'pointer', marginBottom: 10,
-          background: 'rgba(255,255,255,0.03)', textAlign: 'center',
+          background: 'rgba(255,255,255,0.05)', textAlign: 'center',
         }}
       >
-        <Upload size={16} style={{ color: 'rgba(255,255,255,0.35)', marginBottom: 4 }} />
-        <div style={{ fontSize: 12, color: file ? 'rgba(255,255,255,0.80)' : 'rgba(255,255,255,0.35)' }}>
+        <Upload size={16} style={{ color: 'rgba(255,255,255,0.40)', marginBottom: 4 }} />
+        <div style={{ fontSize: 12, color: file ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.40)' }}>
           {file ? file.name : 'Click to upload PDF or .txt'}
         </div>
         <input
@@ -449,7 +449,7 @@ function AIPanel({ onGenerated, onClose }) {
         />
       </div>
 
-      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.45)', display: 'block', marginBottom: 4 }}>
+      <label style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.50)', display: 'block', marginBottom: 4 }}>
         Focus / custom instructions (optional)
       </label>
       <textarea
@@ -465,10 +465,10 @@ function AIPanel({ onGenerated, onClose }) {
       )}
 
       {status === 'extracting' && (
-        <p style={{ fontSize: 12, color: '#a89eff', margin: '0 0 10px' }}>📄 Extracting text…</p>
+        <p style={{ fontSize: 12, color: '#836BFF', margin: '0 0 10px' }}>📄 Extracting text…</p>
       )}
       {status === 'generating' && (
-        <p style={{ fontSize: 12, color: '#a89eff', margin: '0 0 10px' }}>✨ Generating scenario with Gemini…</p>
+        <p style={{ fontSize: 12, color: '#836BFF', margin: '0 0 10px' }}>✨ Generating scenario with Gemini…</p>
       )}
       {status === 'done' && (
         <p style={{ fontSize: 12, color: '#5dda8a', margin: '0 0 10px' }}>✓ Scenario generated!</p>
@@ -529,19 +529,19 @@ export function BranchingScenarioEditor({ scenario, onUpdate, onDelete }) {
   const selectedNode = scenario.nodes?.find((n) => n.id === selectedNodeId)
 
   return (
-    <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 16, overflow: 'hidden', marginBottom: 12 }}>
+    <div style={{ background: 'rgba(20,15,80,0.50)', border: '1px solid rgba(131,107,255,0.20)', borderRadius: 16, overflow: 'hidden', marginBottom: 12 }}>
       {/* Header */}
       <div
-        style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.03)', cursor: 'pointer', borderBottom: expanded ? '1px solid rgba(255,255,255,0.06)' : 'none' }}
+        style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(20,15,80,0.60)', cursor: 'pointer', borderBottom: expanded ? '1px solid rgba(255,255,255,0.06)' : 'none' }}
         onClick={() => setExpanded(!expanded)}
       >
-        <span style={{ fontWeight: 700, fontSize: 14, color: 'rgba(255,255,255,0.90)' }}>
+        <span style={{ fontWeight: 700, fontSize: 14, color: '#FFFFFF' }}>
           🌿 {scenario.title || 'Untitled Branching Scenario'}
         </span>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <button
             onClick={(e) => { e.stopPropagation(); onDelete() }}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.30)' }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.40)' }}
             aria-label="Delete scenario"
           >
             <Trash2 size={15} />
@@ -559,7 +559,7 @@ export function BranchingScenarioEditor({ scenario, onUpdate, onDelete }) {
               value={scenario.title || ''}
               onChange={(e) => onUpdate({ title: e.target.value })}
               placeholder="Scenario title"
-              style={{ flex: 2, minWidth: 160, padding: '7px 11px', borderRadius: 8, border: '1.5px solid rgba(255,255,255,0.09)', fontSize: 13, background: 'rgba(255,255,255,0.055)', color: 'rgba(255,255,255,0.90)' }}
+              style={{ flex: 2, minWidth: 160, padding: '7px 11px', borderRadius: 8, border: '1.5px solid rgba(255,255,255,0.15)', fontSize: 13, background: 'rgba(255,255,255,0.10)', color: 'rgba(255,255,255,0.90)' }}
               onClick={(e) => e.stopPropagation()}
             />
             <input
@@ -567,7 +567,7 @@ export function BranchingScenarioEditor({ scenario, onUpdate, onDelete }) {
               value={scenario.start_screen?.subtitle || ''}
               onChange={(e) => onUpdate({ start_screen: { ...scenario.start_screen, subtitle: e.target.value } })}
               placeholder="Start screen subtitle (patient intro)"
-              style={{ flex: 3, minWidth: 200, padding: '7px 11px', borderRadius: 8, border: '1.5px solid rgba(255,255,255,0.09)', fontSize: 13, background: 'rgba(255,255,255,0.055)', color: 'rgba(255,255,255,0.90)' }}
+              style={{ flex: 3, minWidth: 200, padding: '7px 11px', borderRadius: 8, border: '1.5px solid rgba(255,255,255,0.15)', fontSize: 13, background: 'rgba(255,255,255,0.10)', color: 'rgba(255,255,255,0.90)' }}
               onClick={(e) => e.stopPropagation()}
             />
           </div>
@@ -582,18 +582,18 @@ export function BranchingScenarioEditor({ scenario, onUpdate, onDelete }) {
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); setShowAI(!showAI) }}
-              style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, fontWeight: 600, color: '#a89eff', background: 'rgba(131,107,255,0.12)', border: '1px solid rgba(131,107,255,0.25)', borderRadius: 7, padding: '5px 12px', cursor: 'pointer' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, fontWeight: 600, color: '#836BFF', background: 'rgba(131,107,255,0.12)', border: '1px solid rgba(131,107,255,0.25)', borderRadius: 7, padding: '5px 12px', cursor: 'pointer' }}
             >
               <Sparkles size={13} /> Generate with AI
             </button>
-            <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.30)', marginLeft: 4 }}>
+            <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.40)', marginLeft: 4 }}>
               {scenario.nodes?.length || 0} nodes · click a node to edit
             </span>
           </div>
 
           {/* Graph + Sidebar */}
           <div style={{ display: 'flex', height: 500, position: 'relative' }}>
-            <div style={{ flex: 1, background: '#0c0a38' }}>
+            <div style={{ flex: 1, background: 'transparent' }}>
               <ReactFlow
                 nodes={rfNodes}
                 edges={rfEdges}
@@ -603,7 +603,7 @@ export function BranchingScenarioEditor({ scenario, onUpdate, onDelete }) {
                 fitView
                 fitViewOptions={{ padding: 0.2 }}
                 proOptions={{ hideAttribution: true }}
-                style={{ background: '#0c0a38' }}
+                style={{ background: 'transparent' }}
                 onClick={(e) => {
                   // Deselect if clicking canvas directly
                   if (e.target.classList.contains('react-flow__pane')) setSelectedNodeId(null)

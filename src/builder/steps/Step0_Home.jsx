@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion } from 'framer-motion'
 import { Upload, Plus, BookOpen } from 'lucide-react'
 import { useBuilder } from '../BuilderContext.jsx'
@@ -37,7 +37,7 @@ export function Step0_Home() {
   }
 
   const cardStyle = {
-    background: 'rgba(255,255,255,0.045)',
+    background: 'rgba(255,255,255,0.78)',
     border: '1px solid rgba(255,255,255,0.08)',
     borderRadius: 16,
     padding: 24,
@@ -53,7 +53,7 @@ export function Step0_Home() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#0c0a38',
+        background: 'transparent',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -74,10 +74,10 @@ export function Step0_Home() {
         style={{ textAlign: 'center', marginBottom: 40, position: 'relative' }}
       >
         <div style={{ fontSize: 48, marginBottom: 8 }}>🏗️</div>
-        <h1 style={{ margin: 0, color: 'rgba(255,255,255,0.90)', fontSize: 28, fontWeight: 800 }}>
+        <h1 style={{ margin: 0, color: '#140F50', fontSize: 28, fontWeight: 800 }}>
           OTC Module Builder
         </h1>
-        <p style={{ margin: '8px 0 0', color: 'rgba(255,255,255,0.45)', fontSize: 14 }}>
+        <p style={{ margin: '8px 0 0', color: 'rgba(20,15,80,0.45)', fontSize: 14 }}>
           Create interactive pharmacy training modules
         </p>
       </motion.div>
@@ -100,11 +100,11 @@ export function Step0_Home() {
             >
               <BookOpen size={28} color="#1448FF" style={{ flexShrink: 0 }} />
               <div>
-                <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
+                <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
                   Resume Draft
                 </p>
                 {moduleName && (
-                  <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
+                  <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.50)' }}>
                     {moduleName}
                   </p>
                 )}
@@ -135,10 +135,10 @@ export function Step0_Home() {
           >
             <Upload size={28} color="#836BFF" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
+              <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
                 {importing ? 'Importing…' : 'Import Existing Module'}
               </p>
-              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
+              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.50)' }}>
                 Open a .OTCgame or .zip file to continue editing
               </p>
             </div>
@@ -160,10 +160,10 @@ export function Step0_Home() {
           >
             <Plus size={28} color="#27AE60" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ margin: 0, fontWeight: 700, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>
+              <p style={{ margin: 0, fontWeight: 700, color: '#140F50', fontSize: 16 }}>
                 Start New Module
               </p>
-              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.50)' }}>
+              <p style={{ margin: '4px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.50)' }}>
                 {draftExists ? 'Clears current draft and starts fresh' : 'Build a new training module'}
               </p>
             </div>

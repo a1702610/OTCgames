@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion } from 'framer-motion'
 import { shelves } from '../../data/products.js'
 import { useBuilder } from '../BuilderContext.jsx'
@@ -27,28 +27,28 @@ export function Step1_Setup() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0c0a38' }}>
+    <div style={{ minHeight: '100vh', background: 'transparent' }}>
       {/* Header */}
       <div style={{
-        background: 'rgba(12,10,56,0.92)',
+        background: 'rgba(20,15,80,0.96)',
         borderBottom: '1px solid rgba(131,107,255,0.15)',
         padding: '16px 24px', display: 'flex', alignItems: 'center', gap: 16,
         position: 'sticky', top: 0, zIndex: 10, backdropFilter: 'blur(20px)',
       }}>
         <button
           onClick={handleBack}
-          style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '6px 14px', color: 'rgba(255,255,255,0.80)', cursor: 'pointer', fontSize: 14 }}
+          style={{ background: 'rgba(131,107,255,0.22)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 8, padding: '6px 14px', color: 'rgba(255,255,255,0.85)', cursor: 'pointer', fontSize: 14 }}
         >
           ← Back
         </button>
         <h2 style={{ margin: 0, color: '#FFFFFF', fontSize: 18, fontWeight: 700 }}>Module Setup</h2>
-        <span style={{ marginLeft: 'auto', color: 'rgba(255,255,255,0.40)', fontSize: 13 }}>Step 1 of 4</span>
+        <span style={{ marginLeft: 'auto', color: 'rgba(255,255,255,0.50)', fontSize: 13 }}>Step 1 of 4</span>
       </div>
 
       <div style={{ maxWidth: 640, margin: '0 auto', padding: '32px 24px' }}>
         {/* Module name */}
         <div style={{ marginBottom: 24 }}>
-          <label style={{ display: 'block', fontWeight: 700, color: 'rgba(255,255,255,0.80)', marginBottom: 8, fontSize: 14 }}>
+          <label style={{ display: 'block', fontWeight: 700, color: 'rgba(20,15,80,0.80)', marginBottom: 8, fontSize: 14 }}>
             Module Name <span style={{ color: '#f87171' }}>*</span>
           </label>
           <input
@@ -60,11 +60,11 @@ export function Step1_Setup() {
               width: '100%',
               padding: '12px 16px',
               fontSize: 15,
-              border: `1.5px solid ${nameError ? '#E74C3C' : 'rgba(255,255,255,0.09)'}`,
+              border: `1.5px solid ${nameError ? '#E74C3C' : 'rgba(20,15,80,0.14)'}`,
               borderRadius: 10,
               outline: 'none',
-              background: 'rgba(255,255,255,0.055)',
-              color: 'rgba(255,255,255,0.90)',
+              background: 'rgba(20,15,80,0.05)',
+              color: '#140F50',
               boxSizing: 'border-box',
             }}
           />
@@ -73,8 +73,8 @@ export function Step1_Setup() {
 
         {/* Description */}
         <div style={{ marginBottom: 32 }}>
-          <label style={{ display: 'block', fontWeight: 700, color: 'rgba(255,255,255,0.80)', marginBottom: 8, fontSize: 14 }}>
-            Description <span style={{ color: 'rgba(255,255,255,0.35)', fontWeight: 400 }}>(optional)</span>
+          <label style={{ display: 'block', fontWeight: 700, color: 'rgba(20,15,80,0.80)', marginBottom: 8, fontSize: 14 }}>
+            Description <span style={{ color: 'rgba(20,15,80,0.35)', fontWeight: 400 }}>(optional)</span>
           </label>
           <textarea
             value={description}
@@ -88,8 +88,8 @@ export function Step1_Setup() {
               border: '1.5px solid rgba(255,255,255,0.09)',
               borderRadius: 10,
               outline: 'none',
-              background: 'rgba(255,255,255,0.055)',
-              color: 'rgba(255,255,255,0.90)',
+              background: 'rgba(20,15,80,0.05)',
+              color: '#140F50',
               resize: 'vertical',
               boxSizing: 'border-box',
             }}
@@ -99,10 +99,10 @@ export function Step1_Setup() {
         {/* Shelf selection */}
         <div style={{ marginBottom: 32 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <label style={{ fontWeight: 700, color: 'rgba(255,255,255,0.80)', fontSize: 14 }}>
+            <label style={{ fontWeight: 700, color: 'rgba(20,15,80,0.80)', fontSize: 14 }}>
               Select Shelves <span style={{ color: '#f87171' }}>*</span>
             </label>
-            <span style={{ fontSize: 13, color: selectedShelfIds.length > 0 ? '#a89eff' : 'rgba(255,255,255,0.35)', fontWeight: 600 }}>
+            <span style={{ fontSize: 13, color: selectedShelfIds.length > 0 ? '#836BFF' : 'rgba(20,15,80,0.35)', fontWeight: 600 }}>
               {selectedShelfIds.length} selected
             </span>
           </div>
@@ -110,7 +110,7 @@ export function Step1_Setup() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {Object.entries(shelfGroups).map(([groupLabel, groupShelves]) => (
               <div key={groupLabel}>
-                <p style={{ margin: '0 0 8px', fontSize: 13, color: 'rgba(255,255,255,0.50)', fontWeight: 600 }}>
+                <p style={{ margin: '0 0 8px', fontSize: 13, color: 'rgba(20,15,80,0.50)', fontWeight: 600 }}>
                   {groupShelves[0].emoji} {groupLabel}
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -125,9 +125,9 @@ export function Step1_Setup() {
                         style={{
                           padding: '8px 16px',
                           borderRadius: 20,
-                          border: `1.5px solid ${isSelected ? shelf.color : 'rgba(255,255,255,0.12)'}`,
-                          background: isSelected ? `${shelf.color}22` : 'rgba(255,255,255,0.045)',
-                          color: isSelected ? shelf.color : 'rgba(255,255,255,0.55)',
+                          border: `1.5px solid ${isSelected ? shelf.color : 'rgba(20,15,80,0.16)'}`,
+                          background: isSelected ? `${shelf.color}22` : 'rgba(255,255,255,0.78)',
+                          color: isSelected ? shelf.color : 'rgba(20,15,80,0.60)',
                           fontWeight: isSelected ? 700 : 500,
                           fontSize: 13,
                           cursor: 'pointer',
@@ -153,7 +153,7 @@ export function Step1_Setup() {
             width: '100%',
             padding: '14px',
             background: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(20,72,255,0.22)' : '#1448FF',
-            color: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(255,255,255,0.30)' : '#FFFFFF',
+            color: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(20,15,80,0.28)' : '#FFFFFF',
             border: 'none',
             borderRadius: 12,
             fontWeight: 700,

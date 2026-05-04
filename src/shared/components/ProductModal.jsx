@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { ImageWithFallback } from '../utils/imageUtils.jsx'
@@ -54,7 +54,7 @@ export function ProductModal({ product, onClose }) {
             exit={{ scale: 0.92, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: 'rgba(20,15,70,0.96)',
+              background: 'rgba(255,255,255,0.97)',
               border: '1px solid rgba(131,107,255,0.25)',
               borderRadius: 24,
               padding: 28,
@@ -73,11 +73,11 @@ export function ProductModal({ product, onClose }) {
               aria-label="Close"
               style={{
                 position: 'absolute', top: 14, right: 14, zIndex: 2,
-                background: 'rgba(255,255,255,0.08)',
+                background: 'rgba(131,107,255,0.22)',
                 border: '1px solid rgba(255,255,255,0.12)',
                 borderRadius: 20, width: 36, height: 36,
                 cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'rgba(255,255,255,0.70)',
+                color: 'rgba(20,15,80,0.70)',
               }}
             >
               <X size={20} />
@@ -100,7 +100,7 @@ export function ProductModal({ product, onClose }) {
                 <button
                   onClick={() => setSideIndex((i) => (i - 1 + availableSides.length) % availableSides.length)}
                   aria-label="Previous image"
-                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.80)' }}
+                  style={{ background: 'rgba(131,107,255,0.22)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(20,15,80,0.80)' }}
                 >
                   <ChevronLeft size={22} />
                 </button>
@@ -112,7 +112,7 @@ export function ProductModal({ product, onClose }) {
                   aria-label={s}
                   style={{
                     width: 10, height: 10, borderRadius: 5,
-                    background: i === sideIndex ? '#836BFF' : 'rgba(255,255,255,0.25)',
+                    background: i === sideIndex ? '#836BFF' : 'rgba(20,15,80,0.22)',
                     border: 'none', cursor: availableSides.length > 1 ? 'pointer' : 'default', padding: 0,
                     transition: 'background 0.2s',
                   }}
@@ -122,7 +122,7 @@ export function ProductModal({ product, onClose }) {
                 <button
                   onClick={() => setSideIndex((i) => (i + 1) % availableSides.length)}
                   aria-label="Next image"
-                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.80)' }}
+                  style={{ background: 'rgba(131,107,255,0.22)', border: '1px solid rgba(255,255,255,0.10)', borderRadius: 50, width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(20,15,80,0.80)' }}
                 >
                   <ChevronRight size={22} />
                 </button>
@@ -131,8 +131,8 @@ export function ProductModal({ product, onClose }) {
 
             {/* Product info */}
             <div style={{ marginTop: 14, textAlign: 'center' }}>
-              <h2 style={{ margin: 0, fontSize: 20, color: 'rgba(255,255,255,0.90)', fontWeight: 700 }}>{product.name}</h2>
-              <p style={{ margin: '4px 0 0', fontSize: 14, color: '#a89eff', fontWeight: 600 }}>{product.brand}</p>
+              <h2 style={{ margin: 0, fontSize: 20, color: '#140F50', fontWeight: 700 }}>{product.name}</h2>
+              <p style={{ margin: '4px 0 0', fontSize: 14, color: '#836BFF', fontWeight: 600 }}>{product.brand}</p>
             </div>
           </motion.div>
         </motion.div>

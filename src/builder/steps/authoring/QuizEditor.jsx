@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { Plus, ChevronDown } from 'lucide-react'
 import { useBuilder } from '../../BuilderContext.jsx'
 import { MCQEditor } from './MCQEditor.jsx'
@@ -55,7 +55,7 @@ export function QuizEditor({ shelfId }) {
       </div>
 
       {shelfQuestions.length === 0 && (
-        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: 13, margin: '0 0 12px' }}>No quiz questions yet for this shelf.</p>
+        <p style={{ color: 'rgba(20,15,80,0.35)', fontSize: 13, margin: '0 0 12px' }}>No quiz questions yet for this shelf.</p>
       )}
 
       {/* Add question dropdown */}
@@ -65,8 +65,8 @@ export function QuizEditor({ shelfId }) {
           style={{
             display: 'flex', alignItems: 'center', gap: 6,
             padding: '8px 16px', borderRadius: 8,
-            background: 'rgba(255,255,255,0.045)', border: '1.5px dashed rgba(255,255,255,0.15)',
-            color: 'rgba(255,255,255,0.65)', fontWeight: 600, fontSize: 13, cursor: 'pointer',
+            background: 'rgba(255,255,255,0.78)', border: '1.5px dashed rgba(255,255,255,0.15)',
+            color: 'rgba(20,15,80,0.65)', fontWeight: 600, fontSize: 13, cursor: 'pointer',
           }}
         >
           <Plus size={15} /> Add Question <ChevronDown size={14} />
@@ -75,7 +75,7 @@ export function QuizEditor({ shelfId }) {
           <div
             style={{
               position: 'absolute', top: '110%', left: 0, zIndex: 10,
-              background: 'rgba(20,15,60,0.98)',
+              background: 'rgba(255,255,255,0.98)',
               border: '1px solid rgba(255,255,255,0.10)',
               borderRadius: 10,
               boxShadow: '0 8px 32px rgba(0,0,0,0.50)',
@@ -85,7 +85,7 @@ export function QuizEditor({ shelfId }) {
           >
             {[
               { type: 'mcq', label: 'Multiple Choice', color: '#7da5ff' },
-              { type: 'truefalse', label: 'True / False', color: '#a89eff' },
+              { type: 'truefalse', label: 'True / False', color: '#836BFF' },
               { type: 'fillinblanks', label: 'Fill in the Blanks', color: '#5dda8a' },
             ].map((opt) => (
               <button
@@ -96,7 +96,7 @@ export function QuizEditor({ shelfId }) {
                   padding: '10px 16px', border: 'none', background: 'none',
                   color: opt.color, fontWeight: 600, fontSize: 13, cursor: 'pointer',
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.06)'}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(20,15,80,0.07)'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'none'}
               >
                 {opt.label}

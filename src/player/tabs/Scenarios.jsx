@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePlayer } from '../PlayerContext.jsx'
-import { ShelfDisplay } from '../../shared/components/ShelfDisplay.jsx'
+import { ShelfModal } from '../../shared/components/ShelfModal.jsx'
 import { QuizEngine } from '../../shared/components/QuizEngine.jsx'
 import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
@@ -11,16 +11,17 @@ export function Scenarios({ onNavigateToQuiz }) {
   const scenarios = moduleData?.scenarios || []
 
   const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [phase, setPhase] = React.useState('presenting') // presenting | awaiting-selection | confirming | feedback | followup | done
+  const [phase, setPhase] = React.useState('presenting') // presenting | feedback | followup
   const [pendingProductId, setPendingProductId] = React.useState(null)
   const [selectedProductId, setSelectedProductId] = React.useState(null)
   const [selectionResult, setSelectionResult] = React.useState(null)
   const [followupAnswered, setFollowupAnswered] = React.useState(null)
   const [completed, setCompleted] = React.useState(false)
   const [scenarioScore, setScenarioScore] = React.useState(0)
+  const [shelfOpen, setShelfOpen] = React.useState(false)
 
   if (scenarios.length === 0) {
-    return <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: 14 }}>No patient scenarios in this module.</p>
+    return <p style={{ color: 'rgba(20,15,80,0.40)', fontSize: 14 }}>No patient scenarios in this module.</p>
   }
 
   const scenarioMaxScore = scenarios.reduce((sum, s) => sum + 1 + (s.followUpQuestion ? 1 : 0), 0)
@@ -31,14 +32,9 @@ export function Scenarios({ onNavigateToQuiz }) {
       <CompletionScreen
         result={result}
         onRestart={() => {
-          setCurrentIndex(0)
-          setCompleted(false)
-          setPhase('presenting')
-          setSelectionResult(null)
-          setSelectedProductId(null)
-          setPendingProductId(null)
-          setFollowupAnswered(null)
-          setScenarioScore(0)
+          setCurrentIndex(0); setCompleted(false); setPhase('presenting')
+          setSelectionResult(null); setSelectedProductId(null)
+          setPendingProductId(null); setFollowupAnswered(null); setScenarioScore(0)
         }}
         onNavigateToQuiz={onNavigateToQuiz}
       />
@@ -46,11 +42,10 @@ export function Scenarios({ onNavigateToQuiz }) {
   }
 
   const scenario = scenarios[currentIndex]
-  const shelfData = moduleData.shelves.find((s) => s.id === scenario.shelfId)
-  const shelfProducts = moduleData.products.filter((p) => p.category === scenario.shelfId)
+  const shelfData = moduleData.shelves.find((s) => s.id === scenario.shelfId) || null
+  const shelfProducts = shelfData ? moduleData.products.filter((p) => p.category === shelfData.id) : []
 
   function handleProductPending(productId) {
-    if (phase !== 'awaiting-selection') return
     setPendingProductId((prev) => (prev === productId ? null : productId))
   }
 
@@ -59,6 +54,7 @@ export function Scenarios({ onNavigateToQuiz }) {
     const productId = pendingProductId
     setSelectedProductId(productId)
     setPendingProductId(null)
+    setShelfOpen(false)
 
     const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
     let tier, delta
@@ -71,7 +67,7 @@ export function Scenarios({ onNavigateToQuiz }) {
     }
     if (delta > 0) {
       addScore(delta)
-      setScenarioScore(prev => prev + delta)
+      setScenarioScore((prev) => prev + delta)
     }
     setSelectionResult({ tier, delta, productId })
     setPhase('feedback')
@@ -98,7 +94,7 @@ export function Scenarios({ onNavigateToQuiz }) {
   function handleFollowupAnswer(result) {
     if (result.isCorrect) {
       addScore(1)
-      setScenarioScore(prev => prev + 1)
+      setScenarioScore((prev) => prev + 1)
     }
     setFollowupAnswered(result)
   }
@@ -106,12 +102,14 @@ export function Scenarios({ onNavigateToQuiz }) {
   const tierColors = { best: '#27AE60', acceptable: '#E67E22', incorrect: '#E74C3C' }
   const tierLabels = { best: 'Best Choice (+1)', acceptable: 'Acceptable (+0.5)', incorrect: 'Incorrect (0)' }
 
-  const displaySelectedId = phase === 'awaiting-selection' ? pendingProductId : selectedProductId
+  const selectedProductName = selectedProductId
+    ? moduleData.products.find((p) => p.id === selectedProductId)?.name
+    : null
 
   return (
     <div>
       <ProgressBar current={currentIndex} total={scenarios.length} color="#1448FF" height={6} />
-      <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', margin: '6px 0 16px', textAlign: 'right' }}>
+      <p style={{ fontSize: 12, color: 'rgba(20,15,80,0.45)', margin: '6px 0 16px', textAlign: 'right' }}>
         Scenario {currentIndex + 1} of {scenarios.length}
       </p>
 
@@ -126,30 +124,28 @@ export function Scenarios({ onNavigateToQuiz }) {
           {/* Patient card */}
           <div
             style={{
-              background: 'rgba(255,255,255,0.045)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 16,
-              padding: 20,
-              marginBottom: 16,
+              background: 'rgba(255,255,255,0.78)',
+              border: '1px solid rgba(131,107,255,0.20)',
+              borderRadius: 16, padding: 20, marginBottom: 16,
               backdropFilter: 'blur(20px)',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
               <span style={{ fontSize: 40 }}>{scenario.patient.avatarEmoji}</span>
               <div>
-                <h3 style={{ margin: 0, color: 'rgba(255,255,255,0.90)', fontSize: 16 }}>{scenario.patient.name}</h3>
-                <p style={{ margin: '6px 0 0', fontSize: 14, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
+                <h3 style={{ margin: 0, color: '#140F50', fontSize: 16 }}>{scenario.patient.name}</h3>
+                <p style={{ margin: '6px 0 0', fontSize: 14, color: 'rgba(20,15,80,0.65)', lineHeight: 1.6 }}>
                   {scenario.patient.description}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* "Select a product" prompt */}
-          {phase === 'presenting' && (
+          {/* Select button — shown in presenting phase whenever there are products available */}
+          {phase === 'presenting' && moduleData.products.length > 0 && (
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
               <button
-                onClick={() => setPhase('awaiting-selection')}
+                onClick={() => { setPendingProductId(null); setShelfOpen(true) }}
                 style={{
                   background: '#1448FF', color: '#FFFFFF', border: 'none',
                   borderRadius: 10, padding: '12px 28px',
@@ -161,56 +157,27 @@ export function Scenarios({ onNavigateToQuiz }) {
             </div>
           )}
 
-          {/* Shelf for selection */}
-          {(phase === 'awaiting-selection' || phase === 'feedback' || phase === 'followup') && shelfData && (
+          {/* Selected product pill — shown after selection */}
+          {phase !== 'presenting' && selectedProductName && (
             <div style={{ marginBottom: 16 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: '#a89eff', marginBottom: 8 }}>
-                {phase === 'awaiting-selection' ? 'Choose the most appropriate product:' : 'Your selection:'}
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 8, alignItems: 'flex-start' }}>
-                <ShelfDisplay
-                  shelf={shelfData}
-                  products={shelfProducts}
-                  mode="select"
-                  selectedProductId={displaySelectedId}
-                  onSelect={phase === 'awaiting-selection' ? handleProductPending : undefined}
-                />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                {shelfData && (
+                  <span
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 4,
+                      background: `${shelfData.color}20`, color: shelfData.color,
+                      border: `1px solid ${shelfData.color}44`,
+                      borderRadius: 20, padding: '3px 12px',
+                      fontSize: 12, fontWeight: 600,
+                    }}
+                  >
+                    {shelfData.emoji} {shelfData.label}
+                  </span>
+                )}
+                <span style={{ fontSize: 13, color: 'rgba(20,15,80,0.60)' }}>
+                  You selected: <strong style={{ color: '#140F50' }}>{selectedProductName}</strong>
+                </span>
               </div>
-
-              {/* Confirm button */}
-              {phase === 'awaiting-selection' && pendingProductId && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  style={{ marginTop: 14, textAlign: 'center' }}
-                >
-                  <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.55)', marginBottom: 8 }}>
-                    {shelfProducts.find(p => p.id === pendingProductId)?.name} — confirm your choice?
-                  </p>
-                  <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-                    <button
-                      onClick={() => setPendingProductId(null)}
-                      style={{
-                        background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.80)',
-                        border: '1px solid rgba(255,255,255,0.12)', borderRadius: 10,
-                        padding: '10px 22px', fontWeight: 600, fontSize: 14, cursor: 'pointer',
-                      }}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      onClick={handleConfirm}
-                      style={{
-                        background: '#1448FF', color: '#FFFFFF', border: 'none',
-                        borderRadius: 10, padding: '10px 28px',
-                        fontWeight: 700, fontSize: 14, cursor: 'pointer',
-                      }}
-                    >
-                      Confirm →
-                    </button>
-                  </div>
-                </motion.div>
-              )}
             </div>
           )}
 
@@ -220,8 +187,8 @@ export function Scenarios({ onNavigateToQuiz }) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               style={{
-                background: 'rgba(255,255,255,0.045)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: 'rgba(255,255,255,0.78)',
+                border: '1px solid rgba(131,107,255,0.20)',
                 borderRadius: 12, padding: 16, marginBottom: 16,
                 borderLeft: `5px solid ${tierColors[selectionResult.tier]}`,
                 backdropFilter: 'blur(20px)',
@@ -232,14 +199,14 @@ export function Scenarios({ onNavigateToQuiz }) {
               </p>
               {selectionResult.tier === 'incorrect' && (() => {
                 const bestIds = scenario.bestChoiceProductIds || (scenario.bestChoiceProductId ? [scenario.bestChoiceProductId] : [])
-                const bestNames = bestIds.map(id => moduleData.products.find(p => p.id === id)?.name || id).join(', ')
+                const bestNames = bestIds.map((id) => moduleData.products.find((p) => p.id === id)?.name || id).join(', ')
                 return (
-                  <p style={{ margin: '4px 0 0', fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>
-                    Best choice{bestIds.length > 1 ? 's' : ''}: <strong style={{ color: 'rgba(255,255,255,0.80)' }}>{bestNames}</strong>
+                  <p style={{ margin: '4px 0 0', fontSize: 12, color: 'rgba(20,15,80,0.60)' }}>
+                    Best choice{bestIds.length > 1 ? 's' : ''}: <strong style={{ color: 'rgba(20,15,80,0.80)' }}>{bestNames}</strong>
                   </p>
                 )
               })()}
-              <p style={{ margin: '8px 0 0', fontSize: 13, color: 'rgba(255,255,255,0.70)', lineHeight: 1.6 }}>
+              <p style={{ margin: '8px 0 0', fontSize: 13, color: 'rgba(20,15,80,0.70)', lineHeight: 1.6 }}>
                 {scenario.explanation}
               </p>
             </motion.div>
@@ -247,8 +214,8 @@ export function Scenarios({ onNavigateToQuiz }) {
 
           {/* Follow-up MCQ */}
           {phase === 'followup' && scenario.followUpQuestion && (
-            <div style={{ background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: 16, marginBottom: 16, backdropFilter: 'blur(20px)' }}>
-              <p style={{ fontSize: 12, fontWeight: 600, color: '#a89eff', marginBottom: 8 }}>Follow-up question:</p>
+            <div style={{ background: 'rgba(255,255,255,0.78)', border: '1px solid rgba(131,107,255,0.20)', borderRadius: 12, padding: 16, marginBottom: 16, backdropFilter: 'blur(20px)' }}>
+              <p style={{ fontSize: 12, fontWeight: 600, color: '#836BFF', marginBottom: 8 }}>Follow-up question:</p>
               <QuizEngine
                 question={{ ...scenario.followUpQuestion, type: 'mcq' }}
                 onAnswer={followupAnswered ? undefined : handleFollowupAnswer}
@@ -273,6 +240,21 @@ export function Scenarios({ onNavigateToQuiz }) {
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* Shelf selection modal — single shelf if assigned, all shelves as fallback */}
+      {shelfOpen && (
+        <ShelfModal
+          shelf={shelfData}
+          shelves={shelfData ? undefined : moduleData.shelves}
+          products={shelfData ? shelfProducts : undefined}
+          allProducts={shelfData ? undefined : moduleData.products}
+          mode="select"
+          selectedProductId={pendingProductId}
+          onSelect={handleProductPending}
+          onConfirm={handleConfirm}
+          onClose={() => { setShelfOpen(false); setPendingProductId(null) }}
+        />
+      )}
     </div>
   )
 }
@@ -284,14 +266,14 @@ function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
       animate={{ opacity: 1, scale: 1 }}
       style={{
         textAlign: 'center', padding: 32,
-        background: 'rgba(255,255,255,0.045)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(255,255,255,0.78)',
+        border: '1px solid rgba(131,107,255,0.20)',
         borderRadius: 20,
         backdropFilter: 'blur(20px)',
       }}
     >
       <div style={{ fontSize: 48, marginBottom: 12 }}>🎉</div>
-      <h2 style={{ color: 'rgba(255,255,255,0.90)', margin: '0 0 8px' }}>Scenarios Complete!</h2>
+      <h2 style={{ color: '#140F50', margin: '0 0 8px' }}>Scenarios Complete!</h2>
       <div
         style={{
           display: 'inline-block', background: result.grade.color, color: '#FFFFFF',
@@ -300,16 +282,16 @@ function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
       >
         {result.grade.label} ({result.grade.code})
       </div>
-      <p style={{ color: 'rgba(255,255,255,0.60)', fontSize: 15, margin: '0 0 24px' }}>
+      <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 15, margin: '0 0 24px' }}>
         {result.score} / {result.maxScore} points ({result.percentage}%)
       </p>
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
         <button
           onClick={onRestart}
           style={{
-            background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.80)',
-            border: '1px solid rgba(255,255,255,0.12)', borderRadius: 10,
-            padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+            background: 'rgba(20,15,80,0.10)', color: '#140F50',
+            border: '1px solid rgba(20,15,80,0.20)', borderRadius: 10,
+            padding: '10px 24px', fontWeight: 700, cursor: 'pointer', fontSize: 14,
           }}
         >
           Try Again
@@ -319,7 +301,7 @@ function CompletionScreen({ result, onRestart, onNavigateToQuiz }) {
             onClick={onNavigateToQuiz}
             style={{
               background: '#1448FF', color: '#FFFFFF', border: 'none',
-              borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+              borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer', fontSize: 14,
             }}
           >
             Move to Quiz →

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion } from 'framer-motion'
 import { ProductCard } from './ProductCard.jsx'
 import { ProductModal } from './ProductModal.jsx'
@@ -9,6 +9,22 @@ function chunk(arr, size) {
   const result = []
   for (let i = 0; i < arr.length; i += size) result.push(arr.slice(i, i + size))
   return result
+}
+
+/** Group products by their row number. Falls back to chunk-by-4 if no row data. */
+function groupByRow(products) {
+  const hasRows = products.some((p) => p.row != null)
+  if (!hasRows) return chunk(products, PRODUCTS_PER_ROW)
+
+  const rowMap = new Map()
+  for (const p of products) {
+    const key = p.row ?? 0
+    if (!rowMap.has(key)) rowMap.set(key, [])
+    rowMap.get(key).push(p)
+  }
+  return [...rowMap.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map(([, prods]) => prods)
 }
 
 export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProductId, onSelect, dragState, onDragStart, onDragEnd }) {
@@ -23,10 +39,10 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
     }
   }
 
-  const rows = chunk(products, PRODUCTS_PER_ROW)
+  const rows = groupByRow(products)
 
   return (
-    <div style={{ width: 520, flexShrink: 0 }}>
+    <div style={{ width: '100%', minWidth: 0 }}>
       {/* Shelf header */}
       <div
         style={{
@@ -43,7 +59,7 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
           <div style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {shelf.label}{shelf.shelfNumber > 1 && ` (${shelf.shelfNumber})`}
           </div>
-          <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.75)' }}>{products.length} products</div>
+          <div style={{ fontSize: 11, color: 'rgba(20,15,80,0.70)' }}>{products.length} products</div>
         </div>
       </div>
 
@@ -66,7 +82,7 @@ export function ShelfDisplay({ shelf, products, mode = 'browse', selectedProduct
           rows.map((rowProducts, rowIndex) => (
             <div key={rowIndex}>
               {/* Product row */}
-              <div style={{ display: 'flex', gap: 6, padding: '6px 4px 0', justifyContent: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: 6, padding: '6px 4px 0', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
                 {rowProducts.map((product) => {
                   const isDragging = dragState?.draggingId === product.id
                   const isSelected = mode === 'select' && selectedProductId === product.id

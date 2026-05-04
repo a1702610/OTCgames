@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import { PlayerProvider, usePlayer } from './PlayerContext.jsx'
 import { PillTabSwitcher } from '../shared/components/PillTabSwitcher.jsx'
@@ -7,32 +7,49 @@ import { ScoreFloat } from '../shared/components/ScoreFloat.jsx'
 import { ShelfBrowse } from './tabs/ShelfBrowse.jsx'
 import { Scenarios } from './tabs/Scenarios.jsx'
 import { Quiz } from './tabs/Quiz.jsx'
+import { DragDropTab } from './tabs/DragDropTab.jsx'
 import { BranchingStory } from './tabs/BranchingStory.jsx'
 
-const TABS = [
-  { id: 'shelf', label: '🏪 Shelf Browse' },
+const ALL_TABS = [
+  { id: 'shelf',     label: '🏪 Shelf Browse' },
   { id: 'scenarios', label: '🧑‍⚕️ Scenarios' },
-  { id: 'quiz', label: '📝 Quiz' },
-  { id: 'story', label: '🌿 Story' },
+  { id: 'quiz',      label: '📝 Quiz' },
+  { id: 'dragdrop',  label: '🎯 Drag & Drop' },
+  { id: 'story',     label: '🌿 Story' },
 ]
 
 function PlayerInner({ isPreviewMode }) {
   const { score, lastDelta, scoreFloatId, moduleData, isDemoMode } = usePlayer()
-  const [activeTab, setActiveTab] = React.useState('shelf')
+  const [activeTab, setActiveTab] = React.useState(null)
+
+  const visibleTabs = React.useMemo(() => {
+    if (!moduleData) return []
+    const qq = moduleData.quizQuestions || []
+    return ALL_TABS.filter((t) => {
+      if (t.id === 'shelf')     return (moduleData.shelves?.length ?? 0) > 0
+      if (t.id === 'scenarios') return (moduleData.scenarios?.length ?? 0) > 0
+      if (t.id === 'quiz')      return qq.filter((q) => q.type !== 'dragdrop').length > 0
+      if (t.id === 'dragdrop')  return qq.filter((q) => q.type === 'dragdrop').length > 0
+      if (t.id === 'story')     return (moduleData.branchingScenarios?.length ?? 0) > 0
+      return true
+    })
+  }, [moduleData])
+
+  React.useEffect(() => {
+    if (visibleTabs.length > 0 && (!activeTab || !visibleTabs.find((t) => t.id === activeTab))) {
+      setActiveTab(visibleTabs[0].id)
+    }
+  }, [visibleTabs, activeTab])
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#0c0a38' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'transparent' }}>
       {/* Header */}
       <div
         style={{
           background: 'linear-gradient(135deg, #140F50 0%, #1448FF 100%)',
           padding: '14px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          position: 'sticky',
-          top: 0,
-          zIndex: 10,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          position: 'sticky', top: 0, zIndex: 10,
           borderBottom: '1px solid rgba(131,107,255,0.15)',
         }}
       >
@@ -41,32 +58,22 @@ function PlayerInner({ isPreviewMode }) {
             {moduleData?.module?.name || 'OTC Training'}
           </h1>
           {isDemoMode && (
-            <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
-              Demo Mode
-            </span>
+            <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>Demo Mode</span>
           )}
           {isPreviewMode && (
-            <span style={{ fontSize: 11, color: '#FFD700', fontWeight: 600 }}>
-              ⚠️ Preview
-            </span>
+            <span style={{ fontSize: 11, color: '#FFD700', fontWeight: 600 }}>⚠️ Preview</span>
           )}
         </div>
 
-        {/* Score pill */}
         <div style={{ position: 'relative' }}>
           <ScoreFloat delta={lastDelta} id={scoreFloatId} />
           <motion.div
             style={{
-              background: 'rgba(255,255,255,0.12)',
+              background: 'rgba(20,15,80,0.16)',
               border: '1px solid rgba(255,255,255,0.2)',
-              borderRadius: 20,
-              padding: '6px 14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-              color: '#FFFFFF',
-              fontWeight: 700,
-              fontSize: 15,
+              borderRadius: 20, padding: '6px 14px',
+              display: 'flex', alignItems: 'center', gap: 6,
+              color: '#FFFFFF', fontWeight: 700, fontSize: 15,
             }}
             animate={{ scale: lastDelta ? [1, 1.15, 1] : 1 }}
             transition={{ duration: 0.3 }}
@@ -77,43 +84,43 @@ function PlayerInner({ isPreviewMode }) {
         </div>
       </div>
 
-      {/* Live score announcement for screen readers */}
       <div aria-live="polite" aria-atomic="true" style={{ position: 'absolute', left: -9999 }}>
         {lastDelta ? `+${lastDelta} point${lastDelta !== 1 ? 's' : ''}` : ''}
       </div>
 
-      {/* Pill tab switcher */}
-      <div style={{ padding: '16px 20px 8px' }}>
-        <PillTabSwitcher tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
-      </div>
+      {/* Tab switcher */}
+      {visibleTabs.length > 0 && (
+        <div style={{ padding: '16px 20px 8px' }}>
+          <PillTabSwitcher tabs={visibleTabs} activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
+      )}
 
-      {/* Tab content */}
+      {/* Tab content — all mounted simultaneously; only active shown to preserve state */}
       <div style={{ flex: 1, padding: '8px 20px 20px', overflowY: 'auto' }}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-          >
-            {activeTab === 'shelf' && <ShelfBrowse />}
-            {activeTab === 'scenarios' && <Scenarios onNavigateToQuiz={() => setActiveTab('quiz')} />}
-            {activeTab === 'quiz' && <Quiz />}
-            {activeTab === 'story' && <BranchingStory />}
-          </motion.div>
-        </AnimatePresence>
+        <div style={{ display: activeTab === 'shelf' ? 'block' : 'none' }}>
+          <ShelfBrowse />
+        </div>
+        <div style={{ display: activeTab === 'scenarios' ? 'block' : 'none' }}>
+          <Scenarios onNavigateToQuiz={() => setActiveTab('quiz')} />
+        </div>
+        <div style={{ display: activeTab === 'quiz' ? 'block' : 'none' }}>
+          <Quiz />
+        </div>
+        <div style={{ display: activeTab === 'dragdrop' ? 'block' : 'none' }}>
+          <DragDropTab />
+        </div>
+        <div style={{ display: activeTab === 'story' ? 'block' : 'none' }}>
+          <BranchingStory />
+        </div>
       </div>
 
       {/* Footer */}
       <div
         style={{
-          background: 'rgba(12,10,56,0.92)',
+          background: 'rgba(20,15,80,0.96)',
           borderTop: '1px solid rgba(131,107,255,0.10)',
-          padding: '10px 20px',
-          textAlign: 'center',
-          color: 'rgba(255,255,255,0.35)',
-          fontSize: 12,
+          padding: '10px 20px', textAlign: 'center',
+          color: 'rgba(255,255,255,0.50)', fontSize: 12,
         }}
       >
         OTC Training — Pharmacy Practice

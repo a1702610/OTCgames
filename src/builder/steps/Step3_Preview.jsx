@@ -1,10 +1,10 @@
-import React from 'react'
+﻿import React from 'react'
 import { useBuilder } from '../BuilderContext.jsx'
 import { PlayerApp } from '../../player/PlayerApp.jsx'
 import { shelves as allShelves, products as allProducts } from '../../data/products.js'
 
 function buildModuleDataFromContext(state) {
-  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions } = state
+  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions, branchingScenarios } = state
   const selectedShelves = allShelves.filter((s) => selectedShelfIds.includes(s.id))
   const selectedProducts = allProducts.filter((p) => selectedShelfIds.includes(p.category))
   return {
@@ -15,6 +15,7 @@ function buildModuleDataFromContext(state) {
     products: selectedProducts,
     scenarios,
     quizQuestions,
+    branchingScenarios: branchingScenarios || [],
   }
 }
 
@@ -46,7 +47,7 @@ export function Step3_Preview() {
         <div style={{ display: 'flex', gap: 10 }}>
           <button
             onClick={() => dispatch({ type: 'SET_STEP', step: 2 })}
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: 'rgba(255,255,255,0.75)', fontSize: 13 }}
+            style={{ background: 'rgba(131,107,255,0.22)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 6, padding: '4px 14px', cursor: 'pointer', fontWeight: 700, color: 'rgba(255,255,255,0.85)', fontSize: 13 }}
           >
             ← Back to Authoring
           </button>

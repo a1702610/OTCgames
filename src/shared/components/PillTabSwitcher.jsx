@@ -1,4 +1,4 @@
-import { motion, LayoutGroup } from 'framer-motion'
+﻿import { motion, LayoutGroup } from 'framer-motion'
 
 export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
   return (
@@ -7,7 +7,7 @@ export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
         style={{
           display: 'flex',
           gap: 4,
-          backgroundColor: 'rgba(255,255,255,0.07)',
+          backgroundColor: 'rgba(20,15,80,0.80)',
           border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: 40,
           padding: 4,
@@ -31,7 +31,7 @@ export function PillTabSwitcher({ tabs, activeTab, onTabChange }) {
               fontSize: 14,
               fontWeight: 600,
               background: 'transparent',
-              color: activeTab === tab.id ? '#a89eff' : 'rgba(255,255,255,0.42)',
+              color: activeTab === tab.id ? '#836BFF' : 'rgba(255,255,255,0.55)',
               zIndex: 1,
               transition: 'color 0.2s',
               whiteSpace: 'nowrap',

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePlayer } from '../PlayerContext.jsx'
 
@@ -23,7 +23,7 @@ export function BranchingStory() {
 
   if (scenarios.length === 0) {
     return (
-      <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: 14 }}>
+      <p style={{ color: 'rgba(20,15,80,0.40)', fontSize: 14 }}>
         No branching scenarios in this module.
       </p>
     )
@@ -132,7 +132,7 @@ function StartScreen({ scenario, scenarioIndex, total, onStart, onPrev, onNext }
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
-        background: 'rgba(255,255,255,0.045)',
+        background: 'rgba(255,255,255,0.78)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 20,
         backdropFilter: 'blur(20px)',
@@ -148,22 +148,22 @@ function StartScreen({ scenario, scenarioIndex, total, onStart, onPrev, onNext }
             onClick={onPrev}
             disabled={!onPrev}
             style={{
-              background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 8, color: onPrev ? 'rgba(255,255,255,0.80)' : 'rgba(255,255,255,0.25)',
+              background: 'rgba(20,15,80,0.80)', border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: 8, color: onPrev ? 'rgba(20,15,80,0.80)' : 'rgba(20,15,80,0.22)',
               cursor: onPrev ? 'pointer' : 'default', padding: '4px 12px', fontSize: 18,
             }}
           >
             ‹
           </button>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)' }}>
+          <span style={{ fontSize: 12, color: 'rgba(20,15,80,0.45)' }}>
             Scenario {scenarioIndex + 1} of {total}
           </span>
           <button
             onClick={onNext}
             disabled={!onNext}
             style={{
-              background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 8, color: onNext ? 'rgba(255,255,255,0.80)' : 'rgba(255,255,255,0.25)',
+              background: 'rgba(20,15,80,0.80)', border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: 8, color: onNext ? 'rgba(20,15,80,0.80)' : 'rgba(20,15,80,0.22)',
               cursor: onNext ? 'pointer' : 'default', padding: '4px 12px', fontSize: 18,
             }}
           >
@@ -173,10 +173,10 @@ function StartScreen({ scenario, scenarioIndex, total, onStart, onPrev, onNext }
       )}
 
       <div style={{ fontSize: 52, marginBottom: 16 }}>🏥</div>
-      <h2 style={{ color: 'rgba(255,255,255,0.90)', margin: '0 0 8px', fontSize: 20 }}>
+      <h2 style={{ color: '#140F50', margin: '0 0 8px', fontSize: 20 }}>
         {scenario.start_screen?.title || scenario.title}
       </h2>
-      <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 14, margin: '0 0 28px', lineHeight: 1.6 }}>
+      <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 14, margin: '0 0 28px', lineHeight: 1.6 }}>
         {scenario.start_screen?.subtitle || ''}
       </p>
       <button
@@ -197,7 +197,7 @@ function NodeCard({ node, onChoiceClick }) {
   return (
     <div
       style={{
-        background: 'rgba(255,255,255,0.045)',
+        background: 'rgba(255,255,255,0.78)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: 20,
         backdropFilter: 'blur(20px)',
@@ -207,7 +207,7 @@ function NodeCard({ node, onChoiceClick }) {
       {/* Question */}
       <div style={{ padding: '24px 24px 20px' }}>
         <p style={{
-          color: 'rgba(255,255,255,0.90)', fontSize: 15, lineHeight: 1.7,
+          color: '#140F50', fontSize: 15, lineHeight: 1.7,
           margin: 0, whiteSpace: 'pre-wrap',
         }}>
           {node.question}
@@ -215,11 +215,11 @@ function NodeCard({ node, onChoiceClick }) {
       </div>
 
       {/* Divider */}
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '0 24px' }} />
+      <div style={{ height: 1, background: 'rgba(20,15,80,0.07)', margin: '0 24px' }} />
 
       {/* Choices */}
       <div style={{ padding: '16px 24px 24px', display: 'flex', flexDirection: 'column', gap: 10 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.35)', margin: '0 0 4px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: 'rgba(20,15,80,0.35)', margin: '0 0 4px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
           What do you do?
         </p>
         {node.choices.map((choice, i) => (
@@ -227,11 +227,11 @@ function NodeCard({ node, onChoiceClick }) {
             key={i}
             onClick={() => onChoiceClick(choice)}
             style={{
-              background: 'rgba(255,255,255,0.055)',
+              background: 'rgba(20,15,80,0.05)',
               border: '1.5px solid rgba(255,255,255,0.10)',
               borderRadius: 12,
               padding: '12px 16px',
-              color: 'rgba(255,255,255,0.85)',
+              color: 'rgba(20,15,80,0.80)',
               fontSize: 14,
               textAlign: 'left',
               cursor: 'pointer',
@@ -243,8 +243,8 @@ function NodeCard({ node, onChoiceClick }) {
               e.currentTarget.style.background = 'rgba(131,107,255,0.08)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.10)'
-              e.currentTarget.style.background = 'rgba(255,255,255,0.055)'
+              e.currentTarget.style.borderColor = 'rgba(20,15,80,0.14)'
+              e.currentTarget.style.background = 'rgba(20,15,80,0.05)'
             }}
           >
             <span style={{ color: '#836BFF', fontWeight: 700, marginRight: 8 }}>
@@ -279,10 +279,10 @@ function FeedbackCard({ choice, isEnd, endScreen, onProceed }) {
       }}
     >
       <div style={{ marginBottom: 16 }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(255,255,255,0.45)', margin: '0 0 4px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+        <p style={{ fontSize: 12, fontWeight: 700, color: 'rgba(20,15,80,0.45)', margin: '0 0 4px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
           Your choice
         </p>
-        <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 14, margin: 0, fontStyle: 'italic' }}>
+        <p style={{ color: 'rgba(20,15,80,0.70)', fontSize: 14, margin: 0, fontStyle: 'italic' }}>
           "{choice.text}"
         </p>
       </div>
@@ -292,12 +292,12 @@ function FeedbackCard({ choice, isEnd, endScreen, onProceed }) {
       <h3 style={{ color: accentColor, margin: '0 0 8px', fontSize: 16 }}>
         {choice.feedback_title || (isEnd ? (endScreen?.title) : 'Feedback')}
       </h3>
-      <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 14, lineHeight: 1.6, margin: '0 0 20px' }}>
+      <p style={{ color: 'rgba(20,15,80,0.70)', fontSize: 14, lineHeight: 1.6, margin: '0 0 20px' }}>
         {choice.feedback_body}
       </p>
 
       {isEnd && endScreen?.subtitle && (
-        <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 13, lineHeight: 1.6, margin: '0 0 20px', fontStyle: 'italic' }}>
+        <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 13, lineHeight: 1.6, margin: '0 0 20px', fontStyle: 'italic' }}>
           {endScreen.subtitle}
         </p>
       )}
@@ -342,10 +342,10 @@ function EndScreen({ endScreen, path, scenario, onRestart, onNext }) {
       <h2 style={{ color: isSuccess ? '#5dda8a' : '#f87171', margin: '0 0 8px', fontSize: 20 }}>
         {endScreen?.title || (isSuccess ? 'Well done!' : 'Review needed')}
       </h2>
-      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 14, lineHeight: 1.6, margin: '0 0 12px' }}>
+      <p style={{ color: 'rgba(20,15,80,0.65)', fontSize: 14, lineHeight: 1.6, margin: '0 0 12px' }}>
         {endScreen?.subtitle || ''}
       </p>
-      <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: 12, margin: '0 0 28px' }}>
+      <p style={{ color: 'rgba(20,15,80,0.40)', fontSize: 12, margin: '0 0 28px' }}>
         {path.length + 1} decision{path.length !== 0 ? 's' : ''} made
         {endScreen?.score > 0 ? ` · +${endScreen.score} pts` : ''}
       </p>
@@ -354,7 +354,7 @@ function EndScreen({ endScreen, path, scenario, onRestart, onNext }) {
         <button
           onClick={onRestart}
           style={{
-            background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.80)',
+            background: 'rgba(131,107,255,0.22)', color: 'rgba(20,15,80,0.80)',
             border: '1px solid rgba(255,255,255,0.15)', borderRadius: 10,
             padding: '10px 20px', fontWeight: 600, fontSize: 14, cursor: 'pointer',
           }}

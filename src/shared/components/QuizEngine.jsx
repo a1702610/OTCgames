@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ScoreFloat } from './ScoreFloat.jsx'
 
@@ -44,15 +44,15 @@ export function QuizEngine({ question, onAnswer, answered }) {
         <ScoreFloat delta={floatDelta} id={`score-${floatKey}`} />
       )}
 
-      <p style={{ fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.90)', marginBottom: 16 }}>
+      <p style={{ fontSize: 16, fontWeight: 600, color: '#140F50', marginBottom: 16 }}>
         {question.type === 'mcq' ? question.question : question.statement}
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {displayOptions.map((opt, i) => {
-          let bg = 'rgba(255,255,255,0.055)'
-          let border = '1.5px solid rgba(255,255,255,0.09)'
-          let color = 'rgba(255,255,255,0.85)'
+          let bg = 'rgba(20,15,80,0.05)'
+          let border = '1.5px solid rgba(20,15,80,0.14)'
+          let color = 'rgba(20,15,80,0.80)'
 
           if (answered) {
             if (i === displayCorrectIndex) {
@@ -65,7 +65,7 @@ export function QuizEngine({ question, onAnswer, answered }) {
           return (
             <motion.button
               key={opt}
-              whileHover={answered ? {} : { scale: 1.01, background: 'rgba(255,255,255,0.08)' }}
+              whileHover={answered ? {} : { scale: 1.01, background: 'rgba(131,107,255,0.22)' }}
               whileTap={answered ? {} : { scale: 0.99 }}
               onClick={() => handleAnswer(i)}
               disabled={!!answered}
@@ -91,9 +91,9 @@ export function QuizEngine({ question, onAnswer, answered }) {
             transition={{ duration: 0.3 }}
             style={{
               marginTop: 16, padding: '12px 16px',
-              backgroundColor: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: 10, fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6,
+              backgroundColor: 'rgba(20,15,80,0.04)',
+              border: '1px solid rgba(20,15,80,0.10)',
+              borderRadius: 10, fontSize: 13, color: 'rgba(20,15,80,0.70)', lineHeight: 1.6,
               borderLeft: `4px solid ${answered.isCorrect ? '#27AE60' : '#E74C3C'}`,
             }}
           >

@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { motion } from 'framer-motion'
 import { ImageWithFallback } from '../utils/imageUtils.jsx'
 import { ScoreFloat } from './ScoreFloat.jsx'
@@ -44,8 +44,6 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
     onSubmit?.({ placements: result, isAllCorrect: allCorrect, delta })
   }
 
-  const nonDistractors = question.productAssignments.filter((a) => a.categoryId !== null)
-  const allNonDistractorsPlaced = nonDistractors.every((a) => placements[a.productId] !== 'unplaced')
   const unplacedProducts = draggableProducts.filter((p) => placements[p.id] === 'unplaced')
 
   return (
@@ -62,7 +60,7 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
         onDrop={() => handleDrop('unplaced')}
         onDragLeave={() => setDragOverZone(null)}
         style={{
-          background: dragOverZone === 'unplaced' ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.06)',
+          background: dragOverZone === 'unplaced' ? 'rgba(20,15,80,0.16)' : 'rgba(20,15,80,0.07)',
           border: `2px dashed ${dragOverZone === 'unplaced' ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)'}`,
           borderRadius: 14,
           padding: '14px 16px',
@@ -71,7 +69,7 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
           transition: 'background 0.15s, border 0.15s',
         }}
       >
-        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', margin: '0 0 12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.60)', margin: '0 0 12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
           Products — drag to a shelf below
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
@@ -115,7 +113,7 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
                 {cat.label || '(unnamed)'}
               </div>
               <div style={{
-                background: isOver ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.04)',
+                background: isOver ? 'rgba(20,15,80,0.16)' : 'rgba(255,255,255,0.04)',
                 border: `2px solid ${isOver ? cat.color : cat.color + '55'}`,
                 borderTop: 'none',
                 borderRadius: '0 0 12px 12px',
@@ -155,13 +153,12 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
         {!submitted && (
           <button
             onClick={handleSubmit}
-            disabled={!allNonDistractorsPlaced}
             style={{
               padding: '12px 36px',
-              background: allNonDistractorsPlaced ? '#1448FF' : 'rgba(255,255,255,0.15)',
-              color: allNonDistractorsPlaced ? '#FFFFFF' : 'rgba(255,255,255,0.4)',
+              background: '#1448FF',
+              color: '#FFFFFF',
               border: 'none', borderRadius: 10, fontWeight: 700, fontSize: 15,
-              cursor: allNonDistractorsPlaced ? 'pointer' : 'not-allowed',
+              cursor: 'pointer',
             }}
           >
             Submit
@@ -173,7 +170,7 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             style={{
-              padding: '14px 18px', background: 'rgba(255,255,255,0.08)',
+              padding: '14px 18px', background: 'rgba(131,107,255,0.22)',
               borderRadius: 12, fontSize: 14, color: '#FFFFFF', lineHeight: 1.6,
               borderLeft: `4px solid ${submitted.isAllCorrect ? '#27AE60' : '#E74C3C'}`,
             }}
