@@ -33,7 +33,7 @@ Node.js is what runs the app on your computer.
 
 "Cloning" means downloading a copy of the project to your computer.
 
-1. Open **File Explorer** and navigate to where you want to save the project (e.g. your Desktop or Documents)
+1. Open **File Explorer** and navigate to where you want to save the project (e.g. your Desktop or Documents). Note the app will work quicker if it is saved onto your local operating system rather than the university network drive.
 2. Click on the address bar at the top of File Explorer, type `cmd`, and press **Enter** — this opens a Command Prompt in that folder
 3. Copy and paste the following command, then press **Enter**:
 
