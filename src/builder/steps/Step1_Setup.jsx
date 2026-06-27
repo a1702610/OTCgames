@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { shelves } from '../../data/products.js'
 import { useBuilder } from '../BuilderContext.jsx'
 
+const ALL_SHELF_IDS = shelves.map((s) => s.id)
+
 // Group shelves by category label
 const shelfGroups = shelves.reduce((acc, shelf) => {
   const key = shelf.label
@@ -141,6 +143,42 @@ export function Step1_Setup() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Quick browse export shortcut */}
+        <div style={{
+          marginBottom: 16,
+          padding: '18px 20px',
+          background: 'linear-gradient(135deg, rgba(20,72,255,0.07) 0%, rgba(131,107,255,0.10) 100%)',
+          border: '1.5px dashed rgba(131,107,255,0.35)',
+          borderRadius: 14,
+        }}>
+          <p style={{ margin: '0 0 4px', fontWeight: 700, fontSize: 14, color: '#140F50' }}>
+            🏪 Shelf Free Browse
+          </p>
+          <p style={{ margin: '0 0 14px', fontSize: 13, color: 'rgba(20,15,80,0.55)', lineHeight: 1.5 }}>
+            Export all shelves as a browse-only module — no scenarios or quiz. Students can freely explore any product on any shelf.
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              const name = moduleName.trim() || 'OTC Shelf Browse'
+              dispatch({ type: 'QUICK_BROWSE_SETUP', moduleName: name, allShelfIds: ALL_SHELF_IDS })
+            }}
+            style={{
+              padding: '10px 22px',
+              background: '#836BFF',
+              color: '#FFFFFF',
+              border: 'none',
+              borderRadius: 10,
+              fontWeight: 700,
+              fontSize: 14,
+              cursor: 'pointer',
+            }}
+          >
+            Export Shelf Browse →
+          </motion.button>
         </div>
 
         {/* Next button */}

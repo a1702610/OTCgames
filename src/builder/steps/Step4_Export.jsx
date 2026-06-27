@@ -97,7 +97,7 @@ export function Step4_Export() {
 
       let manifest
       try {
-        const manifestResp = await fetch('/.vite/manifest.json')
+        const manifestResp = await fetch(import.meta.env.BASE_URL + '.vite/manifest.json')
         if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
         manifest = await manifestResp.json()
       } catch {
@@ -120,7 +120,7 @@ export function Step4_Export() {
       }
       const assetPaths = collectAssets(manifest, 'index.html')
 
-      const indexUrl = import.meta.env.DEV ? '/dist-index.html' : '/index.html'
+      const indexUrl = import.meta.env.DEV ? '/dist-index.html' : (import.meta.env.BASE_URL + 'index.html')
       const indexResp = await fetch(indexUrl)
       if (!indexResp.ok) throw new Error('Could not fetch built index.html')
       zip.file('index.html', await indexResp.text())
@@ -128,7 +128,7 @@ export function Step4_Export() {
       const assetsFolder = zip.folder('assets')
       await Promise.all(
         assetPaths.map(async (assetPath) => {
-          const resp = await fetch(`/${assetPath}`)
+          const resp = await fetch(import.meta.env.BASE_URL + assetPath)
           if (!resp.ok) return
           assetsFolder.file(assetPath.replace('assets/', ''), await resp.blob())
         })

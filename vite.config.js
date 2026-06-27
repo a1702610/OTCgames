@@ -98,6 +98,7 @@ function imageLibraryPlugin() {
 }
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES ? '/OTCgames/' : '/',
   plugins: [react(), autoExportPlugin(), imageLibraryPlugin()],
   build: {
     manifest: true,

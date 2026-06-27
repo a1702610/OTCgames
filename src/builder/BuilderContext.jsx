@@ -44,6 +44,18 @@ function reducer(state, action) {
         : [...ids, action.shelfId]
       return { ...state, selectedShelfIds: newIds }
     }
+    case 'QUICK_BROWSE_SETUP':
+      // Select all shelves, clear scenarios/questions, set name, go straight to export
+      return {
+        ...state,
+        moduleName: action.moduleName,
+        description: '',
+        selectedShelfIds: action.allShelfIds,
+        scenarios: [],
+        quizQuestions: [],
+        orphanedProductIds: new Set(),
+        step: 4,
+      }
     case 'ADD_SCENARIO':
       return { ...state, scenarios: [...state.scenarios, action.scenario] }
     case 'UPDATE_SCENARIO':
