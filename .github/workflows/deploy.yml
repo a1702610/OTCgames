@@ -33,6 +33,10 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: true
+          VITE_IMAGE_BASE_URL: https://raw.githubusercontent.com/a1702610/OTCgames/master/public
+
+      # Remove images from dist — they're served from GitHub raw CDN instead
+      - run: rm -rf dist/medications
 
       - uses: actions/configure-pages@v4
 

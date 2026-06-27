@@ -1,8 +1,10 @@
 import React from 'react'
 import { getProductById } from '../../data/products.js'
 
-// Resolves image URL for a product using the imageFolderPath stored in products.js.
-// Folder names with spaces/special chars are URL-encoded per segment.
+// When VITE_IMAGE_BASE_URL is set (e.g. GitHub Pages build), images are served
+// from that base URL instead of the local public/ folder.
+const IMAGE_BASE = import.meta.env.VITE_IMAGE_BASE_URL || '.'
+
 export function getImageUrl(productId, side = 'front') {
   const product = getProductById(productId)
   if (!product?.imageFolderPath) return null
@@ -10,7 +12,7 @@ export function getImageUrl(productId, side = 'front') {
     .split('/')
     .map(encodeURIComponent)
     .join('/')
-  return `./${encoded}/${side}.jpg`
+  return `${IMAGE_BASE}/${encoded}/${side}.jpg`
 }
 
 // Component that renders a product image with a styled fallback placeholder
