@@ -9,6 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "preview:builder": "vite preview --port 4174 --open /builder.html",
+    "sync": "node scripts/sync-library.mjs --clean",
     "sync-library": "node scripts/sync-library.mjs",
     "sync-library:dry": "node scripts/sync-library.mjs --dry-run"
   },

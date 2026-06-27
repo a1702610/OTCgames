@@ -14,7 +14,7 @@ export function getImageUrl(productId, side = 'front') {
 }
 
 // Component that renders a product image with a styled fallback placeholder
-export function ImageWithFallback({ productId, side = 'front', alt, bgColor = '#1448FF', style = {} }) {
+export function ImageWithFallback({ productId, side = 'front', alt, bgColor = '#1448FF', style = {}, onLoad }) {
   const [failed, setFailed] = React.useState(false)
   const src = getImageUrl(productId, side)
 
@@ -47,6 +47,7 @@ export function ImageWithFallback({ productId, side = 'front', alt, bgColor = '#
       src={src}
       alt={alt || productId}
       onError={() => setFailed(true)}
+      onLoad={onLoad}
       style={{ objectFit: 'contain', borderRadius: 8, ...style }}
     />
   )

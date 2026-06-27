@@ -167,6 +167,7 @@ function processProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta,
 function run() {
   const args = process.argv.slice(2)
   const dryRun = args.includes('--dry-run')
+  const clean  = args.includes('--clean')
   const sourcePath = args.find(a => !a.startsWith('--')) || DEFAULT_SOURCE
 
   if (!fs.existsSync(sourcePath)) {
@@ -176,6 +177,14 @@ function run() {
 
   console.log(`Source : ${sourcePath}`)
   console.log(`Output : ${OUT_IMAGES}`)
+
+  if (clean && !dryRun) {
+    if (fs.existsSync(OUT_IMAGES)) {
+      fs.rmSync(OUT_IMAGES, { recursive: true, force: true })
+      console.log('Deleted old medications folder — starting fresh\n')
+    }
+  }
+
   if (dryRun) console.log('DRY RUN — no files will be written\n')
 
   const shelvesArray  = []
@@ -233,9 +242,11 @@ function run() {
       const firstShelfPath   = path.join(catPath, firstLevel[0])
       const secondLevelDirs  = listDirs(firstShelfPath)
 
-      // Are the second-level dirs rows? → Cat → Shelf → Row → Product
+      // Are the second-level dirs rows? Check ALL shelves, not just the first,
+      // so mixed categories (e.g. one shelf with no rows, others with rows) work correctly.
       const secondLevelRowCount = secondLevelDirs.filter(d => isRowFolder(d)).length
-      const secondLevelAreRows  = secondLevelRowCount > 0 && secondLevelRowCount >= secondLevelDirs.length * 0.7
+      const anyShelfHasRows = firstLevel.some(s => listDirs(path.join(catPath, s)).some(d => isRowFolder(d)))
+      const secondLevelAreRows  = anyShelfHasRows || (secondLevelRowCount > 0 && secondLevelRowCount >= secondLevelDirs.length * 0.7)
 
       // Does the second level have any images? → Cat → Shelf → Product (legacy)
       const secondLevelHasImages = secondLevelDirs.some(d =>
