@@ -144,8 +144,9 @@ export function Step4_Export() {
           const sidesToFetch = product.sides?.length > 0 ? product.sides : ['front', 'back', 'side']
           return sidesToFetch.map(async (side) => {
             const encoded = product.imageFolderPath.split('/').map(encodeURIComponent).join('/')
+            const imageBase = import.meta.env.VITE_IMAGE_BASE_URL || '.'
             try {
-              const resp = await fetch(`./${encoded}/${side}.jpg`)
+              const resp = await fetch(`${imageBase}/${encoded}/${side}.jpg`)
               if (resp.ok) {
                 zip.file(`${product.imageFolderPath}/${side}.jpg`, await resp.blob())
                 imagesIncluded++
