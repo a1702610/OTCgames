@@ -26,12 +26,14 @@ function autoExportPlugin() {
       // /dist-index.html → dist/index.html  (avoids Vite intercepting /index.html)
       server.middlewares.use((req, res, next) => {
         const fromDist =
-          req.url === '/.vite/manifest.json' ||
+          req.url === '/vite-manifest.json' ||
           req.url?.startsWith('/assets/') ||
           req.url === '/dist-index.html'
 
         if (fromDist) {
-          const distRelPath = req.url === '/dist-index.html' ? '/index.html' : req.url
+          const distRelPath = req.url === '/dist-index.html' ? '/index.html'
+            : req.url === '/vite-manifest.json' ? '/.vite/manifest.json'
+            : req.url
           const filePath = join(__dirname, 'dist', distRelPath)
           if (existsSync(filePath)) {
             const content = readFileSync(filePath)
@@ -101,7 +103,7 @@ export default defineConfig({
   base: process.env.GITHUB_PAGES ? '/OTCgames/' : '/',
   plugins: [react(), autoExportPlugin(), imageLibraryPlugin()],
   build: {
-    manifest: true,
+    manifest: 'vite-manifest.json',
     rollupOptions: {
       input: {
         main:    resolve(__dirname, 'index.html'),

@@ -97,7 +97,7 @@ export function Step4_Export() {
 
       let manifest
       try {
-        const manifestResp = await fetch(import.meta.env.BASE_URL + '.vite/manifest.json')
+        const manifestResp = await fetch(import.meta.env.BASE_URL + 'vite-manifest.json')
         if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
         manifest = await manifestResp.json()
       } catch {
