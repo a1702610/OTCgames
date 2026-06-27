@@ -56,11 +56,13 @@ function validateModule(state) {
   return errors
 }
 
+const IMAGE_CDN_BASE = import.meta.env.VITE_IMAGE_BASE_URL || null
+
 const EXPORT_STEPS = [
-  { id: 'build',    label: 'Building app…'         },
-  { id: 'bundle',   label: 'Bundling module…'       },
-  { id: 'images',   label: 'Packaging images…'      },
-  { id: 'download', label: 'Preparing download…'    },
+  { id: 'build',    label: 'Building app…'                                    },
+  { id: 'bundle',   label: 'Bundling module…'                                 },
+  { id: 'images',   label: IMAGE_CDN_BASE ? 'Linking images…' : 'Packaging images…' },
+  { id: 'download', label: 'Preparing download…'                              },
 ]
 
 export function Step4_Export() {
@@ -138,27 +140,35 @@ export function Step4_Export() {
       let imagesIncluded = 0
       let imagesNotFound = 0
 
-      await Promise.all(
-        contentJson.products.flatMap((product) => {
-          if (!product.imageFolderPath) return []
-          const sidesToFetch = product.sides?.length > 0 ? product.sides : ['front', 'back', 'side']
-          return sidesToFetch.map(async (side) => {
-            const encoded = product.imageFolderPath.split('/').map(encodeURIComponent).join('/')
-            const imageBase = import.meta.env.VITE_IMAGE_BASE_URL || '.'
-            try {
-              const resp = await fetch(`${imageBase}/${encoded}/${side}.jpg`)
-              if (resp.ok) {
-                zip.file(`${product.imageFolderPath}/${side}.jpg`, await resp.blob())
-                imagesIncluded++
-              } else {
+      if (IMAGE_CDN_BASE) {
+        // CDN mode: store the image base URL in content.json — no bundling needed.
+        // Keeps the zip tiny (~3 MB) regardless of how many shelves are selected.
+        contentJson.imageBaseUrl = IMAGE_CDN_BASE
+        imagesIncluded = contentJson.products.filter((p) => p.imageFolderPath).length
+        zip.file('content.json', JSON.stringify(contentJson, null, 2))
+      } else {
+        // Local dev mode: bundle images into the zip directly.
+        await Promise.all(
+          contentJson.products.flatMap((product) => {
+            if (!product.imageFolderPath) return []
+            const sidesToFetch = product.sides?.length > 0 ? product.sides : ['front', 'back', 'side']
+            return sidesToFetch.map(async (side) => {
+              const encoded = product.imageFolderPath.split('/').map(encodeURIComponent).join('/')
+              try {
+                const resp = await fetch(`./${encoded}/${side}.jpg`)
+                if (resp.ok) {
+                  zip.file(`${product.imageFolderPath}/${side}.jpg`, await resp.blob())
+                  imagesIncluded++
+                } else {
+                  imagesNotFound++
+                }
+              } catch {
                 imagesNotFound++
               }
-            } catch {
-              imagesNotFound++
-            }
+            })
           })
-        })
-      )
+        )
+      }
 
       setExportStep('download')
       const blob = await zip.generateAsync({ type: 'blob' })
@@ -185,8 +195,10 @@ export function Step4_Export() {
             <div style={{ fontSize: 48 }}>✅</div>
             <h2 style={{ color: '#140F50', margin: '8px 0' }}>Module Exported!</h2>
             <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 14 }}>
-              {success.imagesIncluded} product image{success.imagesIncluded !== 1 ? 's' : ''} included
-              {success.imagesNotFound > 0 ? `, ${success.imagesNotFound} not found (will show placeholder)` : ''}
+              {IMAGE_CDN_BASE
+                ? `${success.imagesIncluded} product image${success.imagesIncluded !== 1 ? 's' : ''} linked via CDN`
+                : `${success.imagesIncluded} product image${success.imagesIncluded !== 1 ? 's' : ''} included${success.imagesNotFound > 0 ? `, ${success.imagesNotFound} not found` : ''}`
+              }
             </p>
           </div>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { PlayerApp } from './PlayerApp.jsx'
 import { demoModule } from '../data/demoModule.js'
+import { setImageBase } from '../shared/utils/imageUtils.jsx'
 
 async function startup() {
   let moduleData = null
@@ -12,6 +13,7 @@ async function startup() {
     if (resp.ok) {
       const json = await resp.json()
       if (json.module && json.shelves && json.products) {
+        if (json.imageBaseUrl) setImageBase(json.imageBaseUrl)
         moduleData = json
       }
     }

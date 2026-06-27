@@ -1,9 +1,14 @@
 import React from 'react'
 import { getProductById } from '../../data/products.js'
 
-// When VITE_IMAGE_BASE_URL is set (e.g. GitHub Pages build), images are served
-// from that base URL instead of the local public/ folder.
-const IMAGE_BASE = import.meta.env.VITE_IMAGE_BASE_URL || '.'
+// Build-time base (GitHub Pages workflow sets VITE_IMAGE_BASE_URL).
+// setImageBase() overrides this at runtime when content.json supplies imageBaseUrl.
+const BUILD_TIME_BASE = import.meta.env.VITE_IMAGE_BASE_URL || '.'
+let _runtimeBase = null
+
+export function setImageBase(url) {
+  _runtimeBase = url
+}
 
 export function getImageUrl(productId, side = 'front') {
   const product = getProductById(productId)
@@ -12,7 +17,8 @@ export function getImageUrl(productId, side = 'front') {
     .split('/')
     .map(encodeURIComponent)
     .join('/')
-  return `${IMAGE_BASE}/${encoded}/${side}.jpg`
+  const base = _runtimeBase || BUILD_TIME_BASE
+  return `${base}/${encoded}/${side}.jpg`
 }
 
 // Component that renders a product image with a styled fallback placeholder
