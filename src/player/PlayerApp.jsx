@@ -85,8 +85,8 @@ function PlayerInner({ isPreviewMode }) {
         {lastDelta ? `+${lastDelta} point${lastDelta !== 1 ? 's' : ''}` : ''}
       </div>
 
-      {/* Tab switcher */}
-      {visibleTabs.length > 0 && (
+      {/* Tab switcher — hidden when only one tab (e.g. browse-only export) */}
+      {visibleTabs.length > 1 && (
         <div style={{ padding: '16px 20px 8px' }}>
           <PillTabSwitcher tabs={visibleTabs} activeTab={activeTab} onTabChange={setActiveTab} />
         </div>
