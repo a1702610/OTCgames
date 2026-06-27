@@ -4,13 +4,12 @@ import { shelves as allShelves, getProductsByShelf, products as allProducts } fr
 import { ScenarioEditor } from './authoring/ScenarioEditor.jsx'
 import { QuizEditor } from './authoring/QuizEditor.jsx'
 import { DragDropEditor } from './authoring/DragDropEditor.jsx'
-import { BranchingScenarioEditor } from './authoring/BranchingScenarioEditor.jsx'
 import { ProductModal } from '../../shared/components/ProductModal.jsx'
 import { ShelfModal } from '../../shared/components/ShelfModal.jsx'
 
 export function Step2_Authoring() {
   const { state, dispatch, generateId } = useBuilder()
-  const { selectedShelfIds, scenarios, quizQuestions, branchingScenarios, orphanedProductIds } = state
+  const { selectedShelfIds, scenarios, quizQuestions, orphanedProductIds } = state
 
   const activeShelvesData = allShelves.filter((s) => selectedShelfIds.includes(s.id))
   const [activeShelfId, setActiveShelfId] = React.useState(activeShelvesData[0]?.id || null)
@@ -22,23 +21,9 @@ export function Step2_Authoring() {
 
   const activeShelfProducts = activeShelfId ? getProductsByShelf(activeShelfId) : []
   const allSelectedProducts = allProducts.filter((p) => selectedShelfIds.includes(p.category))
-  const dragDropQuestions = state.quizQuestions.filter((q) => q.type === 'dragdrop')
+  const dragDropQuestions = quizQuestions.filter((q) => q.type === 'dragdrop')
 
-  function addBranchingScenario() {
-    const scenario = {
-      id: generateId(),
-      title: '',
-      start_screen: { title: 'OTC Patient Consultation', subtitle: '' },
-      nodes: [],
-      end_screens: [
-        { id: -1, title: 'Excellent Clinical Decision!', subtitle: 'You correctly assessed the patient and made a safe, appropriate recommendation.', score: 100 },
-        { id: -2, title: 'Review Your Approach', subtitle: 'There were gaps in your assessment or recommendation. Review the correct approach below.', score: 0 },
-      ],
-    }
-    dispatch({ type: 'ADD_BRANCHING_SCENARIO', scenario })
-  }
-
-  function addScenario() {
+function addScenario() {
     const scenario = {
       id: generateId(),
       shelfId: activeShelfId,
@@ -158,7 +143,6 @@ export function Step2_Authoring() {
               { id: 'scenarios', label: `🧑‍⚕️ Scenarios (${shelfScenarios.length})` },
               { id: 'quiz', label: `📝 Quiz (${shelfQuizCount})` },
               { id: 'dragdrop', label: `🎯 Drag & Drop (${dragDropQuestions.length})` },
-              { id: 'branching', label: `🌿 Branching Stories (${branchingScenarios.length})` },
             ].map(({ id, label }) => (
               <button
                 key={id}
@@ -175,45 +159,9 @@ export function Step2_Authoring() {
             ))}
           </div>
 
-          {/* Branching Stories panel — module-level, no shelf needed */}
-          {activePanel === 'branching' && (
-            <div>
-              <p style={{ fontSize: 13, color: 'rgba(20,15,80,0.45)', margin: '0 0 14px' }}>
-                Branching scenarios are module-wide choose-your-own-path clinical simulations. Use AI to generate one from a PDF, or build manually.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 12 }}>
-                {branchingScenarios.map((bs) => (
-                  <BranchingScenarioEditor
-                    key={bs.id}
-                    scenario={bs}
-                    onUpdate={(updates) => dispatch({ type: 'UPDATE_BRANCHING_SCENARIO', id: bs.id, updates })}
-                    onDelete={() => {
-                      if (window.confirm('Delete this branching scenario?')) {
-                        dispatch({ type: 'DELETE_BRANCHING_SCENARIO', id: bs.id })
-                      }
-                    }}
-                  />
-                ))}
-              </div>
-              {branchingScenarios.length === 0 && (
-                <p style={{ color: 'rgba(20,15,80,0.35)', fontSize: 13, margin: '0 0 12px' }}>No branching scenarios yet.</p>
-              )}
-              <button
-                onClick={addBranchingScenario}
-                style={{
-                  padding: '8px 18px', borderRadius: 8,
-                  background: 'rgba(131,107,255,0.10)', border: '1.5px dashed rgba(131,107,255,0.35)',
-                  color: '#836BFF', fontWeight: 600, fontSize: 13, cursor: 'pointer',
-                }}
-              >
-                + Add Branching Scenario
-              </button>
-            </div>
-          )}
-
-          {activePanel !== 'branching' && !activeShelfId ? (
+          {!activeShelfId ? (
             <p style={{ color: 'rgba(20,15,80,0.35)' }}>Select a shelf to start authoring.</p>
-          ) : activePanel !== 'branching' && (
+          ) : (
             <>
 
               {/* Scenarios panel */}

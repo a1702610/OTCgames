@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve, join, extname } from 'path'
+import { resolve, join, extname, sep } from 'path'
 import { fileURLToPath } from 'url'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync, readFileSync, statSync, createReadStream } from 'fs'
 import { exec } from 'child_process'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -65,8 +65,40 @@ function autoExportPlugin() {
   }
 }
 
+// Serves /medications/... from IMAGE_LIBRARY_PATH (set in .env.local) when
+// public/medications/ doesn't exist locally — lets lecturers point to OneDrive.
+function imageLibraryPlugin() {
+  return {
+    name: 'image-library',
+    configureServer(server) {
+      const libPath = process.env.IMAGE_LIBRARY_PATH
+      if (!libPath) return
+      console.log(`[image-library] serving /medications from: ${libPath}`)
+
+      server.middlewares.use((req, res, next) => {
+        if (!req.url?.startsWith('/medications/')) return next()
+
+        const relativeUrl = req.url.slice('/medications/'.length).split('?')[0]
+        const filePath = join(
+          libPath,
+          ...relativeUrl.split('/').map(decodeURIComponent)
+        )
+
+        if (existsSync(filePath) && statSync(filePath).isFile()) {
+          const mime = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' }
+          res.setHeader('Content-Type', mime[extname(filePath).toLowerCase()] || 'application/octet-stream')
+          res.setHeader('Cache-Control', 'public, max-age=3600')
+          createReadStream(filePath).pipe(res)
+        } else {
+          next()
+        }
+      })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), autoExportPlugin()],
+  plugins: [react(), autoExportPlugin(), imageLibraryPlugin()],
   build: {
     manifest: true,
     rollupOptions: {

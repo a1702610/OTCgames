@@ -8,14 +8,12 @@ import { ShelfBrowse } from './tabs/ShelfBrowse.jsx'
 import { Scenarios } from './tabs/Scenarios.jsx'
 import { Quiz } from './tabs/Quiz.jsx'
 import { DragDropTab } from './tabs/DragDropTab.jsx'
-import { BranchingStory } from './tabs/BranchingStory.jsx'
 
 const ALL_TABS = [
   { id: 'shelf',     label: '🏪 Shelf Browse' },
   { id: 'scenarios', label: '🧑‍⚕️ Scenarios' },
   { id: 'quiz',      label: '📝 Quiz' },
   { id: 'dragdrop',  label: '🎯 Drag & Drop' },
-  { id: 'story',     label: '🌿 Story' },
 ]
 
 function PlayerInner({ isPreviewMode }) {
@@ -30,7 +28,6 @@ function PlayerInner({ isPreviewMode }) {
       if (t.id === 'scenarios') return (moduleData.scenarios?.length ?? 0) > 0
       if (t.id === 'quiz')      return qq.filter((q) => q.type !== 'dragdrop').length > 0
       if (t.id === 'dragdrop')  return qq.filter((q) => q.type === 'dragdrop').length > 0
-      if (t.id === 'story')     return (moduleData.branchingScenarios?.length ?? 0) > 0
       return true
     })
   }, [moduleData])
@@ -108,9 +105,6 @@ function PlayerInner({ isPreviewMode }) {
         </div>
         <div style={{ display: activeTab === 'dragdrop' ? 'block' : 'none' }}>
           <DragDropTab />
-        </div>
-        <div style={{ display: activeTab === 'story' ? 'block' : 'none' }}>
-          <BranchingStory />
         </div>
       </div>
 

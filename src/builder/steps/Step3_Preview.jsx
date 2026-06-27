@@ -4,7 +4,7 @@ import { PlayerApp } from '../../player/PlayerApp.jsx'
 import { shelves as allShelves, products as allProducts } from '../../data/products.js'
 
 function buildModuleDataFromContext(state) {
-  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions, branchingScenarios } = state
+  const { moduleName, description, selectedShelfIds, scenarios, quizQuestions } = state
   const selectedShelves = allShelves.filter((s) => selectedShelfIds.includes(s.id))
   const selectedProducts = allProducts.filter((p) => selectedShelfIds.includes(p.category))
   return {
@@ -15,7 +15,6 @@ function buildModuleDataFromContext(state) {
     products: selectedProducts,
     scenarios,
     quizQuestions,
-    branchingScenarios: branchingScenarios || [],
   }
 }
 

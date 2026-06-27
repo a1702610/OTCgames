@@ -10,7 +10,6 @@ const initialState = {
   selectedShelfIds: [],
   scenarios: [],              // scenario objects
   quizQuestions: [],          // quiz question objects
-  branchingScenarios: [],     // branching scenario objects
   orphanedProductIds: new Set(), // product IDs that no longer exist in current library
   draftExists: false,
 }
@@ -63,15 +62,6 @@ function reducer(state, action) {
       }
     case 'DELETE_QUIZ_QUESTION':
       return { ...state, quizQuestions: state.quizQuestions.filter((q) => q.id !== action.id) }
-    case 'ADD_BRANCHING_SCENARIO':
-      return { ...state, branchingScenarios: [...state.branchingScenarios, action.scenario] }
-    case 'UPDATE_BRANCHING_SCENARIO':
-      return {
-        ...state,
-        branchingScenarios: state.branchingScenarios.map((s) => s.id === action.id ? { ...s, ...action.updates } : s),
-      }
-    case 'DELETE_BRANCHING_SCENARIO':
-      return { ...state, branchingScenarios: state.branchingScenarios.filter((s) => s.id !== action.id) }
     case 'LOAD_FROM_IMPORT':
       return {
         ...state,
@@ -80,7 +70,6 @@ function reducer(state, action) {
         selectedShelfIds: action.data.selectedShelfIds ?? state.selectedShelfIds,
         scenarios: action.data.scenarios ?? state.scenarios,
         quizQuestions: action.data.quizQuestions ?? state.quizQuestions,
-        branchingScenarios: action.data.branchingScenarios ?? state.branchingScenarios,
         orphanedProductIds: action.data.orphanedProductIds ?? state.orphanedProductIds,
         draftExists: true,
         step: 2,
@@ -162,7 +151,6 @@ export function BuilderProvider({ children }) {
         selectedShelfIds: json.module?.selectedShelfIds || [],
         scenarios: json.scenarios || [],
         quizQuestions: json.quizQuestions || [],
-        branchingScenarios: json.branchingScenarios || [],
         orphanedProductIds: orphaned,
         draftExists: true,
       },
