@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePlayer } from '../PlayerContext.jsx'
 import { ProductModal } from '../../shared/components/ProductModal.jsx'
-import { ImageWithFallback } from '../../shared/utils/imageUtils.jsx'
+import { ProductCard } from '../../shared/components/ProductCard.jsx'
 
 export function ShelfBrowse() {
   const { moduleData } = usePlayer()
@@ -193,8 +193,8 @@ function ShelfCard({ shelf, group, products, onProductClick }) {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  color={group.color}
                   onClick={() => onProductClick(product)}
+                  size="md"
                 />
               ))}
             </div>
@@ -205,48 +205,3 @@ function ShelfCard({ shelf, group, products, onProductClick }) {
   )
 }
 
-function ProductCard({ product, color, onClick }) {
-  const [hovered, setHovered] = React.useState(false)
-  return (
-    <button
-      onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        width: 112,
-        background: hovered ? '#FFFFFF' : 'rgba(255,255,255,0.92)',
-        border: `1.5px solid ${hovered ? color : 'rgba(255,255,255,0.20)'}`,
-        borderRadius: 12,
-        padding: '10px 8px 10px',
-        cursor: 'pointer',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        transition: 'all 0.15s',
-        boxShadow: hovered ? `0 4px 18px ${color}44` : '0 1px 4px rgba(0,0,0,0.18)',
-        transform: hovered ? 'translateY(-2px)' : 'none',
-      }}
-    >
-      <ImageWithFallback
-        productId={product.id}
-        side="front"
-        bgColor={color}
-        style={{ width: 80, height: 80, borderRadius: 8, flexShrink: 0 }}
-      />
-      <span
-        style={{
-          fontSize: 11,
-          fontWeight: 600,
-          color: '#140F50',
-          textAlign: 'center',
-          lineHeight: 1.3,
-          wordBreak: 'break-word',
-          width: '100%',
-        }}
-      >
-        {product.name}
-      </span>
-    </button>
-  )
-}
