@@ -125,7 +125,14 @@ export function Step4_Export() {
       const indexUrl = import.meta.env.DEV ? '/dist-index.html' : (import.meta.env.BASE_URL + 'index.html')
       const indexResp = await fetch(indexUrl)
       if (!indexResp.ok) throw new Error('Could not fetch built index.html')
-      zip.file('index.html', await indexResp.text())
+      let indexHtml = await indexResp.text()
+      // Rewrite absolute base-prefixed paths → relative so the zip works on any host.
+      // e.g. src="/OTCgames/assets/foo.js" → src="assets/foo.js"
+      const base = import.meta.env.BASE_URL
+      if (base && base !== '/') {
+        indexHtml = indexHtml.split(`="${base}`).join(`="`)
+      }
+      zip.file('index.html', indexHtml)
 
       const assetsFolder = zip.folder('assets')
       await Promise.all(
