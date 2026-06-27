@@ -115,7 +115,7 @@ export function ShelfBrowse() {
 
 function GroupContent({ group, products, onProductClick }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20, alignItems: 'flex-start' }}>
       {group.shelves.map((shelf) => {
         const shelfProducts = products.filter((p) => p.category === shelf.id)
         if (shelfProducts.length === 0) return null
