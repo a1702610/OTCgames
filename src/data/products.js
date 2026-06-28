@@ -796,11 +796,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "demazin-kids-liquid-cold-flu",
-    "name": "Demazin Kids Liquid Cold & Flu",
+    "id": "demazin-kids-liquid-cold-and-flu",
+    "name": "Demazin Kids Liquid Cold and Flu",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/3 Demazin Kids Liquid Cold & Flu",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/3 Demazin Kids Liquid Cold and Flu",
     "sides": [
       "front",
       "back",
@@ -3001,8 +3001,6 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 1/4 Nausetil",
     "sides": [
-      "front",
-      "back",
       "view_1"
     ],
     "row": 1,
