@@ -51,6 +51,12 @@ function toKebab(name) {
     .replace(/^-+|-+$/g, '')
 }
 
+// Strip leading sort prefix (e.g. "1 " or "02 ") from a folder name.
+// Keeps file paths unchanged; only affects the display name and id.
+function stripOrderPrefix(name) {
+  return name.replace(/^\d+\s+/, '')
+}
+
 function listDirs(p) {
   if (!fs.existsSync(p)) return []
   return fs.readdirSync(p, { withFileTypes: true })
@@ -134,7 +140,8 @@ function processProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta,
     return 0
   }
 
-  const baseId = toKebab(prodName)
+  const displayName = stripOrderPrefix(prodName)
+  const baseId = toKebab(displayName)
   let id = baseId
   if (seenIds.has(id)) id = `${baseId}-${shelfId}`
   if (seenIds.has(id)) id = `${baseId}-${shelfId}-r${row ?? 0}`
@@ -150,7 +157,7 @@ function processProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta,
 
   productsArray.push({
     id,
-    name:            prodName,
+    name:            displayName,
     brand:           '',
     category:        shelfId,
     imageFolderPath: relFolder,

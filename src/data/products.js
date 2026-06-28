@@ -168,8 +168,8 @@ export const shelves = [
 
 export const products = [
   {
-    "id": "1-robitussin-dry-cough-forte",
-    "name": "1 Robitussin Dry Cough Forte",
+    "id": "robitussin-dry-cough-forte",
+    "name": "Robitussin Dry Cough Forte",
     "brand": "",
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/1 Robitussin Dry Cough Forte",
@@ -4139,8 +4139,8 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "1-eurax",
-    "name": "1 Eurax",
+    "id": "eurax",
+    "name": "Eurax",
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/1 Eurax",
@@ -4155,8 +4155,8 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "2-lyclear",
-    "name": "2 Lyclear",
+    "id": "lyclear",
+    "name": "Lyclear",
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/2 Lyclear",
@@ -4170,8 +4170,8 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "3-comb",
-    "name": "3 Comb",
+    "id": "comb",
+    "name": "Comb",
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/3 Comb",
@@ -4183,8 +4183,8 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "3-hedrin-15",
-    "name": "3 Hedrin 15",
+    "id": "hedrin-15",
+    "name": "Hedrin 15",
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/3 Hedrin 15",
@@ -4199,8 +4199,8 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "4-pyrenel",
-    "name": "4 Pyrenel",
+    "id": "pyrenel",
+    "name": "Pyrenel",
     "brand": "",
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/4 Pyrenel",
