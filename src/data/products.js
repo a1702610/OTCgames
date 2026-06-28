@@ -198,11 +198,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "robitussin-cough-chest",
-    "name": "Robitussin Cough & Chest",
+    "id": "robitussin-cough-and-chest",
+    "name": "Robitussin Cough and Chest",
     "brand": "",
     "category": "cold-and-flu-1",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/3 Robitussin Cough & Chest",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/3 Robitussin Cough and Chest",
     "sides": [
       "front",
       "view_1",
@@ -215,11 +215,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "robitussin-chesty-cough-nasal",
-    "name": "Robitussin Chesty Cough & Nasal",
+    "id": "robitussin-chesty-cough-and-nasal",
+    "name": "Robitussin Chesty Cough and Nasal",
     "brand": "",
     "category": "cold-and-flu-1",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/4 Robitussin Chesty Cough & Nasal",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/4 Robitussin Chesty Cough and Nasal",
     "sides": [
       "front",
       "view_1",
@@ -233,11 +233,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "nurofen-cold-flu-pe",
-    "name": "Nurofen Cold & Flu PE",
+    "id": "nurofen-cold-and-flu-pe",
+    "name": "Nurofen Cold and Flu PE",
     "brand": "",
     "category": "cold-and-flu-1",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/1 Nurofen Cold & Flu PE",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/1 Nurofen Cold and Flu PE",
     "sides": [
       "front",
       "view_1",
@@ -264,11 +264,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "sudafed-pe-sinus-anti-inflammatory",
-    "name": "Sudafed PE Sinus & Anti-Inflammatory",
+    "id": "sudafed-pe-sinus-and-anti-inflammatory",
+    "name": "Sudafed PE Sinus and Anti-Inflammatory",
     "brand": "",
     "category": "cold-and-flu-1",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/3 Sudafed PE Sinus & Anti-Inflammatory",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/3 Sudafed PE Sinus and Anti-Inflammatory",
     "sides": [
       "front",
       "back",
@@ -580,11 +580,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "benadryl-dry-cough-nasal",
-    "name": "Benadryl Dry Cough & Nasal",
+    "id": "benadryl-dry-cough-and-nasal",
+    "name": "Benadryl Dry Cough and Nasal",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/1 Benadryl Dry Cough & Nasal",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/1 Benadryl Dry Cough and Nasal",
     "sides": [
       "front",
       "view_1",
@@ -615,11 +615,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "benadryl-chesty-nasal",
-    "name": "Benadryl Chesty & Nasal",
+    "id": "benadryl-chesty-and-nasal",
+    "name": "Benadryl Chesty and Nasal",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/3 Benadryl Chesty & Nasal",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/3 Benadryl Chesty and Nasal",
     "sides": [
       "front",
       "view_1",
@@ -649,11 +649,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "benadryl-childrens-2",
-    "name": "Benadryl Childrens 2+",
+    "id": "benadryl-childrens-2-yrs-plus",
+    "name": "Benadryl Childrens 2 yrs Plus",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/5 Benadryl Childrens 2+",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/5 Benadryl Childrens 2 yrs Plus",
     "sides": [
       "front",
       "view_1",
@@ -713,11 +713,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "codral-cold-flu-cough-day-night",
-    "name": "Codral Cold & Flu Cough Day Night",
+    "id": "codral-cold-and-flu-cough-day-night",
+    "name": "Codral Cold and Flu Cough Day Night",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/1 Codral Cold & Flu Cough Day Night",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/1 Codral Cold and Flu Cough Day Night",
     "sides": [
       "front",
       "back",
@@ -729,11 +729,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "codral-cold-flu-day-night",
-    "name": "Codral Cold & Flu Day Night",
+    "id": "codral-cold-and-flu-day-night",
+    "name": "Codral Cold and Flu Day Night",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/2 Codral Cold & Flu Day Night",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/2 Codral Cold and Flu Day Night",
     "sides": [
       "front",
       "back",
@@ -745,11 +745,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "codral-cold-flu-nightime",
-    "name": "Codral Cold & Flu Nightime",
+    "id": "codral-cold-and-flu-nightime",
+    "name": "Codral Cold and Flu Nightime",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/3 Codral Cold & Flu Nightime",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/3 Codral Cold and Flu Nightime",
     "sides": [
       "front",
       "back",
@@ -796,11 +796,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "demazin-kids-liquid-cold-flu-2",
-    "name": "Demazin Kids Liquid Cold & Flu 2+",
+    "id": "demazin-kids-liquid-cold-flu",
+    "name": "Demazin Kids Liquid Cold & Flu",
     "brand": "",
     "category": "cold-and-flu-2",
-    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/3 Demazin Kids Liquid Cold & Flu 2+",
+    "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/3 Demazin Kids Liquid Cold & Flu",
     "sides": [
       "front",
       "back",
@@ -1534,11 +1534,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "coloxyl-senna",
-    "name": "Coloxyl & Senna",
+    "id": "coloxyl-with-senna",
+    "name": "Coloxyl with Senna",
     "brand": "",
     "category": "gastrointestinal-2",
-    "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/3 Coloxyl & Senna",
+    "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/3 Coloxyl with Senna",
     "sides": [
       "front",
       "back",
@@ -3357,11 +3357,11 @@ export const products = [
     "color": "#FFFFFF"
   },
   {
-    "id": "codral-cold-flu-cough",
-    "name": "Codral Cold & Flu Cough",
+    "id": "codral-cold-and-flu-cough",
+    "name": "Codral Cold and Flu Cough",
     "brand": "",
     "category": "s3-b",
-    "imageFolderPath": "medications/S3 shelves/S3 - b/Row 3/2 Codral Cold & Flu Cough",
+    "imageFolderPath": "medications/S3 shelves/S3 - b/Row 3/2 Codral Cold and Flu Cough",
     "sides": [
       "front",
       "back",
