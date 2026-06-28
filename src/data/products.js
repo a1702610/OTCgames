@@ -174,9 +174,9 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/1 Robitussin Dry Cough Forte",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -189,9 +189,9 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/2 Robitussin Chesty Cough Forte",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -204,11 +204,11 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/3 Robitussin Cough and Chest",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -221,12 +221,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/1st Row/4 Robitussin Chesty Cough and Nasal",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -239,9 +239,9 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/1 Nurofen Cold and Flu PE",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -254,10 +254,10 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/2 Sudafed PE",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -270,10 +270,10 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/2nd row/3 Sudafed PE Sinus and Anti-Inflammatory",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -286,10 +286,10 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/1 Demazin",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -302,12 +302,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/2 FESS Little Noses",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -320,12 +320,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/3 FESS Childrens",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -338,12 +338,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/4 FESS Original",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -356,12 +356,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/5 FESS Sinu-Cleanse Hypertonic",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -374,12 +374,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/6 Otrivin Junior",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -392,10 +392,10 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/7 Otrivin Adult",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -408,12 +408,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/3rd row/8 Otrivin Plus",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -426,10 +426,10 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/4th row/Codral Dual Action Lozenges",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -442,12 +442,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/4th row/Difflam Plus Lozenges",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -460,8 +460,8 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/4th row/Strepsils Honey and Lemon",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -474,9 +474,9 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/4th row/Strepsils Plus Anaesthetic Lozenge",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -489,8 +489,8 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/4th row/Vicks Vapodrops",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -503,9 +503,9 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/5th row/Betadine",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#4A90D9",
@@ -518,12 +518,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/5th row/Difflam Anti-Inflammatory",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 5,
     "bgColor": "#4A90D9",
@@ -536,12 +536,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/5th row/Difflam-C",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 5,
     "bgColor": "#4A90D9",
@@ -554,12 +554,12 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/5th row/Vicks Baby Balsam",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 5,
     "bgColor": "#4A90D9",
@@ -572,8 +572,8 @@ export const products = [
     "category": "cold-and-flu-1",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 1/5th row/Vicks Vaporub Oint",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 5,
     "bgColor": "#4A90D9",
@@ -586,12 +586,12 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/1 Benadryl Dry Cough and Nasal",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -604,11 +604,11 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/2 Benadryl Dry Cough Forte",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -621,12 +621,12 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/3 Benadryl Chesty and Nasal",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -639,10 +639,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/4 Benadryl Chesty Forte",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -655,11 +655,11 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 1/5 Benadryl Childrens 2 yrs Plus",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#4A90D9",
@@ -672,10 +672,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 2/1 Bisolvon Chesty Forte Tabs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -688,9 +688,9 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 2/2 Bisolvon Chesty Liquid",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -703,10 +703,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 2/3 Bisolvon Dry Liquid",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#4A90D9",
@@ -719,10 +719,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/1 Codral Cold and Flu Cough Day Night",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -735,10 +735,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/2 Codral Cold and Flu Day Night",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -751,10 +751,10 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 3/3 Codral Cold and Flu Nightime",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#4A90D9",
@@ -767,11 +767,11 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/1 Demazin CF Syrup",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -784,12 +784,12 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/2 Demazin Kids Liquid Cough Relief",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -802,12 +802,12 @@ export const products = [
     "category": "cold-and-flu-2",
     "imageFolderPath": "medications/Cold and Flu/Cold and Flu 2/Row 4/3 Demazin Kids Liquid Cold and Flu",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 4,
     "bgColor": "#4A90D9",
@@ -820,10 +820,10 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 1/1 Aqua Ear",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#9B59B6",
@@ -836,12 +836,12 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 1/2 Auralgan",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#9B59B6",
@@ -854,10 +854,10 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 1/3 Cerumol",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#9B59B6",
@@ -870,8 +870,8 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 1/4 Waxsol",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#9B59B6",
@@ -884,9 +884,9 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 2/1 Difflam Mouth Gel",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#9B59B6",
@@ -899,12 +899,12 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 2/2 SM33 Gel",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#9B59B6",
@@ -917,8 +917,8 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 2/3 Bonjela",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#9B59B6",
@@ -931,12 +931,12 @@ export const products = [
     "category": "ent",
     "imageFolderPath": "medications/ENT/Row 3/Nasalate",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#9B59B6",
@@ -949,9 +949,9 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 1/1 Poly Visc",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#1ABC9C",
@@ -964,12 +964,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 1/2 Albalon",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#1ABC9C",
@@ -982,12 +982,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 1/3 Albalon-A",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#1ABC9C",
@@ -1000,12 +1000,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 1/4 Poly-Tears",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#1ABC9C",
@@ -1018,12 +1018,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 1/5 Refresh Tears Plus",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#1ABC9C",
@@ -1036,12 +1036,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 2/1 Cellufresh",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#1ABC9C",
@@ -1054,12 +1054,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 2/2 Optive",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#1ABC9C",
@@ -1072,10 +1072,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 2/3 Systane Ultra",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#1ABC9C",
@@ -1088,10 +1088,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 2/4 Systane Gel Drops",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#1ABC9C",
@@ -1104,10 +1104,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 2/5 Systane Lid Wipes",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#1ABC9C",
@@ -1120,11 +1120,11 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 3/1 Hylo-Forte",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#1ABC9C",
@@ -1137,11 +1137,11 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 3/2 Hylo-Fresh",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#1ABC9C",
@@ -1154,10 +1154,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 3/3 Visine Advanced",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#1ABC9C",
@@ -1170,10 +1170,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 3/4 Visine Allergy",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#1ABC9C",
@@ -1186,10 +1186,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 3/5 Visine Clear",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#1ABC9C",
@@ -1202,11 +1202,11 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 4/1 Cromo-Fresh",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#1ABC9C",
@@ -1219,10 +1219,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 4/2 Livostin",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#1ABC9C",
@@ -1235,12 +1235,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 4/3 Murine",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#1ABC9C",
@@ -1253,10 +1253,10 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 4/4 Naphcon-A",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#1ABC9C",
@@ -1269,12 +1269,12 @@ export const products = [
     "category": "eyes",
     "imageFolderPath": "medications/Eyes/Row 4/5 Zaditen",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#1ABC9C",
@@ -1287,10 +1287,10 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 1/1 Gaviscon Dual Action Liquid",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1303,8 +1303,8 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 1/2 Gaviscon Infant",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1317,8 +1317,8 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 1/3 Gaviscon Dual Action Tab",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1331,10 +1331,10 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 2/1 Mylanta2go",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1347,10 +1347,10 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 2/2 Mylanta2go DS",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1363,10 +1363,10 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 3/1 Zantac",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1379,11 +1379,11 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 3/2 Zantac DS",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1396,10 +1396,10 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 4/1 Nexium",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1412,8 +1412,8 @@ export const products = [
     "category": "gastrointestinal-1",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 1/Row 4/2 Pantoprazole",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1426,8 +1426,8 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 1/1 Actilax",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1440,8 +1440,8 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 1/2 Agarol",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1454,12 +1454,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 1/3 Little Parachoc",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1472,10 +1472,10 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 1/4 Movicol",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1488,10 +1488,10 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 1/5 Movicol junior",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1504,12 +1504,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/1 Coloxyl 120",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1522,12 +1522,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/2 Coloxyl 50",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1540,12 +1540,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/3 Coloxyl with Senna",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1558,12 +1558,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 2/4 Coloxyl Infant",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1576,9 +1576,9 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 3/1 Dulcolax Supp",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1591,11 +1591,11 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 3/2 Glycerol Supp Adult",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1608,10 +1608,10 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 3/3 Glycerol Supp Children",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1624,10 +1624,10 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 4/1 Benefiber",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1640,12 +1640,12 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 4/2 Metamucil",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1658,10 +1658,10 @@ export const products = [
     "category": "gastrointestinal-2",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 2/Row 4/3 Microlax",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1674,10 +1674,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 1/1 Gastro-Stop",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1690,10 +1690,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 1/2 Gastro-Stop Plus",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#E67E22",
@@ -1706,10 +1706,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 2/1 Hydralyte Effervescent",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1722,10 +1722,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 2/2 Hydralyte Ice",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1738,9 +1738,9 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 2/3 Hydralyte Oral Solution",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1753,10 +1753,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 2/4 Hydralyte Powder",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E67E22",
@@ -1769,11 +1769,11 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 3/1 Kwells",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1786,11 +1786,11 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 3/2 Kwells Kids",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1803,8 +1803,8 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 3/3 Travacalm HO",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1817,8 +1817,8 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 3/4 Travacalm Natural",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1831,8 +1831,8 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 3/5 Travacalm Original",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#E67E22",
@@ -1845,10 +1845,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 4/1 Anusol Ointment",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1861,10 +1861,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 4/2 Anusol Supp",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1877,10 +1877,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 4/3 Proctosedyl",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1893,10 +1893,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 4/4 Rectinol",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1909,10 +1909,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 4/5 Soov",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E67E22",
@@ -1925,10 +1925,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 5/1 Combantrin",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#E67E22",
@@ -1941,10 +1941,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 5/2 Combantrin-1",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#E67E22",
@@ -1957,10 +1957,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 5/3 Combantrin-1 Tab",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#E67E22",
@@ -1973,10 +1973,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 5/4 Vermox",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 5,
     "bgColor": "#E67E22",
@@ -1989,10 +1989,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 6/1 Buscopan",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 6,
     "bgColor": "#E67E22",
@@ -2005,10 +2005,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 6/2 Buscopan Forte",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 6,
     "bgColor": "#E67E22",
@@ -2021,10 +2021,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 6/3 Charcotabs",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 6,
     "bgColor": "#E67E22",
@@ -2037,10 +2037,10 @@ export const products = [
     "category": "gastrointestinal-3",
     "imageFolderPath": "medications/Gastrointestinal/Gastrointestinal 3/Row 6/4 De-Gas",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 6,
     "bgColor": "#E67E22",
@@ -2053,10 +2053,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 1/1 Claratyne Childrens Syrup",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#27AE60",
@@ -2069,10 +2069,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 1/2 Claratyne Childrens Tabs",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#27AE60",
@@ -2085,12 +2085,12 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 1/3 Claratyne Tabs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#27AE60",
@@ -2103,11 +2103,11 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 1/4 ClaratyneDES Liq",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#27AE60",
@@ -2120,12 +2120,12 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 1/5 Desonex",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#27AE60",
@@ -2138,10 +2138,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 2/1 Telfast 60mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#27AE60",
@@ -2154,10 +2154,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 2/2 Telfast 120mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#27AE60",
@@ -2170,10 +2170,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 2/3 Telfast 180mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#27AE60",
@@ -2186,10 +2186,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 2/4 Telfast Liq",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#27AE60",
@@ -2202,8 +2202,8 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 3/1 Zyrtec Eye Drop",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#27AE60",
@@ -2216,9 +2216,9 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 3/2 Zyrtec Kids Drops",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#27AE60",
@@ -2231,10 +2231,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 3/3 Zyrtec Nasal Spray",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#27AE60",
@@ -2247,10 +2247,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 3/4 Zyrtec Tabs",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#27AE60",
@@ -2263,8 +2263,8 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/1 Azep",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2277,10 +2277,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/2 Beconase",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2293,7 +2293,7 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/3 Dymista",
     "sides": [
-      "front"
+      "front.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2306,12 +2306,12 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/4 Flixonase",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2324,10 +2324,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/5 Nasonex",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2340,10 +2340,10 @@ export const products = [
     "category": "hayfever",
     "imageFolderPath": "medications/Hayfever/Row 4/6 Rhinocort 12-Hour",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#27AE60",
@@ -2356,9 +2356,9 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 1/1 Metsal",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2371,12 +2371,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 1/2 Voltaren 12-Hourly Gel",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2389,11 +2389,11 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 1/3 Voltaren Gel",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2406,10 +2406,10 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 2/1 Dencorub Arthritis Cream",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2422,12 +2422,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 2/2 Dencorub ES",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2440,12 +2440,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 2/3 Dencorub Patch",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2458,11 +2458,11 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 2/4 Zo-Rub HP",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2475,12 +2475,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 3/1 Naprogesic",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2493,12 +2493,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 3/2 Voltaren Rapid 12.5mg Tabs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2511,9 +2511,9 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 4/1 Aspro Clear 60",
     "sides": [
-      "front",
-      "back",
-      "view_1"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2526,12 +2526,12 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 4/2 Aspro Clear Extra Stregnth",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2544,9 +2544,9 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 4/3 Cartia tablets",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2559,11 +2559,11 @@ export const products = [
     "category": "pain-management-1",
     "imageFolderPath": "medications/Pain Management/Pain Management 1/Row 4/4 Solprin",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2576,11 +2576,11 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 1/1 Advil Childrens",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2593,11 +2593,11 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 1/2 Advil Infant",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2610,10 +2610,10 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 1/3 Advil Liquid Capsules",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2626,12 +2626,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 1/4 Advil Rapid Release",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#E74C3C",
@@ -2644,7 +2644,7 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 2/1 Nurofen",
     "sides": [
-      "front"
+      "front.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2657,8 +2657,8 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 2/2 Nurofen Zavance",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2671,8 +2671,8 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 2/3 Nurofen Chewable",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2685,8 +2685,8 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 2/4 Nurofen children 3 mo - 5 yrs",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2699,9 +2699,9 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 2/5 Nurofen children 5 mo - 12 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#E74C3C",
@@ -2714,12 +2714,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 3/1 Dymadon 1 mo - 2 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2732,12 +2732,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 3/2 Dymadon 2 mo - 12 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2750,7 +2750,7 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 3/3 Panadol Childrens 1 mo - 1 yrs",
     "sides": [
-      "front"
+      "front.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2763,10 +2763,10 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 3/4 Panadol Childrens 1 yrs - 5 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2779,10 +2779,10 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 3/5 Panadol Childrens 5 yrs - 12 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#E74C3C",
@@ -2795,12 +2795,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 4/1 Panadol",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2813,12 +2813,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 4/2 Panadol Extra",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2831,11 +2831,11 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 4/3 Panadol Mini Caps",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2848,12 +2848,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 4/4 Panadol Chewable",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2866,12 +2866,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 4/5 Panadol Rapid",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#E74C3C",
@@ -2884,12 +2884,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 5/1 Panadol Supps 5 yrs -12 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 5,
     "bgColor": "#E74C3C",
@@ -2902,12 +2902,12 @@ export const products = [
     "category": "pain-management-2",
     "imageFolderPath": "medications/Pain Management/Pain Management 2/Row 5/2 Panadol Supps 6 mo - 5 yrs",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 5,
     "bgColor": "#E74C3C",
@@ -2920,10 +2920,10 @@ export const products = [
     "category": "fridge",
     "imageFolderPath": "medications/S3 shelves/Fridge/1 Chloramphenicol Drops",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": null,
     "bgColor": "#2C3E50",
@@ -2936,11 +2936,11 @@ export const products = [
     "category": "fridge",
     "imageFolderPath": "medications/S3 shelves/Fridge/2 Proctosedyl Supp",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": null,
     "bgColor": "#2C3E50",
@@ -2953,10 +2953,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 1/1 Anagraine",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -2969,11 +2969,11 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 1/2 Imigran",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -2986,9 +2986,9 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 1/3 Eletriptan",
     "sides": [
-      "front",
-      "back",
-      "view_1"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3001,7 +3001,8 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 1/4 Nausetil",
     "sides": [
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3014,10 +3015,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 2/1 Lomotil",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3030,10 +3031,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 2/2 Rectogesic",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3046,9 +3047,9 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 2/3 Rabeprazole",
     "sides": [
-      "front",
-      "back",
-      "view_1"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3061,10 +3062,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 3/1 Glycoprep",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3077,10 +3078,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 3/2 Picoprep",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3093,10 +3094,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 3/3 Xenical",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3109,10 +3110,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 4/1 GTN Spray",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3125,12 +3126,12 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 4/2 Nyxoid",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3143,9 +3144,9 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 4/3 Ventolin",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3158,12 +3159,12 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 4/4 Bricanyl",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3176,10 +3177,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 5/1 Epipen",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#2C3E50",
@@ -3192,10 +3193,10 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 5/2 Epipen Jnr",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#2C3E50",
@@ -3208,8 +3209,8 @@ export const products = [
     "category": "s3-a",
     "imageFolderPath": "medications/S3 shelves/S3 - a/Row 5/3 Glucagen Hypokit",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 5,
     "bgColor": "#2C3E50",
@@ -3222,9 +3223,9 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 1/1 Celebrex",
     "sides": [
-      "front",
-      "back",
-      "view_1"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3237,11 +3238,11 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 1/2 Maxigesic",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3254,8 +3255,8 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 1/3 Nurofen DS",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3268,8 +3269,8 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 1/4 Nuromol",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3282,12 +3283,12 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 1/5 Voltaren Rapid 25",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3300,11 +3301,11 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 2/1 Nervoderm",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3317,7 +3318,7 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 2/2 Numit",
     "sides": [
-      "front"
+      "front.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3330,9 +3331,9 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 2/3 Panadol Osteo",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3345,10 +3346,10 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 3/1 Benadryl",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3361,10 +3362,10 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 3/2 Codral Cold and Flu Cough",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3377,8 +3378,8 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 3/3 Sudafed",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3391,11 +3392,11 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 4/1 Allersoothe",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3408,12 +3409,12 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 4/2 Nausicalm",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3426,10 +3427,10 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 4/3 Polaramine Syrup",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3442,10 +3443,10 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 4/4 Polaramine Tabls",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3458,11 +3459,11 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 5/1 Circadin",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 5,
     "bgColor": "#2C3E50",
@@ -3475,10 +3476,10 @@ export const products = [
     "category": "s3-b",
     "imageFolderPath": "medications/S3 shelves/S3 - b/Row 5/2 Restavit",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 5,
     "bgColor": "#2C3E50",
@@ -3491,10 +3492,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 1/1 Canestan Once Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3507,10 +3508,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 1/2 Canestan 3-Day Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3523,10 +3524,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 1/3 Canestan 6-Day Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3539,10 +3540,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 1/4 Canestan 1-Day Pessary",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3555,10 +3556,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 1/5 Canestan 6-Day Pessary",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3571,10 +3572,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 2/1 Canestan Duo",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3587,10 +3588,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 2/2 Diflucan ONE",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3603,12 +3604,12 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 2/3 Fleurstat",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3621,10 +3622,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 2/4 Nilstat Vaginal Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3637,10 +3638,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 3/1 EllaOne",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3653,10 +3654,10 @@ export const products = [
     "category": "s3-c",
     "imageFolderPath": "medications/S3 shelves/S3 - c/Row 3/2 Postrelle",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3669,10 +3670,10 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 1/1 Kloxema",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3685,9 +3686,9 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 1/2 Zatamil",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#2C3E50",
@@ -3700,12 +3701,12 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 2/1 Cortic DS Cream",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3718,12 +3719,12 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 2/2 Cortic DS Oint",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3736,8 +3737,8 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 2/3 Dermaid Solution",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3750,9 +3751,9 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 2/4 Dermaid Spray",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#2C3E50",
@@ -3765,10 +3766,10 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 3/1 Canestan Plus",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3781,11 +3782,11 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 3/2 Hydrozole",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3798,10 +3799,10 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 3/3 Miconazole Resolve plus",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3814,10 +3815,10 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 3/4 Nilstat Oral Drops",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#2C3E50",
@@ -3830,10 +3831,10 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 4/1 Chlorsig Ointment",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3846,11 +3847,11 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 4/2 Kenalog",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3863,8 +3864,8 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 4/3 Favic",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3877,8 +3878,8 @@ export const products = [
     "category": "s3-d",
     "imageFolderPath": "medications/S3 shelves/S3 - d/Row 4/4 Zovirax Duo",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#2C3E50",
@@ -3891,10 +3892,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/1 Canesten Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3907,10 +3908,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/2 Canesten Once Daily Body Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3923,10 +3924,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/3 Canesten Once Daily Foot Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3939,10 +3940,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/4 Canesten Topical Solution",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3955,10 +3956,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/5 Resolve Plus",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3971,10 +3972,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 1/6 Dermaid Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -3987,12 +3988,12 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 2/1 Daktarin Cream",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4005,10 +4006,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 2/2 Daktarin Powder",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4021,8 +4022,8 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 2/3 Daktarin Spray",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4035,10 +4036,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 2/4 Daktarin Tincture",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4051,10 +4052,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 2/5 Daktozin",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4067,10 +4068,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 3/1 Lamisil Cream",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4083,10 +4084,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 3/2 Lamisil Once",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4099,10 +4100,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 3/3 Lamisil spray",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4115,8 +4116,8 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 3/4 Pinetarsol",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4129,10 +4130,10 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 4/1 Loceryl",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4145,8 +4146,8 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 4/2 Rejuvenail",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4159,12 +4160,12 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 4/3 Nizoral 2%",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4177,8 +4178,8 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 4/4 T-Gel Shampoo",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4191,11 +4192,11 @@ export const products = [
     "category": "skin-1",
     "imageFolderPath": "medications/Skin/Skin 1/Row 4/5 Pevaryl",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4208,9 +4209,9 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 1/1 Azclear",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -4223,10 +4224,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 1/2 Benzac 2.5% Kit",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -4239,10 +4240,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 1/3 Benzac 5%",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -4255,10 +4256,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 1/4 Benzac 10%",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#F39C12",
@@ -4271,10 +4272,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/1 Eurax",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4287,10 +4288,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/2 Lyclear",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4303,12 +4304,12 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/3 Hedrin 15",
     "sides": [
-      "front",
-      "back",
-      "side",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "back.jpg",
+      "side.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4321,7 +4322,7 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/4 Comb",
     "sides": [
-      "front"
+      "front.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4334,8 +4335,8 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 2/5 Pyrenel",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#F39C12",
@@ -4348,10 +4349,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 3/1 Duofilm",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4364,8 +4365,8 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 3/2 Scholl Wart Patch",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4378,10 +4379,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 3/3 Wart-Off Paint",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4394,8 +4395,8 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 3/4 Wart-Off Stick",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4408,10 +4409,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 3/5 Wart-Off Freeze",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 3,
     "bgColor": "#F39C12",
@@ -4424,9 +4425,9 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 4/1 Calamine",
     "sides": [
-      "front",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4439,10 +4440,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 4/2 Emla",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4455,12 +4456,12 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 4/3 Savlon",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4",
-      "view_5"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg",
+      "view_5.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4473,10 +4474,10 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 4/4 Soov",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4489,8 +4490,8 @@ export const products = [
     "category": "skin-2",
     "imageFolderPath": "medications/Skin/Skin 2/Row 4/5 Aciclovir",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 4,
     "bgColor": "#F39C12",
@@ -4503,11 +4504,11 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 1/Nicorette 2mg Gum",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3",
-      "view_4"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg",
+      "view_4.jpg"
     ],
     "row": 1,
     "bgColor": "#8E44AD",
@@ -4520,10 +4521,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 1/Nicorette 2mg Lozenge",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 1,
     "bgColor": "#8E44AD",
@@ -4536,10 +4537,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 1/Nicorette 4mg Gum",
     "sides": [
-      "front",
-      "view_1",
-      "view_2",
-      "view_3"
+      "front.jpg",
+      "view_1.jpg",
+      "view_2.jpg",
+      "view_3.jpg"
     ],
     "row": 1,
     "bgColor": "#8E44AD",
@@ -4552,8 +4553,8 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 1/Nicorette 4mg Lozenge",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 1,
     "bgColor": "#8E44AD",
@@ -4566,8 +4567,8 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 2/Nicorette Quickmist",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#8E44AD",
@@ -4580,8 +4581,8 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 2/Nicorette Quickmist 3-Pack",
     "sides": [
-      "front",
-      "view_1"
+      "front.jpg",
+      "view_1.jpg"
     ],
     "row": 2,
     "bgColor": "#8E44AD",
@@ -4594,10 +4595,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 3/Nicorette Invisipatch 10mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#8E44AD",
@@ -4610,10 +4611,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 3/Nicorette Invisipatch 15mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#8E44AD",
@@ -4626,10 +4627,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 3/Nicorette Invisipatch 25mg",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 3,
     "bgColor": "#8E44AD",
@@ -4642,10 +4643,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 4/Nicotinell Step 1 Patch",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#8E44AD",
@@ -4658,10 +4659,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 4/Nicotinell Step 2 Patch",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#8E44AD",
@@ -4674,10 +4675,10 @@ export const products = [
     "category": "smoking-cessation",
     "imageFolderPath": "medications/Smoking Cessation/Row 4/Nicotinell Step 3 Patch",
     "sides": [
-      "front",
-      "back",
-      "view_1",
-      "view_2"
+      "front.jpg",
+      "back.jpg",
+      "view_1.jpg",
+      "view_2.jpg"
     ],
     "row": 4,
     "bgColor": "#8E44AD",

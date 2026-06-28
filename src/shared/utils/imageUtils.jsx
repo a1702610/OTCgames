@@ -13,12 +13,15 @@ export function setImageBase(url) {
 export function getImageUrl(productId, side = 'front') {
   const product = getProductById(productId)
   if (!product?.imageFolderPath) return null
+  // sides stores filenames like 'front.jpg' or 'front.png'; fall back to .jpg for old data
+  const sideFile = product.sides?.find(s => s === side || s.startsWith(side + '.')) || `${side}.jpg`
+  const filename = sideFile.includes('.') ? sideFile : `${sideFile}.jpg`
   const encoded = product.imageFolderPath
     .split('/')
     .map(encodeURIComponent)
     .join('/')
   const base = _runtimeBase || BUILD_TIME_BASE
-  return `${base}/${encoded}/${side}.jpg`
+  return `${base}/${encoded}/${filename}`
 }
 
 // Component that renders a product image with a styled fallback placeholder

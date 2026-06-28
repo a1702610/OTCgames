@@ -65,13 +65,15 @@ function hasImages(p) {
   return fs.readdirSync(p).some(f => /\.(jpg|jpeg|png)$/i.test(f))
 }
 
-// Detect which sides exist for a product (files are already named front.jpg etc.)
+// Detect which sides exist for a product. Returns filenames like 'front.jpg', 'front.png', 'view_1.jpg'
+// so the app knows the exact extension to request (supports both jpg and png).
 function detectSides(prodPath) {
   if (!fs.existsSync(prodPath)) return []
   const files = fs.readdirSync(prodPath).filter(f => /\.(jpg|jpeg|png)$/i.test(f))
   const sides = []
   for (const s of ['front', 'back', 'side']) {
-    if (files.some(f => f.toLowerCase() === `${s}.jpg`)) sides.push(s)
+    const match = files.find(f => /\.(jpg|jpeg|png)$/i.test(f) && f.toLowerCase().replace(/\.[^.]+$/, '') === s)
+    if (match) sides.push(match.toLowerCase())
   }
   const viewFiles = files
     .filter(f => /^view_\d+\.(jpg|jpeg|png)$/i.test(f))
@@ -80,7 +82,7 @@ function detectSides(prodPath) {
       const nb = parseInt(b.match(/\d+/)[0])
       return na - nb
     })
-  viewFiles.forEach(f => sides.push(f.replace(/\.[^.]+$/, '')))
+  viewFiles.forEach(f => sides.push(f.toLowerCase()))
   return sides
 }
 
