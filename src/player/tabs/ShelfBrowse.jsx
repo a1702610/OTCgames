@@ -165,10 +165,10 @@ function ShelfCard({ shelf, group, products, onProductClick }) {
       >
         <span style={{ fontSize: 28 }}>{group.emoji}</span>
         <div>
-          <div style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 16, lineHeight: 1.2 }}>
+          <div style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 20, lineHeight: 1.2 }}>
             {displayName}
           </div>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
+          <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
             {products.length} product{products.length !== 1 ? 's' : ''}
           </div>
         </div>
@@ -194,7 +194,7 @@ function ShelfCard({ shelf, group, products, onProductClick }) {
                   key={product.id}
                   product={product}
                   onClick={() => onProductClick(product)}
-                  size="md"
+                  size="xl"
                 />
               ))}
             </div>

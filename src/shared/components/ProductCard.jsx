@@ -2,7 +2,8 @@ import { motion } from 'framer-motion'
 import { ImageWithFallback } from '../utils/imageUtils.jsx'
 
 export function ProductCard({ product, onClick, isSelected, isDisabled, size = 'md', onZoom }) {
-  const dim = size === 'sm' ? 80 : size === 'lg' ? 140 : 110
+  const dim = size === 'xl' ? 180 : size === 'sm' ? 80 : size === 'lg' ? 140 : 110
+  const fontSize = size === 'xl' ? 13 : size === 'lg' ? 12 : 11
 
   return (
     <div style={{ position: 'relative', display: 'inline-flex' }}>
@@ -40,7 +41,7 @@ export function ProductCard({ product, onClick, isSelected, isDisabled, size = '
         />
         <span
           style={{
-            fontSize: 11,
+            fontSize,
             fontWeight: 700,
             color: product.color || '#FFFFFF',
             textAlign: 'center',
