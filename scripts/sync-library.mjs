@@ -1,20 +1,18 @@
 /**
  * sync-library.mjs
  *
- * Syncs medication images from a source folder into public/medications/,
- * then regenerates src/data/products.js.
+ * Reads public/medications/ and regenerates src/data/products.js.
+ * That's it. No source folder. No copying. No deleting.
  *
  * Usage:
- *   node scripts/sync-library.mjs                        # uses DEFAULT_SOURCE
- *   node scripts/sync-library.mjs "A:/Medication Images" # custom source
- *   node scripts/sync-library.mjs --dry-run              # preview only, no file writes
+ *   npm run sync          ← just run this after editing public/medications/
+ *   node scripts/sync-library.mjs --dry-run   ← preview without writing
  *
- * Source folder structures supported:
- *
- *   {Category}/{Row N}/{Product}/{images}          ← single-shelf category with rows
- *   {Category}/{Shelf}/{Row N}/{Product}/{images}  ← multi-shelf category with rows
- *   {Category}/{Shelf}/{Product}/{images}          ← legacy (no rows) — still works
- *   {Category}/{Product}/{images}                  ← legacy flat — still works
+ * Folder structures supported:
+ *   {Category}/{Row N}/{Product}/        ← single-shelf category with rows
+ *   {Category}/{Shelf}/{Row N}/{Product}/← multi-shelf category with rows
+ *   {Category}/{Shelf}/{Product}/        ← no rows
+ *   {Category}/{Product}/               ← flat
  */
 
 import fs from 'fs'
@@ -22,11 +20,9 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const ROOT       = path.resolve(__dirname, '..')
-const OUT_IMAGES = path.join(ROOT, 'public', 'medications')
-const OUT_DATA   = path.join(ROOT, 'src', 'data', 'products.js')
-
-const DEFAULT_SOURCE = 'A:/Medication Images'
+const ROOT      = path.resolve(__dirname, '..')
+const MEDS_DIR  = path.join(ROOT, 'public', 'medications')
+const OUT_DATA  = path.join(ROOT, 'src', 'data', 'products.js')
 
 // ── Shelf/category metadata ──────────────────────────────────────────────────
 const CATEGORY_META = {
@@ -51,8 +47,8 @@ function toKebab(name) {
     .replace(/^-+|-+$/g, '')
 }
 
-// Strip leading sort prefix (e.g. "1 " or "02 ") from a folder name.
-// Keeps file paths unchanged; only affects the display name and id.
+// Strip leading sort prefix (e.g. "1 " or "02 ") — controls order without
+// polluting the display name. e.g. "1 Nurofen" → "Nurofen"
 function stripOrderPrefix(name) {
   return name.replace(/^\d+\s+/, '')
 }
@@ -64,14 +60,30 @@ function listDirs(p) {
     .map(d => d.name)
 }
 
-function listImages(p) {
-  if (!fs.existsSync(p)) return []
-  return fs.readdirSync(p).filter(f => /\.(jpg|jpeg|png)$/i.test(f))
+function hasImages(p) {
+  if (!fs.existsSync(p)) return false
+  return fs.readdirSync(p).some(f => /\.(jpg|jpeg|png)$/i.test(f))
 }
 
-/** Parse a row folder name to its integer row number, or null if not a row folder.
- *  Handles: "Row 1", "Row 2", "1st Row", "2nd row", "3rd Row", "4th row" etc.
- */
+// Detect which sides exist for a product (files are already named front.jpg etc.)
+function detectSides(prodPath) {
+  if (!fs.existsSync(prodPath)) return []
+  const files = fs.readdirSync(prodPath).filter(f => /\.(jpg|jpeg|png)$/i.test(f))
+  const sides = []
+  for (const s of ['front', 'back', 'side']) {
+    if (files.some(f => f.toLowerCase() === `${s}.jpg`)) sides.push(s)
+  }
+  const viewFiles = files
+    .filter(f => /^view_\d+\.(jpg|jpeg|png)$/i.test(f))
+    .sort((a, b) => {
+      const na = parseInt(a.match(/\d+/)[0])
+      const nb = parseInt(b.match(/\d+/)[0])
+      return na - nb
+    })
+  viewFiles.forEach(f => sides.push(f.replace(/\.[^.]+$/, '')))
+  return sides
+}
+
 function parseRowNumber(name) {
   let m = name.match(/^row\s*(\d+)$/i)
   if (m) return parseInt(m[1], 10)
@@ -80,9 +92,7 @@ function parseRowNumber(name) {
   return null
 }
 
-function isRowFolder(name) {
-  return parseRowNumber(name) !== null
-}
+function isRowFolder(name) { return parseRowNumber(name) !== null }
 
 function sortedByRowNumber(names) {
   return [...names].sort((a, b) => {
@@ -93,51 +103,13 @@ function sortedByRowNumber(names) {
   })
 }
 
-/** Decide which file maps to front/back/side/view_N.
- *  Classified files (containing FRONT/BACK/SIDE) get named accordingly.
- *  All remaining plain files are numbered view_1, view_2, … so none are lost.
- */
-function classifyImages(imageFiles) {
-  const map = {}
-  const plains = []
-  for (const f of imageFiles) {
-    const upper = f.toUpperCase()
-    if (upper.includes(' FRONT')) { map.front = f; continue }
-    if (upper.includes(' BACK'))  { map.back  = f; continue }
-    if (upper.includes(' SIDE'))  { map.side  = f; continue }
-    plains.push(f)
-  }
-  // Promote first plain → front if no explicit front exists
-  if (plains.length > 0 && !map.front) {
-    map.front = plains.shift()
-  }
-  // Remaining plains become view_1, view_2, …
-  plains.forEach((f, i) => { map[`view_${i + 1}`] = f })
-  return map // { front?, back?, side?, view_1?, view_2?, … }
-}
-
-/** Copy file only if source is newer or dest doesn't exist */
-function syncFile(src, dest, dryRun) {
-  if (dryRun) {
-    console.log(`  [copy] ${path.relative(ROOT, dest)}`)
-    return
-  }
-  fs.mkdirSync(path.dirname(dest), { recursive: true })
-  if (fs.existsSync(dest)) {
-    const srcMtime  = fs.statSync(src).mtimeMs
-    const destMtime = fs.statSync(dest).mtimeMs
-    if (srcMtime <= destMtime) return
-  }
-  fs.copyFileSync(src, dest)
-}
-
 // ── Product builder ──────────────────────────────────────────────────────────
 
-function processProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta, seenIds, productsArray, dryRun }) {
-  const images = listImages(prodPath)
-  if (images.length === 0) {
+function addProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta, seenIds, productsArray }) {
+  const sides = detectSides(prodPath)
+  if (sides.length === 0) {
     console.warn(`  [warn] No images in: ${relFolderBase}/${prodName}`)
-    return 0
+    return
   }
 
   const displayName = stripOrderPrefix(prodName)
@@ -147,210 +119,116 @@ function processProduct({ prodName, prodPath, shelfId, relFolderBase, row, meta,
   if (seenIds.has(id)) id = `${baseId}-${shelfId}-r${row ?? 0}`
   seenIds.add(id)
 
-  const relFolder = `medications/${relFolderBase}/${prodName}`
-  const destDir   = path.join(OUT_IMAGES, relFolderBase, prodName)
-
-  const classified = classifyImages(images)
-  for (const [side, filename] of Object.entries(classified)) {
-    syncFile(path.join(prodPath, filename), path.join(destDir, `${side}.jpg`), dryRun)
-  }
-
   productsArray.push({
     id,
     name:            displayName,
     brand:           '',
     category:        shelfId,
-    imageFolderPath: relFolder,
-    sides:           Object.keys(classified),
+    imageFolderPath: `medications/${relFolderBase}/${prodName}`,
+    sides,
     row:             row ?? null,
     bgColor:         meta.color,
     color:           '#FFFFFF',
   })
-  return Object.keys(classified).length
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 function run() {
-  const args = process.argv.slice(2)
-  const dryRun = args.includes('--dry-run')
-  const clean  = args.includes('--clean')
-  const sourcePath = args.find(a => !a.startsWith('--')) || DEFAULT_SOURCE
+  const dryRun = process.argv.includes('--dry-run')
 
-  if (!fs.existsSync(sourcePath)) {
-    console.error(`Source path not found: ${sourcePath}`)
+  if (!fs.existsSync(MEDS_DIR)) {
+    console.error(`public/medications not found: ${MEDS_DIR}`)
     process.exit(1)
   }
 
-  console.log(`Source : ${sourcePath}`)
-  console.log(`Output : ${OUT_IMAGES}`)
-
-  if (clean && !dryRun) {
-    if (fs.existsSync(OUT_IMAGES)) {
-      fs.rmSync(OUT_IMAGES, { recursive: true, force: true })
-      console.log('Deleted old medications folder — starting fresh\n')
-    }
-  }
-
-  if (dryRun) console.log('DRY RUN — no files will be written\n')
+  console.log(`Reading : ${MEDS_DIR}`)
+  if (dryRun) console.log('DRY RUN — products.js will not be written\n')
 
   const shelvesArray  = []
   const productsArray = []
   const seenIds       = new Set()
-  let copiedCount     = 0
-  let productCount    = 0
 
-  const categories = listDirs(sourcePath).sort()
-
-  for (const catName of categories) {
-    const catPath = path.join(sourcePath, catName)
+  for (const catName of listDirs(MEDS_DIR).sort()) {
+    const catPath = path.join(MEDS_DIR, catName)
     const meta    = CATEGORY_META[catName] || { emoji: '💊', color: '#95A5A6' }
     const catId   = toKebab(catName)
 
     const firstLevel = listDirs(catPath)
     if (firstLevel.length === 0) continue
 
-    // ── Detect structure ────────────────────────────────────────────────────
-    // Are the first-level dirs rows? → Cat → Row → Product (single shelf)
     const firstLevelRowCount = firstLevel.filter(d => isRowFolder(d)).length
     const firstLevelAreRows  = firstLevelRowCount > 0 && firstLevelRowCount >= firstLevel.length * 0.7
 
     if (firstLevelAreRows) {
-      // ── Structure: Category → Row → Product ─────────────────────────────
-      // The whole category is one shelf
+      // Category → Row → Product
       const shelfId = catId
-      shelvesArray.push({
-        id:          shelfId,
-        categoryId:  catId,
-        label:       catName,
-        shelfName:   catName,
-        shelfNumber: 1,
-        emoji:       meta.emoji,
-        color:       meta.color,
-      })
+      shelvesArray.push({ id: shelfId, categoryId: catId, label: catName, shelfName: catName, shelfNumber: 1, emoji: meta.emoji, color: meta.color })
       console.log(`  [shelf] ${catName}`)
 
-      for (const rowName of sortedByRowNumber(firstLevel.filter(d => isRowFolder(d)))) {
-        const rowNumber = parseRowNumber(rowName)
-        const rowPath   = path.join(catPath, rowName)
-        const prodNames = listDirs(rowPath).sort()
-
-        for (const prodName of prodNames) {
-          const prodPath    = path.join(rowPath, prodName)
-          const relFolderBase = `${catName}/${rowName}`
-          copiedCount += processProduct({ prodName, prodPath, shelfId, relFolderBase, row: rowNumber, meta, seenIds, productsArray, dryRun })
-          productCount++
+      for (const rowName of sortedByRowNumber(firstLevel.filter(isRowFolder))) {
+        const rowPath = path.join(catPath, rowName)
+        for (const prodName of listDirs(rowPath).sort()) {
+          addProduct({ prodName, prodPath: path.join(rowPath, prodName), shelfId, relFolderBase: `${catName}/${rowName}`, row: parseRowNumber(rowName), meta, seenIds, productsArray })
         }
       }
 
     } else {
-      // firstLevel = shelf folders (or product folders in legacy case)
-      // Check what's inside the first shelf-level dir
-      const firstShelfPath   = path.join(catPath, firstLevel[0])
-      const secondLevelDirs  = listDirs(firstShelfPath)
-
-      // Are the second-level dirs rows? Check ALL shelves, not just the first,
-      // so mixed categories (e.g. one shelf with no rows, others with rows) work correctly.
-      const secondLevelRowCount = secondLevelDirs.filter(d => isRowFolder(d)).length
-      const anyShelfHasRows = firstLevel.some(s => listDirs(path.join(catPath, s)).some(d => isRowFolder(d)))
-      const secondLevelAreRows  = anyShelfHasRows || (secondLevelRowCount > 0 && secondLevelRowCount >= secondLevelDirs.length * 0.7)
-
-      // Does the second level have any images? → Cat → Shelf → Product (legacy)
-      const secondLevelHasImages = secondLevelDirs.some(d =>
-        listImages(path.join(firstShelfPath, d)).length > 0
-      )
-
-      // Does the first level have images directly? → Cat → Product (flat legacy)
-      const firstLevelHasImages = firstLevel.some(d =>
-        listImages(path.join(catPath, d)).length > 0
-      )
+      const firstShelfPath  = path.join(catPath, firstLevel[0])
+      const secondLevel     = listDirs(firstShelfPath)
+      const anyShelfHasRows = firstLevel.some(s => listDirs(path.join(catPath, s)).some(isRowFolder))
+      const secondLevelAreRows = anyShelfHasRows || secondLevel.filter(isRowFolder).length >= secondLevel.length * 0.7
+      const firstLevelHasImages = firstLevel.some(d => hasImages(path.join(catPath, d)))
 
       if (firstLevelHasImages) {
-        // ── Legacy flat: Category → Product ─────────────────────────────
+        // Flat: Category → Product
         const shelfId = catId
-        shelvesArray.push({
-          id: shelfId, categoryId: catId, label: catName,
-          shelfName: catName, shelfNumber: 1, emoji: meta.emoji, color: meta.color,
-        })
+        shelvesArray.push({ id: shelfId, categoryId: catId, label: catName, shelfName: catName, shelfNumber: 1, emoji: meta.emoji, color: meta.color })
         console.log(`  [shelf] ${catName} (flat)`)
         for (const prodName of firstLevel.sort()) {
-          const prodPath = path.join(catPath, prodName)
-          if (listImages(prodPath).length === 0) continue
-          copiedCount += processProduct({ prodName, prodPath, shelfId, relFolderBase: catName, row: null, meta, seenIds, productsArray, dryRun })
-          productCount++
-        }
-
-      } else if (secondLevelAreRows || (!secondLevelHasImages && secondLevelDirs.length > 0)) {
-        // ── Structure: Category → Shelf → Row → Product ─────────────────
-        const shelfFolders = firstLevel.sort()
-        for (let si = 0; si < shelfFolders.length; si++) {
-          const shelfName   = shelfFolders[si]
-          const shelfPath   = path.join(catPath, shelfName)
-          const shelfId     = toKebab(shelfName)
-          const shelfNumber = si + 1
-
-          shelvesArray.push({
-            id: shelfId, categoryId: catId, label: catName,
-            shelfName, shelfNumber, emoji: meta.emoji, color: meta.color,
-          })
-          console.log(`  [shelf] ${catName} / ${shelfName}`)
-
-          const rowDirs = listDirs(shelfPath).filter(d => isRowFolder(d))
-          const nonRowDirs = listDirs(shelfPath).filter(d => !isRowFolder(d))
-
-          if (rowDirs.length > 0) {
-            // Has row folders
-            for (const rowName of sortedByRowNumber(rowDirs)) {
-              const rowNumber = parseRowNumber(rowName)
-              const rowPath   = path.join(shelfPath, rowName)
-              for (const prodName of listDirs(rowPath).sort()) {
-                const prodPath      = path.join(rowPath, prodName)
-                const relFolderBase = `${catName}/${shelfName}/${rowName}`
-                copiedCount += processProduct({ prodName, prodPath, shelfId, relFolderBase, row: rowNumber, meta, seenIds, productsArray, dryRun })
-                productCount++
-              }
-            }
-          }
-          // Also handle any non-row product dirs directly in the shelf (mixed/legacy)
-          for (const prodName of nonRowDirs) {
-            const prodPath = path.join(shelfPath, prodName)
-            if (listImages(prodPath).length === 0) continue
-            const relFolderBase = `${catName}/${shelfName}`
-            copiedCount += processProduct({ prodName, prodPath, shelfId, relFolderBase, row: null, meta, seenIds, productsArray, dryRun })
-            productCount++
-          }
+          if (!hasImages(path.join(catPath, prodName))) continue
+          addProduct({ prodName, prodPath: path.join(catPath, prodName), shelfId, relFolderBase: catName, row: null, meta, seenIds, productsArray })
         }
 
       } else {
-        // ── Legacy: Category → Shelf → Product ──────────────────────────
+        // Category → Shelf → (Row →) Product
         const shelfFolders = firstLevel.sort()
         for (let si = 0; si < shelfFolders.length; si++) {
-          const shelfName   = shelfFolders[si]
-          const shelfPath   = path.join(catPath, shelfName)
-          const shelfId     = toKebab(shelfName)
-          const shelfNumber = si + 1
+          const shelfName = shelfFolders[si]
+          const shelfPath = path.join(catPath, shelfName)
+          const shelfId   = toKebab(shelfName)
 
-          shelvesArray.push({
-            id: shelfId, categoryId: catId, label: catName,
-            shelfName, shelfNumber, emoji: meta.emoji, color: meta.color,
-          })
-          console.log(`  [shelf] ${catName} / ${shelfName} (no rows)`)
+          shelvesArray.push({ id: shelfId, categoryId: catId, label: catName, shelfName, shelfNumber: si + 1, emoji: meta.emoji, color: meta.color })
 
-          for (const prodName of listDirs(shelfPath).sort()) {
-            const prodPath = path.join(shelfPath, prodName)
-            if (listImages(prodPath).length === 0) continue
-            const relFolderBase = `${catName}/${shelfName}`
-            copiedCount += processProduct({ prodName, prodPath, shelfId, relFolderBase, row: null, meta, seenIds, productsArray, dryRun })
-            productCount++
+          const rowDirs    = listDirs(shelfPath).filter(isRowFolder)
+          const nonRowDirs = listDirs(shelfPath).filter(d => !isRowFolder(d))
+
+          if (rowDirs.length > 0) {
+            console.log(`  [shelf] ${catName} / ${shelfName}`)
+            for (const rowName of sortedByRowNumber(rowDirs)) {
+              const rowPath = path.join(shelfPath, rowName)
+              for (const prodName of listDirs(rowPath).sort()) {
+                addProduct({ prodName, prodPath: path.join(rowPath, prodName), shelfId, relFolderBase: `${catName}/${shelfName}/${rowName}`, row: parseRowNumber(rowName), meta, seenIds, productsArray })
+              }
+            }
+            for (const prodName of nonRowDirs) {
+              if (!hasImages(path.join(shelfPath, prodName))) continue
+              addProduct({ prodName, prodPath: path.join(shelfPath, prodName), shelfId, relFolderBase: `${catName}/${shelfName}`, row: null, meta, seenIds, productsArray })
+            }
+          } else {
+            console.log(`  [shelf] ${catName} / ${shelfName} (no rows)`)
+            for (const prodName of listDirs(shelfPath).sort()) {
+              if (!hasImages(path.join(shelfPath, prodName))) continue
+              addProduct({ prodName, prodPath: path.join(shelfPath, prodName), shelfId, relFolderBase: `${catName}/${shelfName}`, row: null, meta, seenIds, productsArray })
+            }
           }
         }
       }
     }
   }
 
-  // ── Write products.js ──────────────────────────────────────────────────────
   const js = `// AUTO-GENERATED by scripts/sync-library.mjs — do not edit by hand.
-// Run: node scripts/sync-library.mjs  to regenerate.
+// Run: npm run sync  to regenerate after editing public/medications/.
 
 export const shelves = ${JSON.stringify(shelvesArray, null, 2)}
 
@@ -381,9 +259,8 @@ export function getAllProductIds() {
     fs.writeFileSync(OUT_DATA, js, 'utf8')
   }
 
-  console.log(`\n✓ ${productCount} products across ${shelvesArray.length} shelves`)
-  console.log(`✓ ${copiedCount} image files synced`)
-  if (!dryRun) console.log(`✓ products.js written to ${OUT_DATA}`)
+  console.log(`\n✓ ${productsArray.length} products across ${shelvesArray.length} shelves`)
+  console.log(dryRun ? '(dry-run — products.js not written)' : `✓ products.js written to ${OUT_DATA}`)
 }
 
 run()
