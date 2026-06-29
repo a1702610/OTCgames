@@ -3,7 +3,8 @@ import { shelves as ALL_SHELVES, products as ALL_PRODUCTS } from '../../data/pro
 import { ProductModal } from '../../shared/components/ProductModal.jsx'
 import { ProductCard } from '../../shared/components/ProductCard.jsx'
 
-const BASE = import.meta.env.BASE_URL
+// Same CDN base as medication images — VITE_IMAGE_BASE_URL set by GitHub Pages workflow
+const SCREENSHOT_BASE = import.meta.env.VITE_IMAGE_BASE_URL || '.'
 
 // Ordered grid of screens — 5 per row
 // shelfId: null = non-clickable (no product data yet)
@@ -32,7 +33,7 @@ const SCREENS = [
 ]
 
 function screenshotUrl(file) {
-  return `${BASE}shelf-screenshots/${encodeURIComponent(file)}`
+  return `${SCREENSHOT_BASE}/shelf-screenshots/${encodeURIComponent(file)}`
 }
 
 export function ShelfBrowse() {
