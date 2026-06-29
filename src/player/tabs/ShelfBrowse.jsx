@@ -61,6 +61,7 @@ export function ShelfBrowse() {
                 cursor: clickable ? 'pointer' : 'default',
                 border: '2px solid rgba(131,107,255,0.15)',
                 background: 'rgba(20,15,80,0.06)',
+                position: 'relative',
                 transition: 'transform 0.14s, border-color 0.14s, box-shadow 0.14s',
               }}
               onMouseEnter={(e) => {
@@ -75,30 +76,30 @@ export function ShelfBrowse() {
                 e.currentTarget.style.boxShadow = ''
               }}
             >
+              {/* Label overlay at the top */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0, left: 0, right: 0,
+                  padding: '6px 6px 5px',
+                  background: 'rgba(10,8,40,0.72)',
+                  backdropFilter: 'blur(4px)',
+                  textAlign: 'center',
+                  fontSize: 13,
+                  fontWeight: 800,
+                  color: clickable ? '#FFFFFF' : 'rgba(255,255,255,0.40)',
+                  lineHeight: 1.2,
+                  zIndex: 1,
+                }}
+              >
+                {screen.label}
+              </div>
               <img
                 src={screenshotUrl(screen.file)}
                 alt={screen.label}
                 style={{ width: '100%', display: 'block', objectFit: 'cover' }}
                 loading="lazy"
               />
-              <div
-                style={{
-                  padding: '5px 4px 6px',
-                  textAlign: 'center',
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: clickable ? 'rgba(20,15,80,0.80)' : 'rgba(20,15,80,0.35)',
-                  lineHeight: 1.3,
-                  background: 'rgba(255,255,255,0.88)',
-                }}
-              >
-                {screen.label}
-                {clickable && (
-                  <span style={{ display: 'block', fontSize: 9, color: 'rgba(131,107,255,0.70)', fontWeight: 500 }}>
-                    tap to browse
-                  </span>
-                )}
-              </div>
             </div>
           )
         })}

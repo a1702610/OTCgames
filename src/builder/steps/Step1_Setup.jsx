@@ -143,25 +143,25 @@ export function Step1_Setup() {
           </div>
         </div>
 
-        {/* Shelf Browse shortcut */}
+        {/* Shelf Browse shortcut — only requires a module name */}
         <motion.button
-          whileHover={!moduleName.trim() || selectedShelfIds.length === 0 ? {} : { scale: 1.02 }}
-          whileTap={!moduleName.trim() || selectedShelfIds.length === 0 ? {} : { scale: 0.98 }}
+          whileHover={!moduleName.trim() ? {} : { scale: 1.02 }}
+          whileTap={!moduleName.trim() ? {} : { scale: 0.98 }}
           onClick={() => {
-            if (!moduleName.trim() || selectedShelfIds.length === 0) return
-            dispatch({ type: 'BROWSE_EXPORT_SETUP', moduleName: moduleName.trim(), selectedShelfIds })
+            if (!moduleName.trim()) return
+            dispatch({ type: 'BROWSE_EXPORT_SETUP', moduleName: moduleName.trim(), selectedShelfIds: [] })
           }}
-          disabled={!moduleName.trim() || selectedShelfIds.length === 0}
+          disabled={!moduleName.trim()}
           style={{
             width: '100%',
             padding: '14px',
-            background: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(131,107,255,0.10)' : 'rgba(131,107,255,0.15)',
-            color: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(131,107,255,0.30)' : '#836BFF',
-            border: `1.5px solid ${(!moduleName.trim() || selectedShelfIds.length === 0) ? 'rgba(131,107,255,0.15)' : 'rgba(131,107,255,0.40)'}`,
+            background: !moduleName.trim() ? 'rgba(131,107,255,0.10)' : 'rgba(131,107,255,0.15)',
+            color: !moduleName.trim() ? 'rgba(131,107,255,0.30)' : '#836BFF',
+            border: `1.5px solid ${!moduleName.trim() ? 'rgba(131,107,255,0.15)' : 'rgba(131,107,255,0.40)'}`,
             borderRadius: 12,
             fontWeight: 700,
             fontSize: 16,
-            cursor: (!moduleName.trim() || selectedShelfIds.length === 0) ? 'not-allowed' : 'pointer',
+            cursor: !moduleName.trim() ? 'not-allowed' : 'pointer',
             marginBottom: 12,
           }}
         >
