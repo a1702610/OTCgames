@@ -8,7 +8,7 @@ import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
 import { shuffle } from '../../shared/utils/shuffleUtils.js'
 
-export function Quiz() {
+export function Quiz({ onMoveToDragDrop }) {
   const { moduleData, addScore } = usePlayer()
   // Exclude drag & drop — they have their own tab
   const allQuestions = (moduleData?.quizQuestions || []).filter((q) => q.type !== 'dragdrop')
@@ -40,6 +40,7 @@ export function Quiz() {
           setCompleted(false)
           setRestartKey((k) => k + 1)
         }}
+        onMoveToDragDrop={onMoveToDragDrop}
       />
     )
   }
@@ -192,7 +193,7 @@ export function Quiz() {
   )
 }
 
-function QuizCompletionScreen({ result, onRestart }) {
+function QuizCompletionScreen({ result, onRestart, onMoveToDragDrop }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -218,15 +219,29 @@ function QuizCompletionScreen({ result, onRestart }) {
       <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 15, margin: '0 0 20px' }}>
         {result.score} / {result.maxScore} points ({result.percentage}%)
       </p>
-      <button
-        onClick={onRestart}
-        style={{
-          background: '#1448FF', color: '#FFFFFF', border: 'none',
-          borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
-        }}
-      >
-        Try Again
-      </button>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <button
+          onClick={onRestart}
+          style={{
+            background: 'rgba(20,72,255,0.12)', color: '#1448FF',
+            border: '2px solid #1448FF',
+            borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+          }}
+        >
+          Try Again
+        </button>
+        {onMoveToDragDrop && (
+          <button
+            onClick={onMoveToDragDrop}
+            style={{
+              background: '#E67E22', color: '#FFFFFF', border: 'none',
+              borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+            }}
+          >
+            Move to Drag &amp; Drop →
+          </button>
+        )}
+      </div>
     </motion.div>
   )
 }

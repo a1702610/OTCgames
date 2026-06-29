@@ -5,7 +5,7 @@ import { DragDropQuestion } from '../../shared/components/DragDropQuestion.jsx'
 import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
 
-export function DragDropTab() {
+export function DragDropTab({ onRestartFromQuiz }) {
   const { moduleData, addScore } = usePlayer()
   const questions = (moduleData?.quizQuestions || []).filter((q) => q.type === 'dragdrop')
 
@@ -30,6 +30,7 @@ export function DragDropTab() {
           setCompleted(false)
           setRestartKey((k) => k + 1)
         }}
+        onRestartFromQuiz={onRestartFromQuiz}
       />
     )
   }
@@ -94,7 +95,7 @@ export function DragDropTab() {
   )
 }
 
-function CompletionScreen({ result, onRestart }) {
+function CompletionScreen({ result, onRestart, onRestartFromQuiz }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -120,15 +121,29 @@ function CompletionScreen({ result, onRestart }) {
       <p style={{ color: 'rgba(20,15,80,0.60)', fontSize: 15, margin: '0 0 20px' }}>
         {result.score} / {result.maxScore} points ({result.percentage}%)
       </p>
-      <button
-        onClick={onRestart}
-        style={{
-          background: '#E67E22', color: '#FFFFFF', border: 'none',
-          borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
-        }}
-      >
-        Try Again
-      </button>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+        <button
+          onClick={onRestart}
+          style={{
+            background: 'rgba(230,126,34,0.12)', color: '#E67E22',
+            border: '2px solid #E67E22',
+            borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+          }}
+        >
+          Try Again
+        </button>
+        {onRestartFromQuiz && (
+          <button
+            onClick={onRestartFromQuiz}
+            style={{
+              background: '#1448FF', color: '#FFFFFF', border: 'none',
+              borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
+            }}
+          >
+            ← Restart from Quiz
+          </button>
+        )}
+      </div>
     </motion.div>
   )
 }

@@ -189,7 +189,10 @@ export function DragDropQuestion({ question, products, onSubmit, submitted }) {
 
 function DragCard({ product, dragging, submitted, result, onDragStart, onDragEnd, onZoom }) {
   let borderColor = 'rgba(255,255,255,0.2)'
-  if (submitted) borderColor = result?.correct ? '#27AE60' : '#E74C3C'
+  if (submitted) {
+    if (result?.correct === true) borderColor = '#27AE60'
+    else if (result?.correct === false) borderColor = '#E74C3C'
+  }
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>

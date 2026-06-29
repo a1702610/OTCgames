@@ -98,8 +98,12 @@ function addScenario() {
                   key={shelf.id}
                   style={{
                     display: 'flex', alignItems: 'center',
-                    borderLeft: `3px solid ${isActive ? shelf.color : 'transparent'}`,
-                    background: isActive ? `${shelf.color}18` : 'transparent',
+                    margin: '2px 6px',
+                    borderRadius: 8,
+                    border: isActive ? `2px solid ${shelf.color}` : '2px solid transparent',
+                    background: isActive ? `${shelf.color}25` : 'transparent',
+                    boxShadow: isActive ? `0 0 0 1px ${shelf.color}44` : 'none',
+                    transition: 'all 0.15s',
                   }}
                 >
                   <button
@@ -110,7 +114,7 @@ function addScenario() {
                       border: 'none', background: 'transparent', cursor: 'pointer',
                     }}
                   >
-                    <span style={{ fontSize: 14, display: 'block', color: isActive ? '#FFFFFF' : 'rgba(255,255,255,0.65)' }}>{shelf.emoji} {shelf.label}{shelf.shelfNumber > 1 ? ` ${shelf.shelfNumber}` : ''}</span>
+                    <span style={{ fontSize: 14, display: 'block', color: isActive ? '#FFFFFF' : 'rgba(255,255,255,0.65)', fontWeight: isActive ? 700 : 400 }}>{shelf.emoji} {shelf.label}{shelf.shelfNumber > 1 ? ` ${shelf.shelfNumber}` : ''}</span>
                     <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.40)' }}>
                       {scCount} scenario{scCount !== 1 ? 's' : ''} · {qCount} question{qCount !== 1 ? 's' : ''}
                     </span>
