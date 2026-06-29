@@ -25,10 +25,10 @@ const SCREENS = [
   { file: 'Smoking Cessation.png',    label: 'Smoking Cessation',    shelfId: 'smoking-cessation' },
   { file: 'Urinary.png',              label: 'Urinary',              shelfId: null },
   { file: 'S3 - Fridge.png',          label: 'S3 — Fridge',          shelfId: 'fridge' },
-  { file: 'S3 - b.png',               label: 'S3 — B',               shelfId: 's3-b' },
-  { file: 'S3 - c.png',               label: 'S3 — C',               shelfId: 's3-c' },
-  { file: 'S3 - d.png',               label: 'S3 — D',               shelfId: 's3-d' },
-  { file: 'S3 - e.png',               label: 'S3 — E',               shelfId: 's3-e' },
+  { file: 'S3 - b.png',               label: 'S3 — B',               shelfId: 's3-a' },
+  { file: 'S3 - c.png',               label: 'S3 — C',               shelfId: 's3-b' },
+  { file: 'S3 - d.png',               label: 'S3 — D',               shelfId: 's3-c' },
+  { file: 'S3 - e.png',               label: 'S3 — E',               shelfId: 's3-d' },
 ]
 
 function screenshotUrl(file) {
