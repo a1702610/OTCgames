@@ -1,110 +1,116 @@
 import React from 'react'
-import { usePlayer } from '../PlayerContext.jsx'
+import { shelves as ALL_SHELVES, products as ALL_PRODUCTS } from '../../data/products.js'
 import { ProductModal } from '../../shared/components/ProductModal.jsx'
 import { ProductCard } from '../../shared/components/ProductCard.jsx'
 
+const BASE = import.meta.env.BASE_URL
+
+// Ordered grid of screens — 5 per row
+// shelfId: null = non-clickable (no product data yet)
+const SCREENS = [
+  { file: 'Adelaide University.png',  label: 'Adelaide University',  shelfId: null },
+  { file: 'Cold and Flu 1.png',       label: 'Cold & Flu 1',         shelfId: 'cold-and-flu-1' },
+  { file: 'Cold and Flu 2.png',       label: 'Cold & Flu 2',         shelfId: 'cold-and-flu-2' },
+  { file: 'ENT.png',                  label: 'Ear, Nose & Throat',   shelfId: 'ent' },
+  { file: 'Eyes.png',                 label: 'Eyes',                 shelfId: 'eyes' },
+  { file: 'Gastrointestinal.png',     label: 'Gastrointestinal 1',   shelfId: 'gastrointestinal-1' },
+  { file: 'Gastrointestinal 2.png',   label: 'Gastrointestinal 2',   shelfId: 'gastrointestinal-2' },
+  { file: 'Gastrointestinal 3.png',   label: 'Gastrointestinal 3',   shelfId: 'gastrointestinal-3' },
+  { file: 'Hayfever.png',             label: 'Hayfever',             shelfId: 'hayfever' },
+  { file: 'Pain Management.png',      label: 'Pain Management 1',    shelfId: 'pain-management-1' },
+  { file: 'Pain Management 2.png',    label: 'Pain Management 2',    shelfId: 'pain-management-2' },
+  { file: 'Skin 1.png',               label: 'Skin 1',               shelfId: 'skin-1' },
+  { file: 'Skin 2.png',               label: 'Skin 2',               shelfId: 'skin-2' },
+  { file: 'Skin 3.png',               label: 'Skin 3',               shelfId: null },
+  { file: 'Smoking Cessation.png',    label: 'Smoking Cessation',    shelfId: 'smoking-cessation' },
+  { file: 'Urinary.png',              label: 'Urinary',              shelfId: null },
+  { file: 'S3 - Fridge.png',          label: 'S3 — Fridge',          shelfId: 'fridge' },
+  { file: 'S3 - b.png',               label: 'S3 — B',               shelfId: 's3-b' },
+  { file: 'S3 - c.png',               label: 'S3 — C',               shelfId: 's3-c' },
+  { file: 'S3 - d.png',               label: 'S3 — D',               shelfId: 's3-d' },
+  { file: 'S3 - e.png',               label: 'S3 — E',               shelfId: 's3-e' },
+]
+
+function screenshotUrl(file) {
+  return `${BASE}shelf-screenshots/${encodeURIComponent(file)}`
+}
+
 export function ShelfBrowse() {
-  const { moduleData } = usePlayer()
-  const [activeGroupLabel, setActiveGroupLabel] = React.useState(null)
+  const [activeScreen, setActiveScreen] = React.useState(null)
   const [activeProduct, setActiveProduct] = React.useState(null)
-
-  const shelves = moduleData?.shelves ?? []
-  const products = moduleData?.products ?? []
-
-  // Group shelves by label — preserves order from products.js
-  const shelfGroups = React.useMemo(() => {
-    const seen = new Map()
-    shelves.forEach((shelf) => {
-      if (!seen.has(shelf.label)) {
-        seen.set(shelf.label, { label: shelf.label, emoji: shelf.emoji, color: shelf.color, shelves: [] })
-      }
-      seen.get(shelf.label).shelves.push(shelf)
-    })
-    return [...seen.values()]
-  }, [shelves])
-
-  React.useEffect(() => {
-    if (shelfGroups.length > 0 && !activeGroupLabel) {
-      setActiveGroupLabel(shelfGroups[0].label)
-    }
-  }, [shelfGroups, activeGroupLabel])
-
-  if (!moduleData) return null
-
-  const activeGroup = shelfGroups.find((g) => g.label === activeGroupLabel) || null
 
   return (
     <>
-      <div style={{ display: 'flex', gap: 0, height: 'calc(100vh - 160px)', minHeight: 400 }}>
-
-        {/* Left: vertical scrollable tabs */}
-        <div style={{ width: 100, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 6, overflowY: 'auto' }}>
-          {shelfGroups.map((group) => {
-            const isActive = activeGroupLabel === group.label
-            return (
-              <button
-                key={group.label}
-                onClick={() => setActiveGroupLabel(group.label)}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: 10,
+          padding: '4px 0 16px',
+        }}
+      >
+        {SCREENS.map((screen) => {
+          const clickable = screen.shelfId !== null
+          return (
+            <div
+              key={screen.file}
+              onClick={clickable ? () => setActiveScreen(screen) : undefined}
+              style={{
+                borderRadius: 10,
+                overflow: 'hidden',
+                cursor: clickable ? 'pointer' : 'default',
+                border: '2px solid rgba(131,107,255,0.15)',
+                background: 'rgba(20,15,80,0.06)',
+                transition: 'transform 0.14s, border-color 0.14s, box-shadow 0.14s',
+              }}
+              onMouseEnter={(e) => {
+                if (!clickable) return
+                e.currentTarget.style.transform = 'scale(1.03)'
+                e.currentTarget.style.borderColor = 'rgba(131,107,255,0.70)'
+                e.currentTarget.style.boxShadow = '0 4px 18px rgba(131,107,255,0.30)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = ''
+                e.currentTarget.style.borderColor = 'rgba(131,107,255,0.15)'
+                e.currentTarget.style.boxShadow = ''
+              }}
+            >
+              <img
+                src={screenshotUrl(screen.file)}
+                alt={screen.label}
+                style={{ width: '100%', display: 'block', objectFit: 'cover' }}
+                loading="lazy"
+              />
+              <div
                 style={{
-                  background: isActive
-                    ? `linear-gradient(160deg, ${group.color}ee 0%, ${group.color}bb 100%)`
-                    : 'rgba(255,255,255,0.88)',
-                  border: `2px solid ${isActive ? group.color : 'rgba(20,15,80,0.10)'}`,
-                  borderRadius: 12,
-                  padding: '16px 4px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: 10,
-                  minHeight: 110,
-                  width: '100%',
-                  flexShrink: 0,
-                  transition: 'all 0.18s',
-                  boxShadow: isActive ? `0 2px 14px ${group.color}44` : 'none',
+                  padding: '5px 4px 6px',
+                  textAlign: 'center',
+                  fontSize: 10,
+                  fontWeight: 700,
+                  color: clickable ? 'rgba(20,15,80,0.80)' : 'rgba(20,15,80,0.35)',
+                  lineHeight: 1.3,
+                  background: 'rgba(255,255,255,0.88)',
                 }}
               >
-                <span style={{ fontSize: 20, lineHeight: 1 }}>{group.emoji}</span>
-                <span
-                  style={{
-                    fontSize: 13,
-                    fontWeight: 700,
-                    color: isActive ? '#FFFFFF' : 'rgba(20,15,80,0.65)',
-                    writingMode: 'vertical-lr',
-                    textOrientation: 'mixed',
-                    transform: 'rotate(180deg)',
-                    lineHeight: 1.3,
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  {group.label}
-                </span>
-              </button>
-            )
-          })}
-        </div>
-
-        {/* Purple divider */}
-        <div style={{
-          width: 3,
-          flexShrink: 0,
-          background: 'linear-gradient(180deg, #836BFF 0%, #1448FF 100%)',
-          borderRadius: 3,
-          margin: '0 12px',
-          opacity: 0.7,
-        }} />
-
-        {/* Right: shelf cards for the active group */}
-        <div style={{ flex: 1, overflowY: 'auto', paddingRight: 4 }}>
-          {activeGroup && (
-            <GroupContent
-              group={activeGroup}
-              products={products}
-              onProductClick={setActiveProduct}
-            />
-          )}
-        </div>
+                {screen.label}
+                {clickable && (
+                  <span style={{ display: 'block', fontSize: 9, color: 'rgba(131,107,255,0.70)', fontWeight: 500 }}>
+                    tap to browse
+                  </span>
+                )}
+              </div>
+            </div>
+          )
+        })}
       </div>
+
+      {activeScreen && (
+        <ShelfModal
+          screen={activeScreen}
+          onClose={() => setActiveScreen(null)}
+          onProductClick={setActiveProduct}
+        />
+      )}
 
       {activeProduct && (
         <ProductModal product={activeProduct} onClose={() => setActiveProduct(null)} />
@@ -113,95 +119,108 @@ export function ShelfBrowse() {
   )
 }
 
-function GroupContent({ group, products, onProductClick }) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 20, alignItems: 'flex-start' }}>
-      {group.shelves.map((shelf) => {
-        const shelfProducts = products.filter((p) => p.category === shelf.id)
-        if (shelfProducts.length === 0) return null
-        return (
-          <ShelfCard
-            key={shelf.id}
-            shelf={shelf}
-            group={group}
-            products={shelfProducts}
-            onProductClick={onProductClick}
-          />
-        )
-      })}
-    </div>
-  )
-}
+function ShelfModal({ screen, onClose, onProductClick }) {
+  // shelf may be null if products haven't been added yet (e.g. S3-e)
+  const shelf = ALL_SHELVES.find((s) => s.id === screen.shelfId) ?? null
+  const shelfProducts = ALL_PRODUCTS.filter((p) => p.category === screen.shelfId)
 
-function ShelfCard({ shelf, group, products, onProductClick }) {
   const byRow = {}
-  products.forEach((p) => {
+  shelfProducts.forEach((p) => {
     const row = p.row ?? 1
     if (!byRow[row]) byRow[row] = []
     byRow[row].push(p)
   })
   const rows = Object.entries(byRow).sort(([a], [b]) => Number(a) - Number(b))
 
-  const displayName = shelf.label + (shelf.shelfNumber > 1 ? ` ${shelf.shelfNumber}` : '')
-
   return (
     <div
       style={{
-        background: 'rgba(20,15,80,0.96)',
-        border: `2px solid ${group.color}55`,
-        borderRadius: 18,
-        overflow: 'hidden',
+        position: 'fixed', inset: 0, zIndex: 200,
+        background: 'rgba(10,8,40,0.82)',
+        display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+        padding: '24px 16px',
+        overflowY: 'auto',
       }}
+      onClick={onClose}
     >
-      {/* Shelf header */}
       <div
         style={{
-          background: `linear-gradient(135deg, ${group.color}dd 0%, ${group.color}99 100%)`,
-          padding: '14px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 14,
+          background: 'rgba(20,15,80,0.97)',
+          borderRadius: 20,
+          overflow: 'hidden',
+          width: '100%',
+          maxWidth: 860,
+          border: `2px solid ${shelf?.color ?? '#836BFF'}55`,
+          boxShadow: '0 24px 80px rgba(0,0,0,0.70)',
         }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <span style={{ fontSize: 28 }}>{group.emoji}</span>
-        <div>
-          <div style={{ fontWeight: 700, color: '#FFFFFF', fontSize: 20, lineHeight: 1.2 }}>
-            {displayName}
-          </div>
-          <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.75)', marginTop: 2 }}>
-            {products.length} product{products.length !== 1 ? 's' : ''}
-          </div>
-        </div>
-      </div>
-
-      {/* Products by row */}
-      <div style={{ padding: '18px 18px 20px' }}>
-        {rows.map(([row, rowProducts], idx) => (
-          <div key={row}>
-            {idx > 0 && (
-              <div
-                style={{
-                  height: 3,
-                  background: 'linear-gradient(90deg, #C9A227 0%, #F0C848 50%, #C9A227 100%)',
-                  borderRadius: 2,
-                  margin: '16px 0',
-                }}
-              />
-            )}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-              {rowProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onClick={() => onProductClick(product)}
-                  size="xl"
-                />
-              ))}
+        {/* Header */}
+        <div
+          style={{
+            background: `linear-gradient(135deg, ${shelf?.color ?? '#836BFF'}dd 0%, ${shelf?.color ?? '#836BFF'}99 100%)`,
+            padding: '18px 24px',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <span style={{ fontSize: 30 }}>{shelf?.emoji ?? '📦'}</span>
+            <div>
+              <div style={{ fontWeight: 800, color: '#FFFFFF', fontSize: 20 }}>
+                {shelf?.shelfName ?? screen.label}
+              </div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.70)', marginTop: 2 }}>
+                {shelfProducts.length} product{shelfProducts.length !== 1 ? 's' : ''}
+              </div>
             </div>
           </div>
-        ))}
+          <button
+            onClick={onClose}
+            style={{
+              background: 'rgba(0,0,0,0.30)', border: 'none',
+              borderRadius: '50%', width: 36, height: 36,
+              cursor: 'pointer', color: '#FFFFFF', fontSize: 18,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Products by row */}
+        <div style={{ padding: '20px 20px 24px' }}>
+          {rows.length === 0 ? (
+            <p style={{ color: 'rgba(255,255,255,0.40)', fontSize: 14, textAlign: 'center', padding: '24px 0' }}>
+              Products for this shelf are coming soon.
+            </p>
+          ) : (
+            rows.map(([row, rowProducts], idx) => (
+              <div key={row}>
+                {idx > 0 && (
+                  <div
+                    style={{
+                      height: 3,
+                      background: 'linear-gradient(90deg, #C9A227 0%, #F0C848 50%, #C9A227 100%)',
+                      borderRadius: 2,
+                      margin: '18px 0',
+                    }}
+                  />
+                )}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                  {rowProducts.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      onClick={() => onProductClick(product)}
+                      size="xl"
+                    />
+                  ))}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   )
 }
-

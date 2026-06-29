@@ -26,7 +26,7 @@ function PlayerInner({ isPreviewMode }) {
     if (!moduleData) return []
     const qq = moduleData.quizQuestions || []
     return ALL_TABS.filter((t) => {
-      if (t.id === 'shelf')     return (moduleData.shelves?.length ?? 0) > 0
+      if (t.id === 'shelf')     return true
       if (t.id === 'scenarios') return (moduleData.scenarios?.length ?? 0) > 0
       if (t.id === 'quiz')      return qq.filter((q) => q.type !== 'dragdrop').length > 0
       if (t.id === 'dragdrop')  return qq.filter((q) => q.type === 'dragdrop').length > 0
