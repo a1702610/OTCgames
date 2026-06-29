@@ -24,7 +24,8 @@ function validateModule(state) {
   const { scenarios, quizQuestions, orphanedProductIds, moduleName, selectedShelfIds } = state
 
   if (!moduleName.trim()) errors.push('Module name is required')
-  if (selectedShelfIds.length === 0) errors.push('At least one shelf must be selected')
+  const isBrowseOnly = scenarios.length === 0 && quizQuestions.length === 0
+  if (!isBrowseOnly && selectedShelfIds.length === 0) errors.push('At least one shelf must be selected')
   if (orphanedProductIds.size > 0) errors.push(`${orphanedProductIds.size} question(s) reference removed products`)
 
   scenarios.forEach((s, i) => {
