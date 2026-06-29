@@ -5,7 +5,7 @@ import { DragDropQuestion } from '../../shared/components/DragDropQuestion.jsx'
 import { ProgressBar } from '../../shared/components/ProgressBar.jsx'
 import { formatScore } from '../../shared/utils/scoreUtils.js'
 
-export function DragDropTab({ onRestartFromQuiz }) {
+export function DragDropTab({ onRestartFromStart }) {
   const { moduleData, addScore } = usePlayer()
   const questions = (moduleData?.quizQuestions || []).filter((q) => q.type === 'dragdrop')
 
@@ -30,7 +30,7 @@ export function DragDropTab({ onRestartFromQuiz }) {
           setCompleted(false)
           setRestartKey((k) => k + 1)
         }}
-        onRestartFromQuiz={onRestartFromQuiz}
+        onRestartFromStart={onRestartFromStart}
       />
     )
   }
@@ -95,7 +95,7 @@ export function DragDropTab({ onRestartFromQuiz }) {
   )
 }
 
-function CompletionScreen({ result, onRestart, onRestartFromQuiz }) {
+function CompletionScreen({ result, onRestart, onRestartFromStart }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -132,15 +132,15 @@ function CompletionScreen({ result, onRestart, onRestartFromQuiz }) {
         >
           Try Again
         </button>
-        {onRestartFromQuiz && (
+        {onRestartFromStart && (
           <button
-            onClick={onRestartFromQuiz}
+            onClick={onRestartFromStart}
             style={{
               background: '#1448FF', color: '#FFFFFF', border: 'none',
               borderRadius: 10, padding: '10px 24px', fontWeight: 700, cursor: 'pointer',
             }}
           >
-            ← Restart from Quiz
+            ← Restart from Start
           </button>
         )}
       </div>

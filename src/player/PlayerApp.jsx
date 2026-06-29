@@ -20,6 +20,7 @@ function PlayerInner({ isPreviewMode }) {
   const { score, lastDelta, scoreFloatId, moduleData, isDemoMode } = usePlayer()
   const [activeTab, setActiveTab] = React.useState(null)
   const [quizKey, setQuizKey] = React.useState(0)
+  const [scenariosKey, setScenariosKey] = React.useState(0)
 
   const visibleTabs = React.useMemo(() => {
     if (!moduleData) return []
@@ -98,7 +99,7 @@ function PlayerInner({ isPreviewMode }) {
         <div style={{ display: activeTab === 'shelf' ? 'block' : 'none' }}>
           <ShelfBrowse />
         </div>
-        <div style={{ display: activeTab === 'scenarios' ? 'block' : 'none' }}>
+        <div key={scenariosKey} style={{ display: activeTab === 'scenarios' ? 'block' : 'none' }}>
           <Scenarios onNavigateToQuiz={() => setActiveTab('quiz')} />
         </div>
         <div key={quizKey} style={{ display: activeTab === 'quiz' ? 'block' : 'none' }}>
@@ -108,7 +109,11 @@ function PlayerInner({ isPreviewMode }) {
         </div>
         <div style={{ display: activeTab === 'dragdrop' ? 'block' : 'none' }}>
           <DragDropTab
-            onRestartFromQuiz={visibleTabs.find((t) => t.id === 'quiz') ? () => { setQuizKey((k) => k + 1); setActiveTab('quiz') } : null}
+            onRestartFromStart={() => {
+              setScenariosKey((k) => k + 1)
+              setQuizKey((k) => k + 1)
+              setActiveTab(visibleTabs[0]?.id ?? 'scenarios')
+            }}
           />
         </div>
       </div>
